@@ -604,6 +604,21 @@ body {
 .bird { animation: birdHop 2.4s ease-in-out infinite; }
 .bird.flipped { animation: birdHopFlipped 2.4s ease-in-out infinite; }
 
+/* ===== 非トップページのヒーロー背景 ===== */
+.hero.hero-mint {
+  background-color: var(--mint-light);
+}
+
+/* ===== カードスクロールアニメーション ===== */
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card.in-view {
+  animation: cardFadeUp 0.55s ease-out both;
+  animation-delay: var(--delay, 0s);
+}
+
 /* ===== レスポンシブ ===== */
 @media (max-width: 768px) {
   .nav { display: none; }
@@ -620,7 +635,14 @@ body {
     gap: 4px;
   }
   .hamburger { display: flex; }
-  .hero { padding: 48px 20px; }
+  .hero { padding: 0; }
+  .hero-illust-img {
+    min-height: 260px;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+  .hero-text-svg { display: none; }
+  .bird { width: 120px; }
   .section { padding: 48px 20px; }
   .cards { grid-template-columns: 1fr; }
 }

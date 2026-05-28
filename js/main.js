@@ -20,8 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     heroIllust.style.position = 'relative';
     heroIllust.appendChild(bird);
 
-    const birdW = 350;
-    const birdH = 350;
+    const isMobile = window.innerWidth <= 768;
+    const birdW = isMobile ? 120 : 350;
+    const birdH = isMobile ? 120 : 350;
     let facingRight = true;
     let x = 100;
     let y = 80;
@@ -111,5 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 初期ランダム移動開始
     setTimeout(scheduleRandom, 800);
+  }
+
+  // カードふわっとスクロールアニメーション
+  const cards = document.querySelectorAll('.card');
+  if (cards.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    cards.forEach((card, i) => {
+      card.style.setProperty('--delay', `${(i % 3) * 0.1}s`);
+      observer.observe(card);
+    });
   }
 });
