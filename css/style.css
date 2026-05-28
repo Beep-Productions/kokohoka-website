@@ -646,13 +646,8 @@ body {
   }
   .hero-illust-img {
     width: 100%;
-    height: 55vw;
-    min-height: 280px;
-    max-height: 420px;
-    object-fit: cover;
-    object-position: 50% 35%;
+    height: auto;
   }
-  .hero-text-svg { display: none; }
   .bird { width: 120px; }
   .section { padding: 48px 20px; }
   .cards { grid-template-columns: 1fr; }
