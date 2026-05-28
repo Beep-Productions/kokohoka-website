@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroIllust = document.querySelector('.hero-illust');
   if (heroIllust) {
     const bird = document.createElement('img');
-    bird.src = 'images/bird.png';
+    bird.src = 'images/ここほか鳥.png';
     bird.className = 'bird';
     bird.alt = '';
     heroIllust.style.position = 'relative';
     heroIllust.appendChild(bird);
 
-    const birdW = 140;
-    const birdH = 140;
+    const birdW = 350;
+    const birdH = 350;
     let facingRight = true;
     let x = 100;
     let y = 80;

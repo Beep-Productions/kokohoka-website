@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テキストパス プレビュー</title>
+  <style>
+    @font-face {
+      font-family: 'Darumadrop One';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/DarumadropOne-ja.woff2') format('woff2');
+      unicode-range: U+3041-307f, U+3081-308f, U+3091-3093, U+30a1-30fe;
+    }
+    @font-face {
+      font-family: 'Darumadrop One';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/DarumadropOne-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #333; }
+
+    .hero-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes charAppear {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* フォント強制適用 */
+    .hero-svg text,
+    .hero-svg tspan {
+      font-family: 'Darumadrop One', cursive !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero-wrap">
+  <img src="images/ここほかヒーローイラスト02.png" alt="ここほかヒーロー">
+
+  <svg class="hero-svg" viewBox="0 0 3500 1800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="yellowRoad"
+        d="M 0,500
+           C 80,420 280,1020 700,950
+           C 850,1000 1000,1130 1100,1130
+           C 1250,1130 1380,1010 1500,980
+           C 1620,950 1750,680 1900,620
+           C 2000,575 2100,560 2250,568
+           C 2450,585 2580,730 2700,810
+           C 2880,900 3050,790 3150,760
+           C 3280,720 3370,510 3500,430"
+        fill="none" />
+    </defs>
+
+    <!-- 確認用パスライン（赤）：黄色い道と合ったら消します -->
+    <path d="M 0,500
+             C 80,420 280,1020 700,950
+             C 850,1000 1000,1130 1100,1130
+             C 1250,1130 1380,1000 1500,980
+             C 1680,950 1780,680 1900,620
+             C 2000,575 2100,560 2250,568
+             C 2450,585 2580,730 2700,810
+             C 2880,900 3050,790 3150,760
+             C 3280,720 3370,510 3500,430"
+      fill="none" stroke="red" stroke-width="8" opacity="0.7" />
+
+    <!-- こころ　ほかほか　あたたかい　まち（グループ間に広めのスペース） -->
+    <text font-family="'Darumadrop One', cursive" font-size="180" letter-spacing="8" dy="60">
+      <textPath href="#yellowRoad" startOffset="24%">
+        <!-- こころ：水色 -->
+        <tspan fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.2s forwards">こ</tspan><tspan
+               fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.4s forwards">こ</tspan><tspan
+               fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.6s forwards">ろ</tspan>
+        <!-- ほかほか：緑 -->
+        <tspan dx="60" fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 0.8s forwards">ほ</tspan><tspan
+               fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.0s forwards">か</tspan><tspan
+               fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.2s forwards">ほ</tspan><tspan
+               fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.4s forwards">か</tspan>
+        <!-- あたたかい：サーモンピンク -->
+        <tspan dx="60" fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 1.6s forwards">あ</tspan><tspan
+               fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 1.8s forwards">た</tspan><tspan
+               fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.0s forwards">た</tspan><tspan
+               fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.2s forwards">か</tspan><tspan
+               fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.4s forwards">い</tspan>
+        <!-- まち：青 -->
+        <tspan dx="60" fill="#99b8f7" style="opacity:0; animation: charAppear 0.4s ease 2.6s forwards">ま</tspan><tspan
+               fill="#99b8f7" style="opacity:0; animation: charAppear 0.4s ease 2.8s forwards">ち</tspan>
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+</body>
+</html>

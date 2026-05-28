@@ -1,20 +1,56 @@
+/* ===== Darumadrop One フォント ===== */
+@font-face {
+  font-family: 'Darumadrop One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/DarumadropOne-ja.woff2') format('woff2');
+  unicode-range: U+3041-307f, U+3081-308f, U+3091-3093, U+30a1-30fe;
+}
+@font-face {
+  font-family: 'Darumadrop One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/DarumadropOne-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF;
+}
+
+/* ===== ヒーローテキストSVG ===== */
+.hero-text-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes charAppear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ===== カラー変数 ===== */
 :root {
-  --mint:    #7ecfbe;
-  --mint-light: #c8ede7;
-  --gold:    #e8b84b;
-  --gold-light: #f5e0a0;
-  --pink:    #e87d9a;
-  --pink-light: #f5c0d0;
-  --cream:   #fdf6e3;
-  --navy:    #2c4a7c;
-  --dark:    #333333;
-  --white:   #ffffff;
+  --mint:       #abebea;
+  --mint-light: #d5f5f4;
+  --gold:       #f9f09c;
+  --gold-light: #fdf7d0;
+  --pink:       #efaf96;
+  --pink-light: #f9ddd3;
+  --green:      #a5da96;
+  --green-light:#d2f0c9;
+  --blue-soft:  #99b8f7;
+  --orange:     #f5a86e;
+  --orange-light:#fde3c4;
+  --cream:      #fff3e2;
+  --navy:       #2c4a7c;
+  --dark:       #333333;
+  --white:      #ffffff;
 }
 
 /* ===== ベース ===== */
 body {
   font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+  font-size: 1.05rem;
   background-color: var(--cream);
   color: var(--dark);
 }
@@ -143,6 +179,7 @@ body {
 }
 
 .hero-title {
+  font-family: 'Darumadrop One', 'M PLUS Rounded 1c', sans-serif;
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 900;
   color: var(--navy);
@@ -157,11 +194,11 @@ body {
 .hero-date {
   display: inline-block;
   background: var(--gold);
-  color: var(--white);
+  color: var(--navy);
   font-weight: 800;
   font-size: 1.1rem;
   padding: 8px 28px;
-  border-radius: 30px;
+  border-radius: 68% 32% 58% 42% / 42% 62% 38% 58%;
   margin-bottom: 24px;
 }
 
@@ -183,7 +220,7 @@ body {
 .btn {
   display: inline-block;
   padding: 14px 32px;
-  border-radius: 30px;
+  border-radius: 72% 28% 65% 35% / 38% 58% 42% 62%;
   font-weight: 800;
   font-size: 1rem;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -218,9 +255,91 @@ body {
 .section-inner {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== 波形セクション区切り ===== */
+/* 後続セクションの先頭に、前セクションの色でSVG波を重ねる */
+.section + .section,
+.hero + .section {
+  position: relative;
+  margin-top: -80px;
+  padding-top: 152px;
+}
+
+.section + .cta-banner {
+  position: relative;
+  margin-top: -80px;
+  padding-top: 144px;
+}
+
+/* 波形の ::before */
+.section + .section::before,
+.hero + .section::before,
+.section + .cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* 前のセクションの色 × 波のリズムをそれぞれ変える */
+
+/* hero → 最初のセクション：ゆったり2山 */
+.hero + .section::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,42 C1200,18 1000,66 720,42 C440,18 240,66 0,42 Z' fill='%23fff3e2'/%3E%3C/svg%3E");
+}
+
+/* white → 次：小さめ3山、やや右寄り */
+.bg-white + .section::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,38 C1300,16 1160,62 1020,36 C860,12 700,62 560,40 C380,68 200,20 0,44 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+
+/* mint → 次：大きめ1.5山、ゆっくりした起伏 */
+.bg-mint + .section::before,
+.bg-mint + .cta-banner::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,48 C1100,14 850,74 600,44 C380,18 200,64 0,40 Z' fill='%23d5f5f4'/%3E%3C/svg%3E");
+}
+
+/* cream → 次：3山、大きく流れる */
+.bg-cream + .section::before,
+.bg-cream + .cta-banner::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,44 C1260,68 1060,18 880,46 C700,72 520,16 320,48 C160,66 60,30 0,44 Z' fill='%23fff3e2'/%3E%3C/svg%3E");
+}
+
+/* gold → 次：中くらい2山、左が高め */
+.bg-gold + .section::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,46 C1260,22 1040,70 800,40 C600,16 380,68 0,36 Z' fill='%23fcf9d6'/%3E%3C/svg%3E");
+}
+
+/* pink → 次：小波3つ、細かいリズム */
+.bg-pink + .section::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,36 C1320,56 1200,20 1080,44 C960,66 840,18 720,42 C600,64 460,16 300,46 C160,68 60,26 0,40 Z' fill='%23f9ddd3'/%3E%3C/svg%3E");
+}
+
+/* white → CTA（story.html / about.html末尾などで必要） */
+.bg-white + .cta-banner::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,38 C1300,16 1160,62 1020,36 C860,12 700,62 560,40 C380,68 200,20 0,44 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+
+/* gold → CTA */
+.bg-gold + .cta-banner::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,46 C1260,22 1040,70 800,40 C600,16 380,68 0,36 Z' fill='%23fdf7d0'/%3E%3C/svg%3E");
+}
+
+/* pink → CTA */
+.bg-pink + .cta-banner::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,36 C1320,56 1200,20 1080,44 C960,66 840,18 720,42 C600,64 460,16 300,46 C160,68 60,26 0,40 Z' fill='%23f9ddd3'/%3E%3C/svg%3E");
 }
 
 .section-title {
+  font-family: 'Darumadrop One', 'M PLUS Rounded 1c', sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 900;
   color: var(--navy);
@@ -239,7 +358,7 @@ body {
 
 .section-lead {
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.9;
   color: var(--dark);
   max-width: 680px;
@@ -261,16 +380,60 @@ body {
 }
 
 .card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 32px 28px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  background: var(--mint-light);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%;
+  padding: 48px 36px;
   transition: transform 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
 }
+
+/* 6色すべて異なる（サーモン・緑・水色・青・オレンジ・金） */
+.card:nth-child(1) {
+  background: var(--orange-light);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%;
+}
+.card:nth-child(2) {
+  background: var(--mint-light);
+  border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%;
+}
+.card:nth-child(3) {
+  background: var(--pink-light);
+  border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
+}
+.card:nth-child(4) {
+  background: var(--green-light);
+  border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+}
+.card:nth-child(5) {
+  background: color-mix(in srgb, var(--blue-soft) 38%, white);
+  border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%;
+}
+.card:nth-child(6) {
+  background: var(--gold-light);
+  border-radius: 35% 65% 50% 50% / 55% 45% 60% 40%;
+}
+
+/* セクション背景とカード色がかぶる場合の上書き */
+.bg-cream .card:nth-child(1) { background: var(--green-light); }
+.bg-cream .card:nth-child(2) { background: color-mix(in srgb, var(--blue-soft) 38%, white); }
+.bg-mint  .card:nth-child(2) { background: var(--pink-light); }
+.bg-gold  .card:nth-child(1) { background: var(--mint-light); }
+.bg-gold  .card:nth-child(6) { background: var(--pink-light); }
+
+/* howto.html 開催情報カード */
+.cards-info .card:nth-child(2) { background: color-mix(in srgb, var(--blue-soft) 38%, white); }
+.cards-info .card:nth-child(3) { background: var(--gold-light); }
+
+/* ページ固有の色指定ユーティリティ */
+.card.card-green { background: var(--green-light); }
 
 .card-icon {
   font-size: 2.8rem;
@@ -278,14 +441,15 @@ body {
 }
 
 .card-title {
-  font-size: 1.2rem;
+  font-family: 'Darumadrop One', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 10px;
 }
 
 .card-text {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: var(--dark);
 }
@@ -302,11 +466,25 @@ body {
 .step {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
   background: var(--white);
-  border-radius: 16px;
-  padding: 24px 28px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%;
+  padding: 32px 44px;
+}
+
+.step:nth-child(2) { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
+.step:nth-child(3) { border-radius: 60% 40% 50% 50% / 50% 55% 45% 50%; }
+.step:nth-child(4) { border-radius: 45% 55% 60% 40% / 55% 45% 40% 60%; }
+.step:nth-child(5) { border-radius: 55% 45% 40% 60% / 40% 55% 60% 45%; }
+
+/* 3枚目カードを中央に */
+.cards-info {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cards-info .card:last-child:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 14px);
+  margin-inline: auto;
 }
 
 .step-num {
@@ -324,6 +502,7 @@ body {
 }
 
 .step-body h3 {
+  font-family: 'Darumadrop One', 'M PLUS Rounded 1c', sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--navy);
@@ -331,7 +510,7 @@ body {
 }
 
 .step-body p {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
@@ -340,9 +519,11 @@ body {
   background: linear-gradient(135deg, var(--navy) 0%, var(--mint) 100%);
   padding: 64px 24px;
   text-align: center;
+  position: relative;
 }
 
 .cta-banner h2 {
+  font-family: 'Darumadrop One', 'M PLUS Rounded 1c', sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 900;
   color: var(--white);
@@ -392,7 +573,7 @@ body {
 /* ===== 鳥アニメーション ===== */
 .bird {
   position: absolute;
-  width: 140px;
+  width: 350px;
   pointer-events: none;
   z-index: 10;
   filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.12));

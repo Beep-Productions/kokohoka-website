@@ -6,7 +6,7 @@
   <title>こころほかほかあたたかい町 | ここほか</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Darumadrop+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -38,7 +38,41 @@
   <!-- ヒーロー -->
   <section class="hero">
     <div class="hero-illust">
-      <img src="images/hero.png" alt="こころほかほかあたたかい町のイラスト" class="hero-illust-img">
+      <img src="images/ここほかヒーローイラスト02.png" alt="こころほかほかあたたかい町のイラスト" class="hero-illust-img">
+
+      <svg class="hero-text-svg" viewBox="0 0 3500 1800" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="yellowRoad"
+            d="M 0,500
+               C 80,420 280,1020 700,950
+               C 850,1000 1000,1130 1100,1130
+               C 1250,1130 1380,1010 1500,980
+               C 1620,950 1750,680 1900,620
+               C 2000,575 2100,560 2250,568
+               C 2450,585 2580,730 2700,810
+               C 2880,900 3050,790 3150,760
+               C 3280,720 3370,510 3500,430"
+            fill="none" />
+        </defs>
+        <text font-family="'Darumadrop One', cursive" font-size="180" letter-spacing="8" dy="60">
+          <textPath href="#yellowRoad" startOffset="24%">
+            <tspan fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.2s forwards">こ</tspan><tspan
+                   fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.4s forwards">こ</tspan><tspan
+                   fill="#abebea" style="opacity:0; animation: charAppear 0.4s ease 0.6s forwards">ろ</tspan><tspan
+                   dx="60" fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 0.8s forwards">ほ</tspan><tspan
+                   fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.0s forwards">か</tspan><tspan
+                   fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.2s forwards">ほ</tspan><tspan
+                   fill="#a5da96" style="opacity:0; animation: charAppear 0.4s ease 1.4s forwards">か</tspan><tspan
+                   dx="60" fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 1.6s forwards">あ</tspan><tspan
+                   fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 1.8s forwards">た</tspan><tspan
+                   fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.0s forwards">た</tspan><tspan
+                   fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.2s forwards">か</tspan><tspan
+                   fill="#efaf96" style="opacity:0; animation: charAppear 0.4s ease 2.4s forwards">い</tspan><tspan
+                   dx="60" fill="#99b8f7" style="opacity:0; animation: charAppear 0.4s ease 2.6s forwards">ま</tspan><tspan
+                   fill="#99b8f7" style="opacity:0; animation: charAppear 0.4s ease 2.8s forwards">ち</tspan>
+          </textPath>
+        </text>
+      </svg>
     </div>
     <div class="hero-inner">
       <p class="hero-date">2026年11月21日（土）・22日（日）開催！</p>
@@ -64,19 +98,13 @@
       <h2 class="section-title">ここほかって、どんなところ？</h2>
       <p class="section-subtitle">WHAT IS KOKOHOKA?</p>
       <div class="cards">
-        <div class="card">
-          <div class="card-icon">🏙️</div>
-          <h3 class="card-title">こどもだけの小さな町</h3>
+        <div class="card">          <h3 class="card-title">こどもだけの小さな町</h3>
           <p class="card-text">7歳〜15歳の子どもが市民として登録。自分たちで運営する「まち」がここに生まれます。</p>
         </div>
-        <div class="card">
-          <div class="card-icon">💼</div>
-          <h3 class="card-title">お仕事をして、お給料をもらう</h3>
+        <div class="card">          <h3 class="card-title">お仕事をして、お給料をもらう</h3>
           <p class="card-text">まちの中にはいろんなお仕事があります。働いてもらったお給料で、遊んだりごはんを食べたりできます。</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🗳️</div>
-          <h3 class="card-title">まちのことは、みんなで決める</h3>
+        <div class="card">          <h3 class="card-title">まちのことは、みんなで決める</h3>
           <p class="card-text">税金の使い道も、まちのルールも、子どもたちが話し合って決めます。本物の民主主義を体験します。</p>
         </div>
       </div>
@@ -84,7 +112,7 @@
   </section>
 
   <!-- こども実行委員より -->
-  <section class="section bg-mint">
+  <section class="section bg-gold">
     <div class="section-inner">
       <h2 class="section-title">今年で4年目！</h2>
       <p class="section-subtitle">4TH YEAR</p>
@@ -105,14 +133,10 @@
       <h2 class="section-title">参加できるのは？</h2>
       <p class="section-subtitle">WHO CAN JOIN?</p>
       <div class="cards">
-        <div class="card">
-          <div class="card-icon">🧒</div>
-          <h3 class="card-title">まちの市民として</h3>
+        <div class="card">          <h3 class="card-title">まちの市民として</h3>
           <p class="card-text">7歳〜15歳の子どもが対象。まちに市民登録して、2日間の体験に参加できます。</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🙋</div>
-          <h3 class="card-title">ボランティアとして</h3>
+        <div class="card">          <h3 class="card-title">ボランティアとして</h3>
           <p class="card-text">大人・大学生もボランティアとして参加できます。子どもたちのサポートをお願いします。</p>
         </div>
       </div>
