@@ -291,9 +291,14 @@ body {
 
 /* 前のセクションの色 × 波のリズムをそれぞれ変える */
 
-/* hero → 最初のセクション：ゆったり2山 */
+/* hero → 最初のセクション：ゆったり2山（トップページ用・クリーム） */
 .hero + .section::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,42 C1200,18 1000,66 720,42 C440,18 240,66 0,42 Z' fill='%23fff3e2'/%3E%3C/svg%3E");
+}
+
+/* hero-mint → 最初のセクション：ゆったり2山（水色） */
+.hero.hero-mint + .section::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,42 C1200,18 1000,66 720,42 C440,18 240,66 0,42 Z' fill='%23d5f5f4'/%3E%3C/svg%3E");
 }
 
 /* white → 次：小さめ3山、やや右寄り */
