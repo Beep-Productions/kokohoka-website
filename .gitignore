@@ -1,0 +1,11 @@
+# macOS が勝手に作るゴミファイル
+.DS_Store
+**/.DS_Store
+
+# エディタ / OS
+.vscode/
+Thumbs.db
+
+# 依存パッケージ・ビルド成果物・ログ
+node_modules/
+*.log
