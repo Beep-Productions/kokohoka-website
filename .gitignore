@@ -9,3 +9,22 @@ Thumbs.db
 # 依存パッケージ・ビルド成果物・ログ
 node_modules/
 *.log
+
+# 秘密情報（絶対にコミット・公開しない）
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+credentials
+credentials.json
+secrets.*
+service-account*.json
+.npmrc
+.pypirc
