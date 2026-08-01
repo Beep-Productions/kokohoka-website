@@ -10,6 +10,9 @@ Thumbs.db
 node_modules/
 *.log
 
+# 元ネタ資料（行政向けスライド・スクリプト等／サイトには載せない作業用）
+_materials/
+
 # 秘密情報（絶対にコミット・公開しない）
 .env
 .env.*
