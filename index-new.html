@@ -3,504 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>こころほかほかあたたかい町 | ここほか（デザイン試作）</title>
+<title>こころほかほかあたたかい町 ここほか</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Mochiy+Pop+One&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   ここほか 新デザイン試作 (index-new.html)
-   方針：手仕事のあたたかい生成りを土台に、遊び心をアクセントで
-   ============================================================ */
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  /* 土台（生成り・紙） */
-  --cream:#fff5e6;
-  --paper:#fdf6ea;
-  --cream-deep:#f6e7cd;
-  /* 文字 */
-  --ink:#4d4034;      /* 本文（あたたかい茶） */
-  --navy:#2c4a7c;     /* 見出し */
-  /* アースカラー */
-  --terracotta:#e0805a;
-  --peach:#efaf96;
-  --peach-lt:#f9ddd3;
-  --mustard:#f2c14e;
-  --gold:#f9e79c;
-  /* 遊び色 */
-  --mint:#abebea;
-  --mint-deep:#6fc6c2;
-  --green:#8cc084;
-  --green-deep:#5f9e6b;
-  --red:#d95b43;
-  --blue:#8fb2f2;
-}
-
-html{scroll-behavior:smooth}
-body{
-  font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  line-height:1.85;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-
-/* ---- 見出しフォント ---- */
-.font-pop{font-family:'Mochiy Pop One',sans-serif;font-weight:400}
-.font-marker{font-family:'Darumadrop One',cursive}
-.font-hand{font-family:'Yomogi',cursive}
-
-/* ============ ヘッダー ============ */
-.header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,245,230,.9);
-  backdrop-filter:blur(6px);
-  border-bottom:2px dotted var(--peach);
-}
-.header-inner{
-  max-width:1080px;margin:0 auto;padding:10px 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-badge{
-  width:44px;height:44px;flex:0 0 auto;
-  background:var(--mustard);border-radius:50%;
-  display:grid;place-items:center;
-  box-shadow:0 3px 0 rgba(0,0,0,.08);
-}
-.logo-badge svg{width:30px;height:30px}
-.logo-name{font-family:'Mochiy Pop One',sans-serif;font-size:1.15rem;color:var(--red);line-height:1.1}
-.logo-sub{display:block;font-size:.62rem;color:var(--ink);letter-spacing:.02em}
-.nav{display:none;gap:4px;align-items:center}
-.nav a{
-  font-size:.92rem;font-weight:500;color:var(--navy);
-  padding:8px 12px;border-radius:20px;transition:.2s;
-}
-.nav a:hover{background:var(--gold)}
-.nav .nav-btn{
-  background:var(--red);color:#fff;font-weight:700;
-  padding:9px 18px;border-radius:22px;
-  box-shadow:0 3px 0 #b5432f;
-}
-.nav .nav-btn:hover{background:var(--red);transform:translateY(-1px)}
-.hamburger{
-  display:flex;flex-direction:column;gap:5px;
-  background:var(--red);border:none;cursor:pointer;
-  padding:11px 10px;border-radius:12px;box-shadow:0 3px 0 #b5432f;
-}
-.hamburger span{width:22px;height:2.5px;background:#fff;border-radius:2px}
-.mobile-nav{
-  display:none;flex-direction:column;gap:2px;
-  padding:8px 20px 16px;background:var(--paper);
-  border-bottom:2px dotted var(--peach);
-}
-.mobile-nav.open{display:flex}
-.mobile-nav a{padding:12px 8px;font-weight:500;color:var(--navy);border-bottom:1px dashed var(--cream-deep)}
-.mobile-nav a:last-child{border-bottom:none}
-@media(min-width:860px){
-  .nav{display:flex}
-  .hamburger{display:none}
-  .logo-badge{width:50px;height:50px}
-  .logo-name{font-size:1.3rem}
-}
-
-/* ============ 汎用パーツ ============ */
-.eyebrow{
-  font-family:'Yomogi',cursive;font-size:.95rem;color:var(--terracotta);
-  display:inline-flex;align-items:center;gap:8px;margin-bottom:6px;
-}
-.eyebrow::before,.eyebrow::after{content:'';width:22px;height:2px;background:var(--peach);border-radius:2px}
-.sec-title{
-  font-family:'Mochiy Pop One',sans-serif;
-  font-size:clamp(1.35rem,4.6vw,2.15rem);color:var(--navy);
-  line-height:1.5;position:relative;display:block;
-}
-/* キャンディ点線の下線 */
-.candy{
-  display:block;height:8px;width:clamp(120px,40%,220px);margin:10px auto 0;
-  background:repeating-linear-gradient(90deg,var(--red) 0 10px,transparent 10px 20px);
-  border-radius:4px;opacity:.8;
-}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Mochiy Pop One',sans-serif;font-size:1rem;
-  padding:15px 30px;border-radius:40px;transition:.18s;cursor:pointer;border:none;
-}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 4px 0 #b5432f}
-.btn-green{background:var(--green-deep);color:#fff;box-shadow:0 4px 0 #4a7d54}
-.btn-outline{background:#fff;color:var(--navy);box-shadow:0 4px 0 var(--cream-deep);border:2px solid var(--cream-deep)}
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:translateY(2px);box-shadow:none}
-
-/* ============ ヒーロー ============ */
-.hero{position:relative;padding:36px 0 70px;text-align:center;overflow:hidden}
-/* 背景ブロブ */
-.hero .blob{position:absolute;z-index:0;opacity:.55;pointer-events:none}
-.hero .b1{top:-40px;left:-60px;width:260px;color:var(--mint)}
-.hero .b2{top:40px;right:-70px;width:230px;color:var(--peach-lt)}
-.hero .b3{bottom:-30px;left:30%;width:200px;color:var(--gold)}
-.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
-
-/* 電球マーキーの日付バッジ */
-.date-badge{
-  display:inline-block;position:relative;
-  background:var(--navy);color:#fff;font-family:'Mochiy Pop One',sans-serif;
-  font-size:clamp(.8rem,3.2vw,1.05rem);
-  padding:11px 24px;border-radius:40px;margin-bottom:22px;
-  border:2.5px dotted var(--gold);
-  box-shadow:0 3px 0 rgba(44,74,124,.22);
-}
-
-.hero h1{
-  font-family:'Mochiy Pop One',sans-serif;
-  font-size:clamp(1.7rem,7vw,3.7rem);color:var(--navy);
-  line-height:1.4;margin-bottom:8px;letter-spacing:.01em;
-}
-.hero h1 .mk{color:var(--red);position:relative;white-space:nowrap}
-.hero h1 .mk2{color:var(--green-deep)}
-/* 手描き丸マーカー */
-.hero h1 .ring{
-  background:radial-gradient(circle at 50% 60%,transparent 60%,var(--gold) 62%);
-}
-.hero-lead{
-  font-size:clamp(1rem,4vw,1.15rem);color:var(--ink);
-  margin:20px auto 30px;max-width:520px;
-}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-/* マスコット＋道 */
-.hero-mascot{width:clamp(90px,26vw,130px);margin:26px auto 0}
-
-/* 波の区切り */
-.wave{display:block;width:100%;height:70px;margin-bottom:-2px}
-
-/* ============ セクション共通 ============ */
-.section{padding:56px 0;position:relative}
-.section-head{text-align:center;margin-bottom:40px}
-.bg-mint{background:var(--mint)}
-.bg-peach{background:var(--peach-lt)}
-.bg-paper{background:var(--paper)}
-.bg-green{background:var(--green)}
-
-/* ============ 「どんなところ？」カード ============ */
-.cards{display:grid;grid-template-columns:1fr;gap:26px;max-width:900px;margin:0 auto}
-@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
-.card{
-  background:#fff;border-radius:26px;padding:30px 22px 26px;text-align:center;
-  box-shadow:0 6px 0 rgba(0,0,0,.06);position:relative;
-}
-.card-ill{width:104px;height:104px;margin:0 auto 14px;position:relative}
-.card h3{font-family:'Mochiy Pop One',sans-serif;font-size:1.12rem;color:var(--navy);margin-bottom:8px}
-.card p{font-size:.95rem}
-.card .num{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  width:34px;height:34px;background:var(--mustard);color:#fff;
-  border-radius:50%;display:grid;place-items:center;
-  font-family:'Mochiy Pop One',sans-serif;font-size:.9rem;
-  box-shadow:0 3px 0 rgba(0,0,0,.1);
-}
-
-/* ============ 参加のしくみ（点線の道） ============ */
-.flow{max-width:760px;margin:0 auto;position:relative}
-.flow-step{
-  display:flex;align-items:center;gap:18px;
-  background:#fff;border-radius:22px;padding:16px 20px;margin-bottom:16px;
-  box-shadow:0 4px 0 rgba(0,0,0,.05);position:relative;
-}
-.flow-step .n{
-  flex:0 0 auto;width:48px;height:48px;border-radius:50%;
-  background:var(--mint);color:var(--navy);display:grid;place-items:center;
-  font-family:'Mochiy Pop One',sans-serif;font-size:1.15rem;
-}
-.flow-step:nth-child(2n) .n{background:var(--peach)}
-.flow-step:nth-child(3n) .n{background:var(--gold)}
-.flow-step h4{font-family:'Zen Maru Gothic';font-weight:700;color:var(--navy);font-size:1.05rem}
-.flow-step p{font-size:.88rem;line-height:1.6}
-.flow-dot{text-align:center;color:var(--peach);font-size:1.3rem;line-height:.5;margin:-6px 0 10px}
-
-/* ============ 参加できるのは？ ============ */
-.join{display:grid;grid-template-columns:1fr;gap:24px;max-width:840px;margin:0 auto}
-@media(min-width:720px){.join{grid-template-columns:1fr 1fr}}
-.join-card{
-  background:#fff;border-radius:28px;padding:32px 26px;text-align:center;
-  box-shadow:0 6px 0 rgba(0,0,0,.06);
-}
-.join-card .cap{
-  display:inline-block;font-family:'Mochiy Pop One',sans-serif;font-size:.8rem;
-  padding:5px 16px;border-radius:20px;margin-bottom:14px;color:#fff;
-}
-.join-kid .cap{background:var(--red)}
-.join-vol .cap{background:var(--green-deep)}
-.join-card h3{font-family:'Mochiy Pop One',sans-serif;color:var(--navy);font-size:1.25rem;margin-bottom:10px}
-.join-card p{font-size:.95rem;margin-bottom:20px}
-
-/* 写真プレースホルダ */
-.photo-slot{
-  border:3px dashed var(--peach);border-radius:20px;
-  background:var(--paper);color:var(--terracotta);
-  display:grid;place-items:center;text-align:center;
-  font-family:'Yomogi',cursive;font-size:.9rem;padding:20px;min-height:150px;
-}
-.photo-slot span{display:block;font-size:1.8rem;margin-bottom:6px}
-
-/* ============ 意義ページ導線（大人向け・落ち着き） ============ */
-.about-band{background:var(--paper);border-top:2px dotted var(--peach);border-bottom:2px dotted var(--peach)}
-.about-band .inner{
-  max-width:900px;margin:0 auto;padding:50px 20px;
-  display:grid;grid-template-columns:1fr;gap:24px;align-items:center;
-}
-@media(min-width:760px){.about-band .inner{grid-template-columns:1.2fr 1fr}}
-.about-band h2{font-family:'Mochiy Pop One',sans-serif;color:var(--navy);font-size:clamp(1.3rem,4.4vw,1.7rem);line-height:1.5;margin-bottom:12px}
-.about-band p{font-size:.98rem;margin-bottom:18px}
-
-/* ============ CTAバナー ============ */
-.cta{background:var(--mustard);text-align:center;padding:60px 20px;position:relative;overflow:hidden}
-.cta h2{font-family:'Mochiy Pop One',sans-serif;color:var(--navy);font-size:clamp(1.4rem,5.2vw,2.1rem);line-height:1.45;margin-bottom:12px}
-.cta p{color:var(--ink);margin-bottom:26px;font-size:1.02rem}
-.cta .star{position:absolute;opacity:.5}
-
-/* ============ フッター ============ */
-.footer{background:var(--navy);color:#fff;text-align:center;padding:46px 20px 30px}
-.footer .fnav{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin:18px 0 22px}
-.footer .fnav a{font-size:.9rem;opacity:.9}
-.footer .fnav a:hover{opacity:1;text-decoration:underline}
-.footer .fname{font-family:'Mochiy Pop One',sans-serif;font-size:1.05rem}
-.footer small{opacity:.7;font-size:.78rem}
-
-/* 試作ラベル */
-.proto-flag{
-  position:fixed;bottom:14px;left:14px;z-index:99;
-  background:var(--navy);color:#fff;font-size:.72rem;font-family:'Yomogi',cursive;
-  padding:7px 13px;border-radius:20px;opacity:.85;box-shadow:0 3px 10px rgba(0,0,0,.2);
-}
-
-/* スクロール登場 */
-.reveal{opacity:0;transform:translateY(22px);transition:.6s ease}
-.reveal.in{opacity:1;transform:none}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=2">
 </head>
 <body>
 
-<!-- ============ ヘッダー ============ -->
+<!-- ヘッダー -->
 <header class="header">
-  <div class="header-inner">
-    <a href="#" class="logo">
-      <span class="logo-badge">
-        <!-- 一筆描きマスコット顔 -->
-        <svg viewBox="0 0 40 40" fill="none" stroke="#4d4034" stroke-width="2" stroke-linecap="round">
-          <path d="M8 17 C8 8 32 8 32 17 C32 30 22 34 20 34 C18 34 8 30 8 17Z" fill="#fff"/>
-          <path d="M12 12 C15 8 18 9 20 8 C22 9 25 8 28 12" fill="#f2c14e" stroke="none"/>
-          <circle cx="15" cy="19" r="1.6" fill="#4d4034" stroke="none"/>
-          <circle cx="25" cy="19" r="1.6" fill="#4d4034" stroke="none"/>
-          <path d="M16 24 Q20 28 24 24"/>
-        </svg>
-      </span>
-      <span class="logo-text">
-        <span class="logo-name">ここほか</span>
-        <span class="logo-sub">こころほかほかあたたかい町</span>
-      </span>
-    </a>
+  <div class="header-in">
+    <a href="#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
     <nav class="nav">
       <a href="#about">ここほかって？</a>
-      <a href="#flow">参加のしくみ</a>
+      <a href="history.html">これまでのここほか</a>
       <a href="#join">参加しよう</a>
-      <a href="#meaning">活動について</a>
-      <a href="#cta" class="nav-btn">事前登録・お問合せ</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#cta" class="cta">事前登録</a>
     </nav>
-    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-  <nav class="mobile-nav" id="mnav">
+  <nav class="mnav" id="mnav">
     <a href="#about">ここほかって？</a>
-    <a href="#flow">参加のしくみ</a>
+    <a href="history.html">これまでのここほか</a>
     <a href="#join">参加しよう</a>
-    <a href="#meaning">活動について</a>
-    <a href="#cta">事前登録・お問合せ</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="#cta">事前登録</a>
   </nav>
 </header>
 
-<!-- ============ ヒーロー ============ -->
-<section class="hero">
-  <!-- 背景ブロブ -->
-  <svg class="blob b1" viewBox="0 0 200 200" fill="currentColor"><path d="M42,-64C55,-56,66,-45,71,-31C76,-17,75,0,69,15C63,30,52,42,39,52C26,62,13,70,-3,74C-19,79,-38,80,-52,71C-66,62,-74,44,-77,26C-80,8,-77,-11,-69,-27C-61,-43,-47,-55,-33,-63C-19,-71,-3,-75,11,-77C25,-79,29,-72,42,-64Z" transform="translate(100 100)"/></svg>
-  <svg class="blob b2" viewBox="0 0 200 200" fill="currentColor"><path d="M45,-62C57,-52,64,-36,68,-20C72,-4,73,13,66,27C59,41,44,52,28,60C12,68,-6,73,-23,69C-40,65,-56,52,-64,36C-72,20,-72,0,-66,-17C-60,-34,-48,-48,-34,-58C-20,-68,-4,-74,10,-76C24,-78,33,-72,45,-62Z" transform="translate(100 100)"/></svg>
-  <svg class="blob b3" viewBox="0 0 200 200" fill="currentColor"><path d="M39,-58C50,-50,58,-38,64,-24C70,-10,73,6,68,20C63,34,50,46,36,55C22,64,7,70,-9,72C-25,74,-42,72,-54,62C-66,52,-73,34,-75,16C-77,-2,-74,-21,-65,-36C-56,-51,-41,-62,-26,-67C-11,-72,5,-71,19,-68C33,-65,28,-66,39,-58Z" transform="translate(100 100)"/></svg>
+<!-- ヒーロー：KVが主役 -->
+<section class="hero" id="top">
+  <picture>
+    <source media="(max-width:767px)" srcset="images/kv/kv-sp.png">
+    <img src="images/kv/kv-pc.png" alt="こころほかほかあたたかい町 ここほか — こどもたちがつくる、こどもたちのまち" class="kv">
+  </picture>
+  <p class="hero-cap reveal">2026.11.21 sat – 22 sun ／ 新潟</p>
+  <div class="scrollcue"></div>
+</section>
 
-  <div class="hero-inner">
-    <span class="date-badge">2026.11.21 SAT ・ 22 SUN 開催！</span>
-    <h1>こどもたちが<span class="mk">つくる</span>、<br>こどもたちの<span class="mk2">まち</span>。</h1>
-    <p class="hero-lead">7〜15歳の子どもだけが市民になれる、小さな町。<br>お仕事して、税金を払って、じぶんたちのまちをつくる。<br>ここほかで、本物の「社会」を体験しよう！</p>
-    <div class="hero-btns">
-      <a href="#cta" class="btn btn-red">参加を申し込む ▶</a>
-      <a href="#about" class="btn btn-outline">ここほかって何？</a>
-    </div>
-
-    <!-- 大きなマスコット -->
-    <svg class="hero-mascot" viewBox="0 0 120 130" fill="none" stroke="#4d4034" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 52 C22 20 98 20 98 52 C98 96 68 112 60 112 C52 112 22 96 22 52Z" fill="#fff"/>
-      <path d="M32 38 C42 22 52 26 60 22 C68 26 78 22 88 38" fill="#f2c14e" stroke="none"/>
-      <path d="M32 38 C42 22 52 26 60 22 C68 26 78 22 88 38"/>
-      <circle cx="45" cy="60" r="3.4" fill="#4d4034" stroke="none"/>
-      <circle cx="75" cy="60" r="3.4" fill="#4d4034" stroke="none"/>
-      <circle cx="38" cy="72" r="5" fill="#efaf96" stroke="none" opacity=".8"/>
-      <circle cx="82" cy="72" r="5" fill="#efaf96" stroke="none" opacity=".8"/>
-      <path d="M48 76 Q60 88 72 76"/>
-    </svg>
+<!-- ここほかって？ -->
+<section class="section" id="about">
+  <div class="center reveal">
+    <h2 class="h2">こどもがつくる、こどもの町。</h2>
+    <p class="lead">
+      7〜15歳の子どもだけが市民になれる、2日間だけの小さな町。<br>
+      お仕事をして、お給料をもらって、税金をおさめる。<br>
+      遊びのなかで“社会”まるごとを体験する、あたたかい町です。
+    </p>
   </div>
 </section>
 
-<!-- 波 -->
-<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C240,10 480,60 720,40 C960,20 1200,55 1440,30 L1440,70 L0,70Z" fill="#abebea"/></svg>
-
-<!-- ============ どんなところ？ ============ -->
-<section class="section bg-mint" id="about">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">ここほかって、どんなところ？</span>
-      <h2 class="sec-title font-pop">こどもがつくる、２日間のまち<span class="candy"></span></h2>
+<!-- 写真ギャラリー（流れる） -->
+<section class="section tint" id="gallery">
+  <div class="marquee reveal">
+    <div class="mtrack">
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_01.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:205px"><div class="framed fr02"><img class="ph" src="images/photos/2024_02.jpg" alt=""><img class="fr" src="images/frames/額縁_02_縦長_波.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_01.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_04.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:205px"><div class="framed fr06"><img class="ph" src="images/photos/2024_03.jpg" alt=""><img class="fr" src="images/frames/額縁_06_縦長_二重.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_05.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_07.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_08.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
+      <!-- ループ用に複製 -->
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_01.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:205px"><div class="framed fr02"><img class="ph" src="images/photos/2024_02.jpg" alt=""><img class="fr" src="images/frames/額縁_02_縦長_波.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_01.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_04.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:205px"><div class="framed fr06"><img class="ph" src="images/photos/2024_03.jpg" alt=""><img class="fr" src="images/frames/額縁_06_縦長_二重.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_05.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr03"><img class="ph" src="images/photos/2023_07.jpg" alt=""><img class="fr" src="images/frames/額縁_03_横長_無地.webp" alt=""></div></div>
+      <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" src="images/photos/2025_08.jpg" alt=""><img class="fr" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
     </div>
-    <div class="cards">
-      <div class="card reveal">
-        <span class="num">1</span>
-        <div class="card-ill">
-          <svg viewBox="0 0 104 104"><rect x="18" y="40" width="68" height="50" rx="6" fill="#efaf96"/><path d="M14 42 L52 16 L90 42Z" fill="#d95b43"/><rect x="44" y="62" width="16" height="28" fill="#fff"/><circle cx="52" cy="30" r="5" fill="#f9e79c"/></svg>
-        </div>
-        <h3>こどもだけの小さな町</h3>
-        <p>7〜15歳の子どもが市民として登録。自分たちで運営する「まち」がここに生まれます。</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">2</span>
-        <div class="card-ill">
-          <svg viewBox="0 0 104 104"><circle cx="52" cy="52" r="34" fill="#f2c14e"/><circle cx="52" cy="52" r="34" fill="none" stroke="#e0a52e" stroke-width="4" stroke-dasharray="3 6"/><text x="52" y="64" font-size="34" text-anchor="middle" fill="#fff" font-family="Mochiy Pop One">¥</text></svg>
-        </div>
-        <h3>お仕事して、お給料をもらう</h3>
-        <p>まちにはいろんなお仕事が。働いてもらったお給料で、遊んだりごはんを食べたりできます。</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">3</span>
-        <div class="card-ill">
-          <svg viewBox="0 0 104 104"><circle cx="34" cy="46" r="13" fill="#8cc084"/><circle cx="70" cy="46" r="13" fill="#8fb2f2"/><circle cx="52" cy="70" r="13" fill="#d95b43"/><path d="M34 46 L70 46 L52 70Z" fill="none" stroke="#4d4034" stroke-width="2.4" stroke-dasharray="2 5"/></svg>
-        </div>
-        <h3>まちのことは、みんなで決める</h3>
-        <p>税金の使い道も、まちのルールも、子どもたちが話し合って決めます。本物の民主主義を体験。</p>
-      </div>
-    </div>
+  </div>
+  <div class="gallery-btn reveal">
+    <a href="history.html" class="btn btn-line">これまでのここほかを見る →</a>
   </div>
 </section>
 
-<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C240,10 480,60 720,40 C960,20 1200,55 1440,30 L1440,70 L0,70Z" fill="#fdf6ea"/></svg>
-
-<!-- ============ 参加のしくみ ============ -->
-<section class="section bg-paper" id="flow">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">当日は、こんな流れ</span>
-      <h2 class="sec-title font-pop">まちで働いて、暮らしてみよう<span class="candy"></span></h2>
-    </div>
-    <div class="flow">
-      <div class="flow-step reveal"><span class="n">1</span><div><h4>市民とうろく</h4><p>受付でとうろくして、パスポートをもらおう。きみもここほかの市民に！</p></div></div>
-      <div class="flow-dot">●</div>
-      <div class="flow-step reveal"><span class="n">2</span><div><h4>お仕事をえらぶ</h4><p>ハローワークでお仕事さがし。やってみたい仕事にチャレンジ！</p></div></div>
-      <div class="flow-dot">●</div>
-      <div class="flow-step reveal"><span class="n">3</span><div><h4>働いて、お給料</h4><p>お仕事をがんばったら、まちのお金「ココ」がもらえます。</p></div></div>
-      <div class="flow-dot">●</div>
-      <div class="flow-step reveal"><span class="n">4</span><div><h4>税金をおさめる</h4><p>お給料から税金をおさめよう。これがまちを動かすお金になります。</p></div></div>
-      <div class="flow-dot">●</div>
-      <div class="flow-step reveal"><span class="n">5</span><div><h4>まちで遊ぶ・食べる</h4><p>のこったお金で、お店でごはんを食べたり、遊んだり。自由にすごそう！</p></div></div>
-    </div>
+<!-- 参加者向け：何をするの？ -->
+<section class="section" id="join">
+  <div class="center reveal">
+    <h2 class="h2">こどもの町って、何をするの？</h2>
+    <p class="lead">まちに入ったら、あなたも市民のひとり。<br>働いて、暮らして、まちのことを決めていきます。</p>
   </div>
-</section>
+  <div class="flow reveal">
+    <div class="step"><span class="n">1</span><div><h4>市民とうろく</h4><p>受付でとうろく。パスポートをもらって、きみもここほかの市民に。</p></div></div>
+    <div class="step"><span class="n">2</span><div><h4>お仕事をえらぶ</h4><p>ハローワークでお仕事さがし。やってみたい仕事にチャレンジ！</p></div></div>
+    <div class="step"><span class="n">3</span><div><h4>働いて、お給料</h4><p>お仕事をがんばると、まちのお金「ココ」がもらえます。</p></div></div>
+    <div class="step"><span class="n">4</span><div><h4>税金をおさめる</h4><p>お給料から税金を納めよう。これがまちを動かすお金になります。</p></div></div>
+    <div class="step"><span class="n">5</span><div><h4>まちで暮らす</h4><p>のこったお金で、ごはんを食べたり遊んだり。自由にすごそう。</p></div></div>
+  </div>
 
-<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C240,10 480,60 720,40 C960,20 1200,55 1440,30 L1440,70 L0,70Z" fill="#f9ddd3"/></svg>
-
-<!-- ============ 参加できるのは？ ============ -->
-<section class="section bg-peach" id="join">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">参加できるのは？</span>
-      <h2 class="sec-title font-pop">きみも、まちの一員に<span class="candy"></span></h2>
+  <div class="subgrid">
+    <div class="subcard reveal">
+      <span class="tag">昨年（2025）の例</span>
+      <div class="photo-pair">
+        <div class="framed fr01"><img class="ph" src="images/photos/2025_03.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
+        <div class="framed fr01"><img class="ph" src="images/photos/2024_02.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
+      </div>
+      <h3>どんなお仕事があるの？</h3>
+      <p>市役所・銀行・警察・ハローワークといったまちを支える仕事から、お店の見習いまで。いろんなお仕事があります。</p>
+      <a href="#" class="btn btn-line">お仕事一覧を見る →</a>
     </div>
-    <div class="join">
-      <div class="join-card join-kid reveal">
-        <span class="cap">こども（7〜15歳）</span>
-        <div class="photo-slot" style="margin-bottom:20px"><div><span>📷</span>まちで働く子どもの写真が入ります</div></div>
-        <h3>まちの市民として</h3>
-        <p>7〜15歳の子どもが対象。市民登録して、2日間の「まち」を思いっきり楽しもう。</p>
-        <a href="#cta" class="btn btn-red">こどもの参加はこちら</a>
+    <div class="subcard reveal">
+      <span class="tag">昨年（2025）の例</span>
+      <div class="photo-pair">
+        <div class="framed fr01"><img class="ph" src="images/photos/2023_01.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
+        <div class="framed fr01"><img class="ph" src="images/photos/2025_02.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
       </div>
-      <div class="join-card join-vol reveal">
-        <span class="cap">おとな・大学生</span>
-        <div class="photo-slot" style="margin-bottom:20px"><div><span>📷</span>サポートする大人の写真が入ります</div></div>
-        <h3>ボランティアとして</h3>
-        <p>子どもの学びを応援したい大人を募集。答えを教えるのではなく、そっと見守る役です。</p>
-        <a href="#" class="btn btn-green">ボランティア募集を見る</a>
+      <h3>どうやって遊ぶの？</h3>
+      <p>ゲームやワークショップ、紙しばい。おもしろい大人が先生になる「こども大学」も。遊びかたもいろいろ。</p>
+      <a href="#" class="btn btn-line">催し・こども大学を見る →</a>
+    </div>
+    <div class="subcard reveal">
+      <span class="tag">昨年（2025）の例</span>
+      <div class="photo-pair">
+        <div class="framed fr01"><img class="ph" src="images/photos/2024_03.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
+        <div class="framed fr01"><img class="ph" src="images/photos/2024_01.jpg" alt=""><img class="fr" src="images/frames/額縁_01_正方形_無地.webp" alt=""></div>
       </div>
+      <h3>どんなお店が出るの？</h3>
+      <p>地元のパン屋さんやお店も出店。ここは<b>働ける場所</b>であり、稼いだ「ココ」を<b>使えるお店</b>でもあります。</p>
+      <a href="#" class="btn btn-line">出店するお店を見る →</a>
     </div>
   </div>
 </section>
 
-<!-- ============ 活動について（大人向け導線） ============ -->
-<section class="about-band" id="meaning">
-  <div class="inner">
-    <div class="reveal">
-      <span class="eyebrow">この活動について</span>
-      <h2>「自分のまちは、<br>自分で動かせる。」</h2>
-      <p>ここほかは、ただのお仕事体験ではありません。子どもの権利を大切にし、民主主義を体で学ぶ——その社会的な意義を、くわしくご紹介しています。行政の方、他地域でこどもの町にご関心のある方へ。</p>
-      <a href="#" class="btn btn-outline">活動の意義をくわしく読む</a>
+<!-- 参加できるのは？（2分岐）-->
+<section class="section tint" id="who">
+  <div class="center reveal">
+    <h2 class="h2">ここほかに、参加できるのは？</h2>
+    <p class="lead">子どもは「市民」として、大人は「ボランティア」として。<br>どちらも大歓迎です。</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card who-kid reveal">
+      <span class="badge">まちの市民として</span>
+      <h3>7〜15歳の子ども</h3>
+      <p class="age">小学1年生〜中学3年生</p>
+      <p>市民とうろくをして、2日間のまちを思いっきり楽しめます。</p>
+      <a href="#cta" class="btn btn-fill">こどもの参加はこちら →</a>
     </div>
-    <div class="photo-slot reveal" style="min-height:200px"><div><span>📷</span>まちの全景・活動の様子の写真が入ります</div></div>
+    <div class="who-card who-vol reveal">
+      <span class="badge">ボランティアとして</span>
+      <h3>高校生以上の大人</h3>
+      <p class="age">大学生・社会人・子育て中の方も</p>
+      <p>子どもたちをそっと見守り、まちを支える大人を募集しています。</p>
+      <a href="volunteer.html" class="btn btn-line">ボランティアを見る →</a>
+    </div>
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
+<!-- CTA -->
 <section class="cta" id="cta">
-  <svg class="star" style="top:20px;left:8%;width:36px" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 18l-6 3.1 1.3-6.7-5-4.7 6.8-.8z"/></svg>
-  <svg class="star" style="bottom:24px;right:10%;width:28px" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 18l-6 3.1 1.3-6.7-5-4.7 6.8-.8z"/></svg>
-  <h2>2026年11月、新潟で会おう！</h2>
-  <p>こころほかほかあたたかい町で、きみを待ってるよ。</p>
-  <a href="#" class="btn btn-red">事前登録・お問い合わせ ▶</a>
+  <div class="reveal">
+    <p class="date">2026年11月21日（土）・22日（日）／新潟</p>
+    <h2>ことしのここほかで、会おう！</h2>
+    <p>まちの市民になって、2日間を思いっきり楽しもう。</p>
+    <a href="#" class="btn btn-cta">参加の事前登録はこちら ▶</a>
+    <p class="note">※事前登録フォームは準備中です（決まり次第ここにつなぎます）</p>
+  </div>
 </section>
 
-<!-- ============ フッター ============ -->
-<footer class="footer">
+<!-- フッター -->
+<footer class="footer" id="contact">
   <div class="fname">こころほかほかあたたかい町（ここほか）</div>
   <nav class="fnav">
     <a href="#about">ここほかって？</a>
-    <a href="#flow">参加のしくみ</a>
+    <a href="history.html">これまでのここほか</a>
     <a href="#join">参加しよう</a>
-    <a href="#meaning">活動について</a>
-    <a href="#cta">お問い合わせ</a>
+    <a href="#cta">事前登録</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="#">お問い合わせ</a>
   </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto-flag">🎨 デザイン試作 index-new.html</div>
+<div class="proto">🎨 新デザイン試作 index-new.html</div>
 
 <script>
-// モバイルメニュー
-(function(){
-  var h=document.querySelector('.hamburger'),m=document.getElementById('mnav');
-  h.addEventListener('click',function(){
-    var open=m.classList.toggle('open');
-    h.setAttribute('aria-expanded',open);
-  });
-  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});
-})();
-// スクロール登場
-(function(){
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-})();
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
 </script>
 </body>
 </html>

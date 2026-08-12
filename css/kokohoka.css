@@ -1,0 +1,151 @@
+/* ============================================================
+   ここほか 新デザイン 共通スタイル（index-new.html / history.html 共用）
+   方針：生成りの余白 × 手描きKVが主役 × 写真は手描き額縁 × すっきり
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --cream:#fdf2df;        /* KV背景と実測で完全一致（#fdf2df）*/
+  --cream-deep:#f3e7cd;
+  --paper:#f8eeda;
+  --ink:#2e2b3d;          /* 額縁と同じ濃紺＝本文・見出し */
+  --ink-soft:#6a6478;
+  --blue:#7ba3c4;         /* こころ／家 */
+  --green:#a0bd92;        /* ほかほか／木 */
+  --coral:#dd937f;        /* あたたかい／家 */
+  --coral-deep:#cf6f4f;   /* 見出し用の濃いコーラル */
+  --mustard:#d6a648;      /* まち／ハート */
+  --star:#6f9fce;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;
+  color:var(--ink);background:var(--cream);
+  line-height:1.9;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---- 見出し系 ---- */
+.h2{font-size:clamp(1.4rem,4.4vw,2.1rem);font-weight:700;line-height:1.5;letter-spacing:.02em}
+.lead{color:var(--ink-soft);font-size:clamp(.98rem,2.6vw,1.08rem);margin-top:16px}
+
+/* ---- ボタン ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:700;font-size:1rem;padding:14px 30px;border-radius:40px;
+  transition:.18s;border:2px solid var(--ink);
+}
+.btn-fill{background:var(--ink);color:var(--cream)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn-cta{background:var(--coral);border-color:var(--coral);color:#fff;font-size:1.1rem;padding:18px 40px;box-shadow:0 5px 0 #c0745f}
+.btn-cta:hover{transform:translateY(-2px)}
+.btn-cta:active{transform:translateY(3px);box-shadow:none}
+
+/* ============ ヘッダー ============ */
+.header{position:sticky;top:0;z-index:60;background:rgba(253,242,223,.86);backdrop-filter:blur(8px)}
+.header-in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:baseline;gap:8px;font-weight:700}
+.logo b{font-size:1.3rem;letter-spacing:.04em}
+.logo .dot{width:8px;height:8px;border-radius:50%;background:var(--mustard);display:inline-block}
+.logo small{font-size:.62rem;color:var(--ink-soft);font-weight:500}
+.nav{display:none;gap:6px;align-items:center}
+.nav a{font-size:.92rem;font-weight:500;padding:8px 14px;border-radius:22px;letter-spacing:.03em;transition:.15s}
+.nav a:hover{background:var(--cream-deep)}
+.nav .cta{background:var(--coral);color:#fff;font-weight:700}
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2.5px;background:var(--ink);border-radius:2px}
+.mnav{display:none;flex-direction:column;background:var(--paper);padding:8px 24px 16px}
+.mnav.open{display:flex}
+.mnav a{padding:13px 6px;font-weight:500;border-bottom:1px dashed var(--cream-deep)}
+@media(min-width:880px){.nav{display:flex}.burger{display:none}}
+
+/* ============ セクション ============ */
+.section{padding:74px 0}
+.section.tint{background:var(--paper)}
+.center{text-align:center;max-width:640px;margin:0 auto}
+
+/* ============ 額縁つき写真 ============ */
+.framed{position:relative;width:100%;aspect-ratio:var(--fw)/var(--fh)}
+.framed .ph{position:absolute;left:var(--l);top:var(--t);width:var(--w);height:var(--h);object-fit:cover;border-radius:5px}
+.framed .fr{position:absolute;inset:0;width:100%;height:100%}
+.fr01{--fw:1093;--fh:1144;--l:16.65%;--t:15.56%;--w:67.52%;--h:68.71%}
+.fr02{--fw:922;--fh:1240;--l:17.46%;--t:11.85%;--w:65.62%;--h:75.97%}
+.fr03{--fw:1137;--fh:811;--l:8.88%;--t:12.58%;--w:82.15%;--h:75.83%}
+.fr04{--fw:1244;--fh:908;--l:11.01%;--t:14.32%;--w:78.46%;--h:71.48%}
+.fr05{--fw:980;--fh:1023;--l:13.27%;--t:12.41%;--w:74.18%;--h:75.07%}
+.fr06{--fw:910;--fh:1289;--l:18.13%;--t:13.27%;--w:63.52%;--h:73.62%}
+
+/* ============ 写真ギャラリー（流れる）============ */
+.marquee{overflow:hidden;--gap:26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mtrack{display:flex;gap:var(--gap);width:max-content;align-items:center;animation:scroll 46s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+.mtrack .item{flex:0 0 auto}
+@keyframes scroll{to{transform:translateX(calc(-50% - var(--gap)/2))}}
+.gallery-btn{text-align:center;margin-top:34px}
+
+/* ============ ヒーロー（KV）============ */
+.hero{text-align:center;padding:26px 0 10px}
+.hero .kv{width:100%;max-width:1080px;margin:0 auto;height:auto}
+.hero-cap{font-family:'Zen Maru Gothic',sans-serif;font-weight:500;color:var(--ink);font-size:clamp(1.15rem,3.4vw,1.45rem);margin-top:20px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:14px}
+.hero-cap::before,.hero-cap::after{content:'';width:30px;height:2.5px;background:var(--coral);border-radius:2px;flex:0 0 auto}
+.scrollcue{margin:22px auto 0;width:26px;height:26px;border-right:2.5px solid var(--ink-soft);border-bottom:2.5px solid var(--ink-soft);transform:rotate(45deg);opacity:.5;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(6px) rotate(45deg)}}
+
+/* ============ 参加フロー ============ */
+.flow{max-width:720px;margin:30px auto 0}
+.step{display:flex;gap:20px;align-items:flex-start;padding:14px 0}
+.step .n{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--cream);border:2px solid var(--ink);display:grid;place-items:center;font-weight:700}
+.step h4{font-weight:700;font-size:1.05rem}
+.step p{color:var(--ink-soft);font-size:.95rem;margin-top:2px}
+
+/* ============ サブカード（3枚並び）============ */
+.subgrid{display:grid;grid-template-columns:1fr;gap:26px;max-width:1040px;margin:44px auto 0}
+@media(min-width:820px){.subgrid{grid-template-columns:repeat(3,1fr)}}
+.subcard{background:var(--cream);border:2px solid var(--ink);border-radius:24px;padding:24px;text-align:center;display:flex;flex-direction:column}
+.subcard .btn{margin-top:auto;align-self:center}
+.subcard .tag{display:inline-block;font-family:'Yomogi',cursive;font-size:.78rem;color:var(--ink-soft);border:1px dashed var(--ink-soft);border-radius:20px;padding:2px 12px;margin-bottom:12px;align-self:center}
+.subcard h3{font-weight:700;font-size:1.12rem;margin-bottom:8px}
+.subcard p{color:var(--ink-soft);font-size:.92rem;margin-bottom:18px}
+.photo-pair{display:flex;gap:14px;justify-content:center;margin-bottom:20px}
+.photo-pair .framed{width:47%}
+
+/* ============ 参加できるのは？（2分岐）============ */
+.who-grid{display:grid;grid-template-columns:1fr;gap:26px;max-width:860px;margin:40px auto 0}
+@media(min-width:720px){.who-grid{grid-template-columns:1fr 1fr}}
+.who-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:26px;padding:32px 28px;text-align:center;display:flex;flex-direction:column;box-shadow:0 6px 0 rgba(46,43,61,.07)}
+.who-card .badge{align-self:center;font-family:'Yomogi',cursive;color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:14px}
+.who-kid .badge{background:var(--coral)}
+.who-vol .badge{background:#5f9e6b}
+.who-card h3{font-size:clamp(1.2rem,3.6vw,1.5rem);font-weight:700;margin-bottom:8px}
+.who-card .age{font-family:'Yomogi',cursive;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
+.who-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:22px}
+.who-card .btn{margin-top:auto;align-self:center}
+
+/* ============ CTA ============ */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta .date{font-family:'Yomogi',cursive;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
+.cta h2{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;line-height:1.5;margin-bottom:10px}
+.cta p{color:var(--ink-soft);margin-bottom:30px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+.cta .vol{display:inline-block;margin-top:22px;font-size:.9rem;color:var(--ink-soft);border-bottom:1px dotted var(--ink-soft)}
+
+/* ============ フッター ============ */
+.footer{background:var(--ink);color:var(--cream);text-align:center;padding:50px 24px 34px}
+.footer .fname{font-weight:700;font-size:1.1rem;letter-spacing:.05em}
+.footer .fnav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin:20px 0}
+.footer .fnav a{font-size:.9rem;opacity:.85}
+.footer .fnav a:hover{opacity:1;text-decoration:underline}
+.footer .ig{display:inline-block;margin:6px 0 18px;font-size:.9rem;opacity:.85}
+.footer small{opacity:.55;font-size:.76rem;display:block;margin-top:8px}
+
+.proto{position:fixed;left:14px;bottom:14px;z-index:99;background:var(--ink);color:var(--cream);font-family:'Yomogi',cursive;font-size:.72rem;padding:6px 12px;border-radius:20px;opacity:.8}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.25,1)}
+.reveal.in{opacity:1;transform:none}
+/* グループ内は少しずつ、ほわっと連続で */
+.subgrid .subcard:nth-child(2){transition-delay:.12s}
+.subgrid .subcard:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}}
