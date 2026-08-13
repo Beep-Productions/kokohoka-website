@@ -11,18 +11,27 @@
 (function () {
   'use strict';
 
-  /* 適用する場所。ここに1行足せば対象が増える／消せば減る */
+  /* ▼レベル1：「。！？」と文中ダッシュ「——」だけで区切る
+     　　　　　カードの中など、幅がせまくて読点で切ると行が短くなりすぎる場所はこちら */
   var SELECTOR = [
     /* 共通 */
-    '.lead', '.center p', '.sec-head p', '.page-hero p', '.step p', '.subcard p', '.note-c',
+    '.step p', '.subcard p', '.note-c',
     /* 市民の一日 */
     '.tl-text p', '.day2 p', '.day2 li',
     /* ビジター */
-    '.closing p', '.promise p', '.can-card p',
+    '.promise p', '.can-card p',
     /* ボランティア */
     '.role p', '.req-value',
     /* これまでのここほか */
-    '.sub', '.year-text', '.topic', '.vol-cta p'
+    '.topic', '.vol-cta p'
+  ].join(',');
+
+  /* ▼レベル2：上に加えて「、」でも区切る
+     　　　　　中央ぞろえの短いリード文・キャッチ用。幅が広いときは1行に収まるので
+     　　　　　見た目は変わらず、スマホで行が足りないときだけ読点で折れる */
+  var SELECTOR_PHRASE = [
+    '.lead', '.center p', '.sec-head p', '.page-hero p', '.page-hero .lead-note',
+    '.closing p', '.sub', '.year-text'
   ].join(',');
 
   var SENTENCE_END = /[。！？]/;
@@ -33,7 +42,10 @@
      日付の「8.18 – 20」で使う二分ダーシ – (U+2013) は対象外（行頭禁則・割ってはいけない）。 */
   var DASH = /—/;
 
-  function typeset(el) {
+  /* レベル2でだけ使う。読点も行の区切り候補にする */
+  var COMMA = /[、，]/;
+
+  function typeset(el, useComma) {
     if (el.getAttribute('data-tw') === 'off') return;
 
     var groups = [];   /* 配列＝1文ぶんのノード群 / 要素＝<br> */
@@ -65,7 +77,7 @@
           }
 
           buf += text[i];
-          if (SENTENCE_END.test(text[i])) {
+          if (SENTENCE_END.test(text[i]) || (useComma && COMMA.test(text[i]))) {
             while (i + 1 < text.length && TRAILING.test(text[i + 1])) { buf += text[++i]; }
             current.push(document.createTextNode(buf));
             buf = '';
@@ -94,7 +106,9 @@
   }
 
   function run() {
-    document.querySelectorAll(SELECTOR).forEach(typeset);
+    document.querySelectorAll(SELECTOR + ',' + SELECTOR_PHRASE).forEach(function (el) {
+      typeset(el, el.matches(SELECTOR_PHRASE));
+    });
   }
 
   if (document.readyState === 'loading') {
