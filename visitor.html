@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ビジター（付き添いの大人・小さな子）｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=5">
+<style>
+/* ===== ビジターページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
+.page-hero .badge-vis{display:inline-block;font-family:'Yomogi',cursive;background:#6f8fb5;color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:16px}
+.page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.45}
+.page-hero p{color:var(--ink-soft);margin-top:16px}
+.sec-head{text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.sec-head p+p{margin-top:12px}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+.c-blue{background-color:#6f8fb5}
+
+/* 額縁風ボックス */
+.framebox{position:relative;background:var(--cream);border:2.5px solid var(--ink);border-radius:20px 22px 18px 24px;padding:28px 26px}
+.framebox::before{content:'';position:absolute;inset:6px;border:1.5px solid var(--ink);border-radius:15px 17px 13px 19px;opacity:.4;pointer-events:none}
+
+/* 両替（銀行） */
+.bank{max-width:520px;margin:34px auto 0;text-align:center}
+.rate{display:flex;align-items:center;justify-content:center;gap:clamp(12px,4vw,22px);padding:18px 0}
+.rate+.rate{border-top:1px dashed var(--cream-deep)}
+.rate .yen{font-weight:700;font-size:clamp(1.1rem,4vw,1.35rem);min-width:86px}
+.rate .arrow{color:var(--ink-soft);font-size:1.15rem}
+.coin{width:clamp(74px,20vw,86px);height:clamp(74px,20vw,86px);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  font-family:'Yomogi',cursive;font-size:clamp(1rem,3.6vw,1.15rem);color:#fff;
+  border:2.5px solid var(--ink);box-shadow:0 4px 0 rgba(46,43,61,.18)}
+.coin-tata{background:var(--mustard)}
+.coin-koko{background:var(--coral)}
+.rate-note{margin-top:20px;color:var(--ink-soft);font-size:.92rem;line-height:1.9}
+.note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:22px;line-height:1.9}
+
+/* できることカード */
+.can{display:grid;grid-template-columns:1fr;gap:24px;max-width:980px;margin:40px auto 0}
+@media(min-width:860px){.can{grid-template-columns:repeat(3,1fr)}}
+.can-card{background:var(--cream);border:2px solid var(--ink);border-radius:24px;padding:28px 24px;text-align:center;display:flex;flex-direction:column}
+.can-card .cico{width:48px;height:48px;margin:0 auto 14px;background-color:var(--coral);
+  -webkit-mask:url("images/motifs/star.png") center/contain no-repeat;mask:url("images/motifs/star.png") center/contain no-repeat}
+.can-card:nth-child(2) .cico{background-color:var(--mustard)}
+.can-card:nth-child(3) .cico{background-color:#6f8fb5;
+  -webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.can-card h3{font-weight:700;font-size:1.12rem;margin-bottom:10px}
+.can-card p{color:var(--ink-soft);font-size:.94rem;margin-bottom:20px}
+.can-card .btn{margin-top:auto;align-self:center;font-size:.95rem;padding:13px 22px}
+
+/* おやくそく */
+.promises{max-width:700px;margin:38px auto 0;display:grid;gap:20px}
+.promise{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
+.promise .pn{flex:0 0 42px;height:42px;border-radius:50%;background:var(--ink);color:var(--cream);
+  display:flex;align-items:center;justify-content:center;font-family:'Yomogi',cursive;font-size:1.05rem}
+.promise h3{font-weight:700;font-size:1.06rem;margin-bottom:8px;line-height:1.6}
+.promise p{color:var(--ink-soft);font-size:.94rem}
+@media(max-width:520px){.promise{padding:22px 20px;gap:14px}}
+.closing{max-width:620px;margin:44px auto 0;text-align:center}
+.closing p{font-size:clamp(1.02rem,3.6vw,1.26rem);line-height:2.1;color:var(--ink)}
+@media(max-width:560px){.closing p{font-size:1rem;line-height:2}}
+
+/* CTA */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:700;line-height:1.5;margin-bottom:10px}
+.cta p{color:var(--ink-soft);margin-bottom:28px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="index-new.html#contact">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="badge-vis">ビジターとして</span>
+    <h1>大人も、この町の<br>お客さんになれます。</h1>
+    <p>付き添いの保護者の方、まだ小さいきょうだいへ。<br>待っているだけなんて、もったいない2日間です。</p>
+  </div>
+</section>
+
+<!-- ビジターって？ -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-blue"></span>
+    <h2>ビジターって？</h2>
+    <p>ここほかの「市民」になれるのは、7〜15歳の子どもだけ。それ以外の方は、このまちに遊びに来た<b>観光客＝ビジター</b>として参加できます。</p>
+    <p>まちの銀行で日本円をまちのお金に両替すれば、買いものも、遊びも、学びも、大人だってできます。子どもたちがつくったまちを、お客さんとしてまるごと味わってください。</p>
+  </div>
+</section>
+
+<!-- 両替 -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-mustard"></span>
+    <h2>まずは、銀行で両替から。</h2>
+    <p>ここほかには、なぜか通貨が2種類あります。<br>（このまちをつくった子どもたちが決めたことなので、そういうものです）</p>
+  </div>
+  <div class="bank framebox reveal">
+    <div class="rate">
+      <span class="yen">100円</span>
+      <span class="arrow">→</span>
+      <span class="coin coin-tata">1タタ</span>
+    </div>
+    <div class="rate">
+      <span class="yen">500円</span>
+      <span class="arrow">→</span>
+      <span class="coin coin-koko">1ココ</span>
+    </div>
+    <p class="rate-note">1ココ ＝ 5タタ。<br>両替は「1ココ（500円）」からです。</p>
+  </div>
+  <p class="note-c reveal">※レート・両替の単位は変更になる場合があります（確定しだい、ここでお知らせします）</p>
+</section>
+
+<!-- ビジターにできること -->
+<section class="section">
+  <div class="sec-head reveal">
+    <h2>ビジターに、できること。</h2>
+    <p>両替がすんだら、あとは自由。まちをぐるっと歩いてみてください。</p>
+  </div>
+  <div class="can">
+    <div class="can-card reveal">
+      <span class="cico"></span>
+      <h3>お店で買いものをする</h3>
+      <p>まちには、子どもたちが働くお店がならびます。地元のパン屋さんや雑貨屋さんも出店。ココを払って、子どもの接客を受けてみてください。</p>
+      <a href="#" class="btn btn-line">出店するお店を見る →</a>
+    </div>
+    <div class="can-card reveal">
+      <span class="cico"></span>
+      <h3>催しやこども大学に参加する</h3>
+      <p>ワークショップに紙しばい、おもしろい大人が先生になる「こども大学」。ビジターも参加できるものがあります。</p>
+      <a href="#" class="btn btn-line">催し・こども大学を見る →</a>
+    </div>
+    <div class="can-card reveal">
+      <span class="cico"></span>
+      <h3>まちを歩いて、ながめる</h3>
+      <p>市役所、銀行、ハローワーク。子どもたちだけで動かしているまちを、ぐるっと一周。じつはこれが、いちばんおもしろいかもしれません。</p>
+      <a href="history.html" class="btn btn-line">これまでのまちを見る →</a>
+    </div>
+  </div>
+  <p class="note-c reveal">※未就学のお子さんは、保護者の方といっしょにビジターとして楽しめます。小さな手で、はじめてのお買いものデビューもいいかもしれません。</p>
+</section>
+
+<!-- ★ いちばん大切なおねがい -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-coral"></span>
+    <h2>この町の主役は、子どもたちです。</h2>
+    <p>ここほかでは、子どもが自分で考えて、自分で決めます。どのお仕事をするか、お給料を何に使うか、だれと過ごすか。その全部が、このまちでいちばん大事な体験です。</p>
+    <p>だから大人のみなさんに、ひとつだけおねがいがあります。<br><b>近くで見ていても、どうか口出しはしないでいてください。</b></p>
+  </div>
+
+  <div class="promises">
+    <div class="promise reveal">
+      <span class="pn">1</span>
+      <div>
+        <h3>「こっちがいいんじゃない？」を、ぐっとこらえる。</h3>
+        <p>迷っている時間も、決められない時間も、子どもにとっては大切な仕事の時間です。答えを先に渡さないでいてくれると、うれしいです。</p>
+      </div>
+    </div>
+    <div class="promise reveal">
+      <span class="pn">2</span>
+      <div>
+        <h3>失敗しても、助けにいかない。</h3>
+        <p>お給料を使いきってしまっても、お仕事がうまくいかなくても大丈夫。「やってみて、うまくいかなかった」は、このまちでいちばん価値のあるおみやげです。</p>
+      </div>
+    </div>
+    <div class="promise reveal">
+      <span class="pn">3</span>
+      <div>
+        <h3>こまっていたら、まちの大人が動きます。</h3>
+        <p>まちには、見守り役のボランティアの大人がいます。泣いている子、まよっている子には、そっと声をかけます。だから安心して、お客さんでいてください。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing reveal">
+    <p>じつは、親が見ていないところの子どもは、<br>びっくりするくらい、しっかりしています。<br>一日の終わりに「どうだった？」と聞いてみてください。<br>知らなかった顔をした子どもが、<br>まちのことを話してくれるはずです。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="apply">
+  <div class="reveal">
+    <h2>まちで、お会いしましょう。</h2>
+    <p>2026年11月21日（土）・22日（日）／新潟</p>
+    <a href="index-new.html#cta" class="btn btn-cta">こどもの参加を事前登録する ▶</a>
+    <p class="note">※事前登録フォームは準備中です。ビジターの受付方法（当日受付／事前登録）も調整中で、決まりしだいここでお知らせします。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+<div class="proto">🎨 ビジターページ試作 visitor.html（レート・受付方法は確認中）</div>
+
+<script src="js/typeset.js?v=5"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+</body>
+</html>

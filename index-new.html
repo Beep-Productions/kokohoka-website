@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=3">
+<link rel="stylesheet" href="css/kokohoka.css?v=5">
 </head>
 <body>
 
@@ -18,7 +18,8 @@
     <nav class="nav">
       <a href="#about">ここほかって？</a>
       <a href="history.html">これまでのここほか</a>
-      <a href="#join">参加しよう</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
       <a href="volunteer.html">ボランティア</a>
       <a href="#contact">お問い合わせ</a>
       <a href="#cta" class="cta">事前登録</a>
@@ -28,7 +29,8 @@
   <nav class="mnav" id="mnav">
     <a href="#about">ここほかって？</a>
     <a href="history.html">これまでのここほか</a>
-    <a href="#join">参加しよう</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
     <a href="volunteer.html">ボランティア</a>
     <a href="#contact">お問い合わせ</a>
     <a href="#cta">事前登録</a>
@@ -98,6 +100,9 @@
     <div class="step"><span class="n">4</span><div><h4>税金をおさめる</h4><p>お給料から税金を納めよう。これがまちを動かすお金になります。</p></div></div>
     <div class="step"><span class="n">5</span><div><h4>まちで暮らす</h4><p>のこったお金で、ごはんを食べたり遊んだり。自由にすごそう。</p></div></div>
   </div>
+  <div class="gallery-btn reveal">
+    <a href="citizen.html" class="btn btn-line">市民の一日をのぞいてみる →</a>
+  </div>
 
   <div class="subgrid">
     <div class="subcard reveal">
@@ -137,7 +142,7 @@
 <section class="section tint" id="who">
   <div class="center reveal">
     <h2 class="h2">ここほかに、参加できるのは？</h2>
-    <p class="lead">子どもは「市民」として、大人は「ボランティア」として。<br>どちらも大歓迎です。</p>
+    <p class="lead">子どもは「市民」として。大人は、まちを楽しむ「ビジター」か、まちを支える「ボランティア」として。<br>どなたも大歓迎です。</p>
   </div>
   <div class="who-grid">
     <div class="who-card who-kid reveal">
@@ -146,6 +151,13 @@
       <p class="age">小学1年生〜中学3年生</p>
       <p>市民とうろくをして、2日間のまちを思いっきり楽しめます。</p>
       <a href="#cta" class="btn btn-fill">こどもの参加はこちら →</a>
+    </div>
+    <div class="who-card who-vis reveal">
+      <span class="badge">ビジターとして</span>
+      <h3>付き添いの大人・小さな子</h3>
+      <p class="age">保護者の方・未就学のお子さん</p>
+      <p>まちの通貨に両替して、買いものや催しを楽しむ「観光客」になれます。</p>
+      <a href="visitor.html" class="btn btn-line">ビジターを見る →</a>
     </div>
     <div class="who-card who-vol reveal">
       <span class="badge">ボランティアとして</span>
@@ -174,8 +186,9 @@
   <nav class="fnav">
     <a href="#about">ここほかって？</a>
     <a href="history.html">これまでのここほか</a>
-    <a href="#join">参加しよう</a>
+    <a href="citizen.html">市民の一日</a>
     <a href="#cta">事前登録</a>
+    <a href="visitor.html">ビジター</a>
     <a href="volunteer.html">ボランティア募集</a>
     <a href="#">お問い合わせ</a>
   </nav>
@@ -186,6 +199,7 @@
 
 <div class="proto">🎨 新デザイン試作 index-new.html</div>
 
+<script src="js/typeset.js?v=5"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

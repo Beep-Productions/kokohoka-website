@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>市民の一日｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=5">
+<style>
+/* ===== 市民の一日ページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:760px;margin:0 auto}
+.page-hero .badge-cit{display:inline-block;font-family:'Yomogi',cursive;background:var(--coral);color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:16px}
+.page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.45}
+.page-hero p{color:var(--ink-soft);margin-top:16px}
+.page-hero .lead-note{display:inline-block;margin-top:20px;color:var(--ink);font-size:.95rem;
+  background:var(--cream);border:2px dashed var(--ink);border-radius:20px;padding:12px 24px;line-height:1.9}
+.sec-head{text-align:center;max-width:680px;margin:0 auto}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+.note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:26px;line-height:1.9}
+
+/* ▼▼ イラスト待ちの枠（絵ができたら <img> に差し替える）▼▼ */
+.ph-slot{aspect-ratio:var(--ratio,4/3);width:100%;border:2.5px dashed var(--ink);border-radius:18px;
+  background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;text-align:center;padding:14px;opacity:.7}
+.ph-slot .ph-label{font-weight:700;color:var(--ink-soft);font-size:clamp(.86rem,2.4vw,.98rem)}
+.ph-slot .ph-size{font-size:clamp(.72rem,2vw,.82rem);color:var(--ink-soft);letter-spacing:.04em}
+.hero-slot{max-width:900px;margin:34px auto 0}
+
+/* タイムライン（午前／午後の2部制・時刻は出さない） */
+.tl{max-width:820px;margin:40px auto 0}
+.tl-part{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-bottom:28px}
+.tl-part+.tl-part,.tl-item+.tl-part{margin-top:14px}
+.tl-part .part-label{font-weight:700;font-size:clamp(1.1rem,3.4vw,1.32rem);color:var(--ink);
+  background:var(--cream);border:2.5px solid var(--ink);border-radius:24px;padding:7px 26px;box-shadow:0 4px 0 rgba(46,43,61,.1)}
+.tl-part .part-sub{color:var(--ink-soft);font-size:.95rem}
+.tl-item{display:grid;grid-template-columns:24px 1fr;column-gap:22px;padding-bottom:40px}
+.tl-rail{position:relative}
+.tl-rail::before{content:'';position:absolute;left:50%;transform:translateX(-50%);top:24px;bottom:-40px;width:2.5px;background:var(--ink);opacity:.18}
+.tl-rail::after{content:'';position:absolute;left:50%;transform:translateX(-50%);top:2px;width:16px;height:16px;border-radius:50%;background:var(--coral);border:2.5px solid var(--ink)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:last-child .tl-rail::before,
+.tl-item:has(+ .tl-part) .tl-rail::before{display:none}
+.tl-body{display:grid;grid-template-columns:320px 1fr;column-gap:26px;align-items:start}
+.tl-body h3{font-weight:700;font-size:clamp(1.08rem,3.2vw,1.24rem);margin-bottom:10px;line-height:1.5}
+.tl-body p{color:var(--ink-soft);font-size:.95rem}
+@media(max-width:820px){
+  .tl-body{grid-template-columns:1fr;row-gap:16px}
+}
+@media(max-width:600px){
+  .tl-item{grid-template-columns:20px 1fr;column-gap:14px;padding-bottom:34px}
+  .tl-rail::before{bottom:-34px}
+  .tl-rail::after{width:13px;height:13px;top:3px}
+}
+
+/* 2日目 */
+.day2{max-width:700px;margin:34px auto 0;position:relative;background:var(--cream);
+  border:2.5px solid var(--ink);border-radius:20px 22px 18px 24px;padding:30px 30px 28px}
+.day2::before{content:'';position:absolute;inset:6px;border:1.5px solid var(--ink);border-radius:15px 17px 13px 19px;opacity:.4;pointer-events:none}
+.day2 p{color:var(--ink);font-size:.98rem}
+.day2 p+p{margin-top:14px}
+.day2 ul+p{margin-top:18px}
+.day2 ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.day2 li{color:var(--ink-soft);font-size:.94rem;padding-left:22px;position:relative}
+.day2 li::before{content:'';position:absolute;left:0;top:.45em;width:11px;height:11px;background-color:var(--mustard);
+  -webkit-mask:url("images/motifs/star.png") center/contain no-repeat;mask:url("images/motifs/star.png") center/contain no-repeat}
+@media(max-width:520px){.day2{padding:26px 22px 24px}}
+
+/* CTA */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:700;line-height:1.5;margin-bottom:10px}
+.cta p{color:var(--ink-soft);margin-bottom:28px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="index-new.html#contact">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="badge-cit">まちの市民として</span>
+    <h1>ここほかの、ある一日。</h1>
+    <p>市民になった子は、どんなふうにすごすのでしょう。<br>ひとつの例を、のぞいてみてください。</p>
+    <p class="lead-note">ここほかは2日間ひらいています。<b>1日だけの参加でも、だいじょうぶです。</b></p>
+  </div>
+  <div class="hero-slot reveal">
+    <div class="ph-slot" style="--ratio:16/9">
+      <span class="ph-label">🎨 イラスト or GIF が入ります</span>
+      <span class="ph-size">推奨 1600 × 900 px（16:9）</span>
+    </div>
+  </div>
+</section>
+
+<!-- タイムライン -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-coral"></span>
+    <h2>市民の一日</h2>
+    <p>ここほかに「こうしなさい」という決まりはありません。<br>これはあくまで、よくある一日のかたちです。</p>
+  </div>
+
+  <div class="tl">
+    <div class="tl-part reveal"><span class="part-label">午前</span><span class="part-sub">まちに入って、はたらく</span></div>
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>市民とうろく</h3>
+        <p>受付でとうろくをして、パスポートをもらいます。これで、きみもここほかの市民。まずはまちをひとまわりして、どんなお店があるのか見てみよう。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>ハローワークで、お仕事さがし</h3>
+        <p>まちのハローワークには、いろんなお仕事がならんでいます。市役所、銀行、警察、お店の見習い。「これ、やってみたいかも」と思ったものを選ぼう。まよってもだいじょうぶです。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>はじめての、お仕事</h3>
+        <p>えらんだお店やブースへ。やり方は、そこにいる人が教えてくれます。はじめてでも平気。うまくいかなくても、平気です。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>お給料。そして、ぜいきん。</h3>
+        <p>お仕事をがんばると、まちのお金「ココ」がもらえます。そのあとは市役所へ。もらったお金のなかから、ぜいきんをおさめます。このお金が、まちを動かしていきます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-part reveal"><span class="part-label">午後</span><span class="part-sub">かせいだお金で、すごす</span></div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>おひるごはん</h3>
+        <p>かせいだココで、ごはんを買います。自分で働いたお金で食べるおひるは、ちょっとだけ特別な味がします。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>すきなことを、する</h3>
+        <p>のこったココで買いものをしたり、催しに参加したり。おもしろい大人が先生になる「こども大学」で学ぶのもいい。もっと働いてお金をためる、というのもアリです。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-rail"></div>
+      <div class="tl-body">
+        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-text">
+        <h3>まちが、おしまい</h3>
+        <p>一日の終わり。パスポートを持って、まちを出ます。「きょうはこれをやったな」と思いながら帰るころには、朝よりちょっとだけ大きくなっているはずです。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note-c reveal">※これはあくまで一例です。当日のくわしいスケジュールは、決まりしだいお知らせします。</p>
+</section>
+
+<!-- 2日目 -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-mustard"></span>
+    <h2>2日目に来ると、もっと自由。</h2>
+  </div>
+  <div class="day2 reveal">
+    <p><b>ここほかは2日間ひらいています。どちらか1日だけの参加でも、まったく問題ありません。</b></p>
+    <p>そのうえで、2日つづけて来る子は、2日目にぐっと変わります。1日目でまちのしくみをつかんで、2日目は自分から動きはじめるのです。</p>
+    <ul>
+      <li>きのうとちがうお仕事に、ちょうせんしてみる</li>
+      <li>ためたココで、ずっとほしかったものを買う</li>
+      <li>まちのことで気になったことを、市役所に言いにいく</li>
+    </ul>
+    <p>同じ一日は、ひとつもありません。きみの一日は、きみがつくります。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="apply">
+  <div class="reveal">
+    <h2>きみの一日を、つくりにおいで。</h2>
+    <p>2026年11月21日（土）・22日（日）／新潟</p>
+    <a href="index-new.html#cta" class="btn btn-cta">参加の事前登録はこちら ▶</a>
+    <p class="note">※事前登録フォームは準備中です（決まりしだいここにつなぎます）</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+<div class="proto">🎨 市民の一日ページ 骨組み citizen.html（イラスト・時間は未確定）</div>
+
+<script src="js/typeset.js?v=5"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+</body>
+</html>
