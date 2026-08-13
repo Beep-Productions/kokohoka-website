@@ -27,14 +27,6 @@
 .c-mustard{background-color:var(--mustard)}
 .note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:26px;line-height:1.9}
 
-/* ▼▼ イラスト待ちの枠（絵ができたら <img> に差し替える）▼▼ */
-.ph-slot{aspect-ratio:var(--ratio,4/3);width:100%;border:2.5px dashed var(--ink);border-radius:18px;
-  background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:8px;text-align:center;padding:14px;opacity:.7}
-.ph-slot .ph-label{font-weight:700;color:var(--ink-soft);font-size:clamp(.86rem,2.4vw,.98rem)}
-.ph-slot .ph-size{font-size:clamp(.72rem,2vw,.82rem);color:var(--ink-soft);letter-spacing:.04em}
-.hero-slot{max-width:900px;margin:34px auto 0}
-
 /* タイムライン（午前／午後の2部制・時刻は出さない） */
 .tl{max-width:820px;margin:40px auto 0}
 .tl-part{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-bottom:28px}
@@ -52,6 +44,14 @@
 .tl-body{display:grid;grid-template-columns:320px 1fr;column-gap:26px;align-items:start}
 .tl-body h3{font-weight:700;font-size:clamp(1.08rem,3.2vw,1.24rem);margin-bottom:10px;line-height:1.5}
 .tl-body p{color:var(--ink-soft);font-size:.95rem}
+/* 「すきなことを、する」だけは写真3枚を横一列に＝この時間はいろいろできる、を見せる */
+.tl-item.wide .tl-body{grid-template-columns:1fr;row-gap:18px}
+.tl-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+/* スマホは2列。3枚目が1枚だけ余ってしまうので、横いっぱいに広げて据わりをよくする */
+@media(max-width:560px){
+  .tl-trio{grid-template-columns:1fr 1fr;gap:10px}
+  .tl-trio>:nth-child(3){grid-column:1 / -1}
+}
 @media(max-width:820px){
   .tl-body{grid-template-columns:1fr;row-gap:16px}
 }
@@ -117,12 +117,6 @@
     <p>市民になった子は、どんなふうにすごすのでしょう。<br>ひとつの例を、のぞいてみてください。</p>
     <p class="lead-note">ここほかは2日間ひらいています。<b>1日だけの参加でも、だいじょうぶです。</b></p>
   </div>
-  <div class="hero-slot reveal">
-    <div class="ph-slot" style="--ratio:16/9">
-      <span class="ph-label">🎨 イラスト or GIF が入ります</span>
-      <span class="ph-size">推奨 1600 × 900 px（16:9）</span>
-    </div>
-  </div>
 </section>
 
 <!-- タイムライン -->
@@ -138,7 +132,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/01-register.jpg" alt="受付で市民とうろくをして、パスポートを受け取るところ"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>市民とうろく</h3>
         <p>受付でとうろくをして、パスポートをもらいます。これで、きみもここほかの市民。まずはまちをひとまわりして、どんなお店があるのか見てみよう。</p>
@@ -149,7 +143,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/02-job.jpg" alt="ハローワークの掲示を見て、やってみたいお仕事をさがす子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
         <div class="tl-text">
         <h3>ハローワークで、お仕事さがし</h3>
         <p>まちのハローワークには、いろんなお仕事がならんでいます。市役所、銀行、警察、お店の見習い。「これ、やってみたいかも」と思ったものを選ぼう。まよってもだいじょうぶです。</p>
@@ -160,7 +154,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/03-work.jpg" alt="お花屋さんのブースで接客をしている子どもたち"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>はじめての、お仕事</h3>
         <p>えらんだお店やブースへ。やり方は、そこにいる人が教えてくれます。はじめてでも平気。うまくいかなくても、平気です。</p>
@@ -171,7 +165,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/04-money.jpg" alt="まちのお金「ココ」を受け取って、市役所でぜいきんをおさめるところ"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
         <div class="tl-text">
         <h3>お給料。そして、ぜいきん。</h3>
         <p>お仕事をがんばると、まちのお金「ココ」がもらえます。そのあとは市役所へ。もらったお金のなかから、ぜいきんをおさめます。このお金が、まちを動かしていきます。</p>
@@ -184,7 +178,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/05-lunch.jpg" alt="自分でかせいだお金で買ったジュースとおやつを持つ子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>おひるごはん</h3>
         <p>かせいだココで、ごはんを買います。自分で働いたお金で食べるおひるは、ちょっとだけ特別な味がします。</p>
@@ -192,10 +186,14 @@
       </div>
     </div>
 
-    <div class="tl-item reveal">
+    <div class="tl-item wide reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="tl-trio">
+          <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/07-univ.jpg" alt="こども大学で大人の先生の話を聞く子どもたち"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
+          <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/08-shop.jpg" alt="まちのお店で買いものをした子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
+          <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/06-play.jpg" alt="アーケードでゲームをして遊ぶ子どもたち"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
+        </div>
         <div class="tl-text">
         <h3>すきなことを、する</h3>
         <p>のこったココで買いものをしたり、催しに参加したり。おもしろい大人が先生になる「こども大学」で学ぶのもいい。もっと働いてお金をためる、というのもアリです。</p>
@@ -206,7 +204,7 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="ph-slot"><span class="ph-label">🎨 イラストが入ります</span><span class="ph-size">推奨 1200 × 900 px（4:3）</span></div>
+        <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/09-end.jpg" alt="一日の終わりに、パスポートを手に笑顔を見せる子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>まちが、おしまい</h3>
         <p>一日の終わり。パスポートを持って、まちを出ます。「きょうはこれをやったな」と思いながら帰るころには、朝よりちょっとだけ大きくなっているはずです。</p>
@@ -262,7 +260,7 @@
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto">🎨 市民の一日ページ 骨組み citizen.html（イラスト・時間は未確定）</div>
+<div class="proto">🎨 市民の一日ページ citizen.html（写真は2025年／文章は下書き）</div>
 
 <script src="js/typeset.js?v=6"></script>
 <script>
