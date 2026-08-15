@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お仕事を見てみる｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=10">
+<style>
+/* ===== お仕事（子ども向け）ページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
+.page-hero h1{font-size:clamp(2rem,6vw,2.9rem);font-weight:700;letter-spacing:.02em;line-height:1.4}
+.page-hero p{color:var(--ink-soft);margin-top:18px}
+.sec-head{text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+.c-blue{background-color:var(--blue)}
+
+/* きもちで選ぶ、お仕事カード */
+.moods{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:44px auto 0;align-items:start}
+@media(min-width:840px){.moods{grid-template-columns:repeat(2,1fr)}}
+.mood{background:var(--cream);border:2.5px solid var(--ink);border-radius:26px;padding:32px 28px 30px;box-shadow:0 6px 0 rgba(46,43,61,.08);position:relative}
+.mood::before{content:'';position:absolute;top:-2.5px;left:28px;width:52px;height:11px;border-radius:0 0 7px 7px;background:var(--coral)}
+.mood:nth-child(2)::before{background:var(--mustard)}
+.mood:nth-child(3)::before{background:var(--green)}
+.mood:nth-child(4)::before{background:var(--blue)}
+.mood:nth-child(5)::before{background:var(--coral-deep)}
+.mood:nth-child(6)::before{background:var(--star)}
+.mood h3{font-size:clamp(1.14rem,3.6vw,1.34rem);font-weight:700;margin-bottom:20px;line-height:1.5}
+.mood ul{list-style:none;display:grid;gap:15px}
+.mood li{display:flex;gap:12px;align-items:flex-start}
+.mood li::before{content:'';flex:0 0 9px;height:9px;border-radius:50%;background:var(--ink);opacity:.28;margin-top:11px}
+.mood li .mj{min-width:0}
+.mood li b{font-weight:700;font-size:1rem;display:block}
+/* ★ことしのお仕事が確定したら、その <li> の <b> の中に
+   <span class="nowtag">ことしもあるよ</span> を足すだけでバッジが出ます */
+.mood li .nowtag{display:inline-block;width:auto;margin:0 0 0 8px;vertical-align:2px;
+  font-size:.66rem;font-weight:700;line-height:1.7;letter-spacing:.04em;
+  color:#fff;background:var(--coral-deep);border-radius:12px;padding:1px 9px}
+.mood li span{display:block;color:var(--ink-soft);font-size:.9rem;line-height:1.75;margin-top:2px}
+@media(max-width:520px){.mood{padding:26px 22px}}
+
+/* できるかも、のひとこと */
+.maybe{max-width:640px;margin:40px auto 0;text-align:center;background:var(--cream);border:2px dashed var(--ink);border-radius:22px;padding:24px 26px}
+.maybe p{font-size:.98rem;color:var(--ink);line-height:2}
+
+/* 安心ボックス */
+.easy{display:grid;grid-template-columns:1fr;gap:18px;max-width:900px;margin:40px auto 0}
+@media(min-width:720px){.easy{grid-template-columns:repeat(3,1fr)}}
+.easy-item{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:26px 22px;text-align:center}
+.easy-item h4{font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.easy-item p{color:var(--ink-soft);font-size:.92rem}
+
+.note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:26px;line-height:1.9}
+.morebtn{text-align:center;margin-top:34px}
+
+/* CTA */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:700;line-height:1.5;margin-bottom:10px}
+.cta p{color:var(--ink-soft);margin-bottom:28px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+</style>
+</head>
+<body class="p-kid">
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="index-new.html#contact">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="pagechip">7〜15歳の子どもへ</span>
+    <h1>このまちで、<br>なにをする？</h1>
+    <p>ここほかに来たら、まず市民とうろく。そのあとは、はたらくのも、遊ぶのも、学ぶのも、ぜんぶ自分で決められます。まちには、いろんなお仕事があります。やってみたいものを、えらんでください。</p>
+  </div>
+</section>
+
+<!-- きもちで選ぶ -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-coral"></span>
+    <h2>どんなお仕事があるの？</h2>
+    <p>まちのお仕事を、「こんなことがすき」というきもちでならべてみました。ぴんときたものが、たぶん向いています。</p>
+  </div>
+
+  <div class="moods">
+    <div class="mood reveal">
+      <h3>人と話すのが、すき。</h3>
+      <ul>
+        <li><div class="mj"><b>市役所 <span class="nowtag">ことしもあるよ</span></b><span>まちに来た子に市民証をわたす、いちばんはじめの窓口。</span></div></li>
+        <li><div class="mj"><b>ハローワーク <span class="nowtag">ことしもあるよ</span></b><span>やってみたいお仕事を、いっしょにさがしてあげる係。</span></div></li>
+        <li><div class="mj"><b>案内所</b><span>はじめて来た人を、行きたい場所まで連れていきます。</span></div></li>
+        <li><div class="mj"><b>大人おなやみ相談所</b><span>大人の悩みを、まじめに聞いてあげる。おくすり（アメやラムネ）も出せます。</span></div></li>
+      </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>お金をあつかってみたい。</h3>
+      <ul>
+        <li><div class="mj"><b>銀行 <span class="nowtag">ことしもあるよ</span></b><span>まちのお金「ココ」をわたす仕事。みんなが笑顔になる場所です。</span></div></li>
+        <li><div class="mj"><b>税務署</b><span>あつまった税金を管理して、まちのために使います。</span></div></li>
+        <li><div class="mj"><b>両替所</b><span>大人が持ってきた日本円を、まちのお金にかえてあげます。</span></div></li>
+      </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>まちを、守りたい。</h3>
+      <ul>
+        <li><div class="mj"><b>警察 <span class="nowtag">ことしもあるよ</span></b><span>まちをパトロール。ルールを守らない大人を、逮捕することも！</span></div></li>
+        <li><div class="mj"><b>清掃局 <span class="nowtag">ことしもあるよ</span></b><span>まちをきれいに。ゴミの分別を、みんなに声かけします。</span></div></li>
+        <li><div class="mj"><b>福祉課</b><span>まちの人に「こまっていること、ある？」と聞いてまわります。</span></div></li>
+        <li><div class="mj"><b>こどもモヤモヤ記者</b><span>まちの「なんかヘンだな」を調べて、みんなに知らせます。</span></div></li>
+      </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>お店をひらいて、みたい。</h3>
+      <ul>
+        <li><div class="mj"><b>射的・ボウリング</b><span>ゲームのお店。ルールを説明して、景品をわたします。</span></div></li>
+        <li><div class="mj"><b>八百屋さん</b><span>野菜やくだものを売ります。仕入れから自分たちで。</span></div></li>
+        <li><div class="mj"><b>ジュース屋さん</b><span>飲みものを売るお店。名前も売り方も、自分たちで決めます。</span></div></li>
+      </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>本物のお店で、はたらきたい。</h3>
+      <ul>
+        <li><div class="mj"><b>パン屋さんの見習い</b><span>本物のパン屋さんで、売り場に立ちます。</span></div></li>
+        <li><div class="mj"><b>おすし屋さんの見習い</b><span>大将のとなりで、おすしをあつかいます。</span></div></li>
+        <li><div class="mj"><b>ごはん屋さんの見習い</b><span>注文をとって、できたてを手わたす。ちょっと緊張します。</span></div></li>
+      </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>みんなの前で、やってみたい。</h3>
+      <ul>
+        <li><div class="mj"><b>紙しばい師</b><span>練習して、人が集まっているところで上演します。</span></div></li>
+        <li><div class="mj"><b>アナウンサー</b><span>まちのニュースやお知らせを、みんなに伝える仕事。</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="maybe reveal">
+    <p>ことしのお仕事は、いま子どもたちが考えているところです。だから、ここにないお仕事が生まれるかもしれません。お仕事は当日までに増えることもあります。たのしみにして、来てください。</p>
+  </div>
+</section>
+
+<!-- はたらくと、どうなるの？ -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-mustard"></span>
+    <h2>はたらくと、どうなるの？</h2>
+    <p>まちのお仕事は、ひとつ60分くらい。1日にいくつもできます。えらんで、はたらいて、お給料をもらう。ここまでが1セットです。</p>
+  </div>
+  <div class="flow reveal">
+    <div class="step"><span class="n">1</span><div><h4>ハローワークで、えらぶ</h4><p>ならんだお仕事から、やってみたいものを選びます。人気のお仕事は、すぐにいっぱいになります。</p></div></div>
+    <div class="step"><span class="n">2</span><div><h4>はたらく</h4><p>はじめてでも大丈夫。まちの大人が、そばで見守っています。</p></div></div>
+    <div class="step"><span class="n">3</span><div><h4>銀行で、お給料をもらう</h4><p>まちのお金「ココ」を受け取ります。ここが、いちばんうれしい瞬間かもしれません。</p></div></div>
+    <div class="step"><span class="n">4</span><div><h4>自分の手で、税金をおさめる</h4><p>もらったお金のうち、ちょっとだけを税金の箱に入れます。そのお金が、まちを動かします。</p></div></div>
+    <div class="step"><span class="n">5</span><div><h4>のこったお金で、すきなことをする</h4><p>ごはんを食べる。遊ぶ。こども大学で学ぶ。ぜんぶ自分で決めていい時間です。</p></div></div>
+  </div>
+  <div class="morebtn reveal">
+    <a href="citizen.html" class="btn btn-line g-kid">市民の一日をのぞいてみる →</a>
+  </div>
+</section>
+
+<!-- 安心してほしいこと -->
+<section class="section">
+  <div class="sec-head reveal">
+    <h2>これだけは、心配しないで。</h2>
+  </div>
+  <div class="easy">
+    <div class="easy-item reveal">
+      <h4>1日だけでもOK</h4>
+      <p>2日とも来なくて大丈夫。1日だけの参加でも、ちゃんとまちの市民です。</p>
+    </div>
+    <div class="easy-item reveal">
+      <h4>ひとりでも大丈夫</h4>
+      <p>友だちがいなくても平気です。まちで会った子と、いっしょに働くことになります。</p>
+    </div>
+    <div class="easy-item reveal">
+      <h4>失敗しても大丈夫</h4>
+      <p>うまくいかなくてもいいんです。大人は口出しをしません。こまったときだけ、そばに来ます。</p>
+    </div>
+  </div>
+  <p class="note-c reveal">※お仕事の時間・お給料の金額は、その年によって変わります。</p>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="apply">
+  <div class="reveal">
+    <h2>やってみたいお仕事は、見つかった？</h2>
+    <p>まちで何をするかは、来てから決めても大丈夫です。</p>
+    <a href="index-new.html#cta" class="btn btn-cta">参加を事前登録する ▶</a>
+    <p class="note">※事前登録フォームは準備中です（決まりしだい、ここにつなぎます）</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+<div class="proto">🎨 お仕事（子ども向け）oshigoto.html</div>
+
+<script src="js/typeset.js?v=12"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+</body>
+</html>

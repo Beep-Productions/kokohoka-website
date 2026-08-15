@@ -35,6 +35,8 @@ a{color:inherit;text-decoration:none}
    ※①②は非対応ブラウザでは無視されるだけなので安全 */
 body{text-wrap:pretty;word-break:auto-phrase}
 .tw{display:inline-block}
+/* 途中で割りたくないかたまり（会場名など）に付ける */
+.nb{white-space:nowrap}
 
 /* ---- 見出し系 ---- */
 .h2{font-size:clamp(1.4rem,4.4vw,2.1rem);font-weight:700;line-height:1.5;letter-spacing:.02em}
@@ -50,11 +52,44 @@ body{text-wrap:pretty;word-break:auto-phrase}
 .btn-line{background:transparent;color:var(--ink)}
 .btn:hover{transform:translateY(-2px)}
 .btn-cta{background:var(--coral);border-color:var(--coral);color:#fff;font-size:1.1rem;padding:18px 40px;box-shadow:0 5px 0 #c0745f}
+/* ボタンの行き先グループを、小さな色の丸で予告する（ロゴの●と同じ作法）
+   g-kid=市民の子ども / g-vis=ビジター / g-vol=ボランティア / g-rec=活動を知りたい方 */
+.btn.g-kid,.btn.g-vis,.btn.g-vol,.btn.g-rec{position:relative}
+.btn.g-kid::before,.btn.g-vis::before,.btn.g-vol::before,.btn.g-rec::before{
+  content:'';width:11px;height:11px;border-radius:50%;flex:0 0 auto;background:var(--g)}
+.g-kid{--g:var(--coral)}
+.g-vis{--g:#6f8fb5}
+.g-vol{--g:#5f9e6b}
+.g-rec{--g:var(--mustard)}
 .btn-cta:hover{transform:translateY(-2px)}
 .btn-cta:active{transform:translateY(3px);box-shadow:none}
 
+/* ============ ページの系統色 ============
+   「いま自分は誰向けのページを読んでいるか」がひと目でわかるようにする。
+   色はトップページの3分岐（市民＝コーラル／ビジター＝青／ボランティア＝緑）から引き継ぎ、
+   記録・活動紹介の系統だけ4色目のマスタードを使う。
+   使い方：<body class="p-kid"> のように付けるだけ。
+     p-kid …… 市民になる子ども向け（お仕事・あそぶ/まなぶ・市民の一日）
+     p-vis …… 付き添いの大人向け（ビジター）
+     p-vol …… 手伝いたい大人向け（ボランティア）
+     p-rec …… 活動を知りたい方向け（これまでのここほか・記録ページ）
+   ヘッダーは sticky なので、スクロール中もずっと色の線が見えている。 */
+body{--pagecolor:transparent}
+body.p-kid{--pagecolor:var(--coral)}
+body.p-vis{--pagecolor:#6f8fb5}
+body.p-vol{--pagecolor:#5f9e6b}
+body.p-rec{--pagecolor:var(--mustard)}
+.pagechip{display:inline-block;font-weight:700;color:#fff;font-size:.92rem;letter-spacing:.03em;
+  padding:5px 20px;border-radius:20px;margin-bottom:16px;background:var(--pagecolor)}
+/* トップページなど、系統色を持たないページで個別に色を指定したいとき */
+.chip-kid{--pagecolor:var(--coral)}
+.chip-vis{--pagecolor:#6f8fb5}
+.chip-vol{--pagecolor:#5f9e6b}
+.chip-rec{--pagecolor:var(--mustard)}
+
 /* ============ ヘッダー ============ */
-.header{position:sticky;top:0;z-index:60;background:rgba(253,242,223,.86);backdrop-filter:blur(8px)}
+.header{position:sticky;top:0;z-index:60;background:rgba(253,242,223,.86);backdrop-filter:blur(8px);
+  border-bottom:5px solid var(--pagecolor)}
 .header-in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:baseline;gap:8px;font-weight:700}
 .logo b{font-size:1.3rem;letter-spacing:.04em}
@@ -99,12 +134,23 @@ body{text-wrap:pretty;word-break:auto-phrase}
 .mtrack .item{flex:0 0 auto}
 @keyframes scroll{to{transform:translateX(calc(-50% - var(--gap)/2))}}
 .gallery-btn{text-align:center;margin-top:34px}
+/* ギャラリー下：「活動そのものを知りたい人」という読者がいることを、ここで見せる */
+.glead{max-width:620px;margin:0 auto 22px;color:var(--ink-soft);font-size:clamp(.94rem,2.5vw,1.02rem)}
 
 /* ============ ヒーロー（KV）============ */
 .hero{text-align:center;padding:26px 0 10px}
 .hero .kv{width:100%;max-width:1080px;margin:0 auto;height:auto}
 .hero-cap{font-family:'Zen Maru Gothic',sans-serif;font-weight:500;color:var(--ink);font-size:clamp(1.15rem,3.4vw,1.45rem);margin-top:20px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:14px}
 .hero-cap::before,.hero-cap::after{content:'';width:30px;height:2.5px;background:var(--coral);border-radius:2px;flex:0 0 auto}
+/* 日付＋会場。せまい画面では「／」を消して2行に折る（両端の線はそのまま） */
+.hero-cap .hc-in{min-width:0;text-align:center}
+.hero-cap .hc-br{display:none}
+@media(max-width:600px){
+  .hero-cap{gap:10px;font-size:1.02rem;line-height:1.7}
+  .hero-cap::before,.hero-cap::after{width:18px}
+  .hero-cap .hc-sep{display:none}
+  .hero-cap .hc-br{display:block}
+}
 .scrollcue{margin:22px auto 0;width:26px;height:26px;border-right:2.5px solid var(--ink-soft);border-bottom:2.5px solid var(--ink-soft);transform:rotate(45deg);opacity:.5;animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(6px) rotate(45deg)}}
 
@@ -120,7 +166,7 @@ body{text-wrap:pretty;word-break:auto-phrase}
 @media(min-width:820px){.subgrid{grid-template-columns:repeat(3,1fr)}}
 .subcard{background:var(--cream);border:2px solid var(--ink);border-radius:24px;padding:24px;text-align:center;display:flex;flex-direction:column}
 .subcard .btn{margin-top:auto;align-self:center}
-.subcard .tag{display:inline-block;font-family:'Yomogi',cursive;font-size:.78rem;color:var(--ink-soft);border:1px dashed var(--ink-soft);border-radius:20px;padding:2px 12px;margin-bottom:12px;align-self:center}
+.subcard .tag{display:inline-block;font-weight:500;font-size:.78rem;color:var(--ink-soft);border:1px dashed var(--ink-soft);border-radius:20px;padding:2px 12px;margin-bottom:12px;align-self:center}
 .subcard h3{font-weight:700;font-size:1.12rem;margin-bottom:8px}
 .subcard p{color:var(--ink-soft);font-size:.92rem;margin-bottom:18px}
 .photo-pair{display:flex;gap:14px;justify-content:center;margin-bottom:20px}
@@ -129,19 +175,23 @@ body{text-wrap:pretty;word-break:auto-phrase}
 /* ============ 参加できるのは？（2分岐）============ */
 .who-grid{display:grid;grid-template-columns:1fr;gap:26px;max-width:520px;margin:40px auto 0}
 @media(min-width:900px){.who-grid{grid-template-columns:repeat(3,1fr);max-width:1120px}}
-.who-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:26px;padding:32px 28px;text-align:center;display:flex;flex-direction:column;box-shadow:0 6px 0 rgba(46,43,61,.07)}
-.who-card .badge{align-self:center;font-family:'Yomogi',cursive;color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:14px}
+.who-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:26px;padding:36px 28px 32px;text-align:center;display:flex;flex-direction:column;box-shadow:0 6px 0 rgba(46,43,61,.07);position:relative}
+/* カード上辺に行き先の色を予告（押した先のページのヘッダー線と同じ色）*/
+.who-card::before{content:'';position:absolute;top:-2.5px;left:50%;transform:translateX(-50%);width:96px;height:11px;border-radius:0 0 8px 8px;background:var(--coral)}
+.who-vol::before{background:#5f9e6b}
+.who-vis::before{background:#6f8fb5}
+.who-card .badge{align-self:center;font-weight:700;color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:14px}
 .who-kid .badge{background:var(--coral)}
 .who-vol .badge{background:#5f9e6b}
 .who-vis .badge{background:#6f8fb5}
 .who-card h3{font-size:clamp(1.2rem,3.6vw,1.5rem);font-weight:700;margin-bottom:8px}
-.who-card .age{font-family:'Yomogi',cursive;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
+.who-card .age{font-weight:700;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
 .who-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:22px}
 .who-card .btn{margin-top:auto;align-self:center}
 
 /* ============ CTA ============ */
 .cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
-.cta .date{font-family:'Yomogi',cursive;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
+.cta .date{font-weight:700;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
 .cta h2{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;line-height:1.5;margin-bottom:10px}
 .cta p{color:var(--ink-soft);margin-bottom:30px}
 .cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
@@ -156,7 +206,7 @@ body{text-wrap:pretty;word-break:auto-phrase}
 .footer .ig{display:inline-block;margin:6px 0 18px;font-size:.9rem;opacity:.85}
 .footer small{opacity:.55;font-size:.76rem;display:block;margin-top:8px}
 
-.proto{position:fixed;left:14px;bottom:14px;z-index:99;background:var(--ink);color:var(--cream);font-family:'Yomogi',cursive;font-size:.72rem;padding:6px 12px;border-radius:20px;opacity:.8}
+.proto{position:fixed;left:14px;bottom:14px;z-index:99;background:var(--ink);color:var(--cream);font-weight:700;font-size:.72rem;padding:6px 12px;border-radius:20px;opacity:.8}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.25,1)}
 .reveal.in{opacity:1;transform:none}
 /* グループ内は少しずつ、ほわっと連続で */

@@ -6,12 +6,11 @@
 <title>ビジター（付き添いの大人・小さな子）｜こころほかほかあたたかい町</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=6">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=10">
 <style>
 /* ===== ビジターページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
-.page-hero .badge-vis{display:inline-block;font-family:'Yomogi',cursive;background:#6f8fb5;color:#fff;font-size:.92rem;padding:5px 20px;border-radius:20px;margin-bottom:16px}
 .page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.45}
 .page-hero p{color:var(--ink-soft);margin-top:16px}
 .sec-head{text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
@@ -38,7 +37,7 @@
 .rate .arrow{color:var(--ink-soft);font-size:1.15rem}
 .coin{width:clamp(74px,20vw,86px);height:clamp(74px,20vw,86px);border-radius:50%;
   display:flex;align-items:center;justify-content:center;flex:0 0 auto;
-  font-family:'Yomogi',cursive;font-size:clamp(1rem,3.6vw,1.15rem);color:#fff;
+  font-weight:700;font-size:clamp(1rem,3.6vw,1.15rem);color:#fff;
   border:2.5px solid var(--ink);box-shadow:0 4px 0 rgba(46,43,61,.18)}
 .coin-tata{background:var(--mustard)}
 .coin-koko{background:var(--coral)}
@@ -62,10 +61,28 @@
 .promises{max-width:700px;margin:38px auto 0;display:grid;gap:20px}
 .promise{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
 .promise .pn{flex:0 0 42px;height:42px;border-radius:50%;background:var(--ink);color:var(--cream);
-  display:flex;align-items:center;justify-content:center;font-family:'Yomogi',cursive;font-size:1.05rem}
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem}
 .promise h3{font-weight:700;font-size:1.06rem;margin-bottom:8px;line-height:1.6}
 .promise p{color:var(--ink-soft);font-size:.94rem}
 @media(max-width:520px){.promise{padding:22px 20px;gap:14px}}
+/* 本物の8項目（2023年に子どもたちが決めた原文をそのまま掲示） */
+.rules{max-width:640px;margin:44px auto 0}
+.rules-lead{text-align:center;color:var(--ink);font-size:clamp(.98rem,3.4vw,1.06rem);line-height:2;margin-bottom:26px}
+.rules-box{background:var(--cream);padding-top:34px}
+.rules-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:2;
+  background:var(--ink);color:var(--cream);font-size:.78rem;letter-spacing:.08em;
+  padding:5px 18px;border-radius:16px;white-space:nowrap}
+.rules-h{text-align:center;font-weight:700;font-size:1.06rem;letter-spacing:.06em;margin-bottom:20px}
+.rules-list{list-style:none;counter-reset:r;display:grid;gap:12px}
+.rules-list li{counter-increment:r;display:flex;gap:13px;align-items:flex-start;font-size:.95rem;line-height:1.7}
+.rules-list li::before{content:counter(r);flex:0 0 24px;height:24px;border-radius:50%;
+  background:var(--cream-deep);border:1.5px solid var(--ink);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;margin-top:1px}
+.rules-list li.by-kids::before{background:var(--coral);color:#fff}
+.rules-note{margin-top:22px;padding-top:17px;border-top:1px dashed var(--cream-deep);
+  color:var(--ink-soft);font-size:.86rem;line-height:1.95;text-align:center}
+.rules-note b{color:var(--coral-deep)}
+@media(max-width:520px){.rules-box{padding:32px 20px 26px}.rules-list li{font-size:.91rem}}
 .closing{max-width:620px;margin:44px auto 0;text-align:center}
 .closing p{font-size:clamp(1.02rem,3.6vw,1.26rem);line-height:2.1;color:var(--ink)}
 @media(max-width:560px){.closing p{font-size:1rem;line-height:2}}
@@ -77,7 +94,7 @@
 .cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
 </style>
 </head>
-<body>
+<body class="p-vis">
 
 <!-- ヘッダー -->
 <header class="header">
@@ -108,7 +125,7 @@
 <!-- 導入 -->
 <section class="page-hero" id="top">
   <div class="reveal">
-    <span class="badge-vis">ビジターとして</span>
+    <span class="pagechip">付き添いの大人・小さな子へ</span>
     <h1>大人も、この町の<br>お客さんになれます。</h1>
     <p>付き添いの保護者の方、まだ小さいきょうだいへ。<br>待っているだけなんて、もったいない2日間です。</p>
   </div>
@@ -128,8 +145,9 @@
 <section class="section tint">
   <div class="sec-head reveal">
     <span class="deco-ico ico-heart c-mustard"></span>
-    <h2>まずは、銀行で両替から。</h2>
-    <p>ここほかには、なぜか通貨が2種類あります。<br>（このまちをつくった子どもたちが決めたことなので、そういうものです）</p>
+    <h2>まちに着いたら、市役所へ。</h2>
+    <p>ビジターの受付は、まちの市役所で。当日その場で受け付けますので、事前の申し込みはいりません。「ビジター」と書かれた名札をお渡しするので、首から下げてください。それだけで、もうこのまちのお客さんです。</p>
+    <p>名札を受け取ったら、つぎは銀行へ。ここほかには、なぜか通貨が2種類あります。<br>（このまちをつくった子どもたちが決めたことなので、そういうものです）</p>
   </div>
   <div class="bank framebox reveal">
     <div class="rate">
@@ -158,19 +176,19 @@
       <span class="cico"></span>
       <h3>お店で買いものをする</h3>
       <p>まちには、子どもたちが働くお店がならびます。地元のパン屋さんや雑貨屋さんも出店。ココを払って、子どもの接客を受けてみてください。</p>
-      <a href="#" class="btn btn-line">出店するお店を見る →</a>
+      <a href="#" class="btn btn-line g-kid">出店するお店を見る →</a>
     </div>
     <div class="can-card reveal">
       <span class="cico"></span>
       <h3>催しやこども大学に参加する</h3>
       <p>ワークショップに紙しばい、おもしろい大人が先生になる「こども大学」。ビジターも参加できるものがあります。</p>
-      <a href="#" class="btn btn-line">催し・こども大学を見る →</a>
+      <a href="events.html" class="btn btn-line g-rec">これまでの催しを見る →</a>
     </div>
     <div class="can-card reveal">
       <span class="cico"></span>
       <h3>まちを歩いて、ながめる</h3>
       <p>市役所、銀行、ハローワーク。子どもたちだけで動かしているまちを、ぐるっと一周。じつはこれが、いちばんおもしろいかもしれません。</p>
-      <a href="history.html" class="btn btn-line">これまでのまちを見る →</a>
+      <a href="history.html" class="btn btn-line g-rec">これまでのまちを見る →</a>
     </div>
   </div>
   <p class="note-c reveal">※未就学のお子さんは、保護者の方といっしょにビジターとして楽しめます。小さな手で、はじめてのお買いものデビューもいいかもしれません。</p>
@@ -209,6 +227,26 @@
     </div>
   </div>
 
+  <!-- 本物の8項目（2023年・子どもたちが決めた原文） -->
+  <div class="rules reveal">
+    <p class="rules-lead">じつはこの3つのおねがいは、このまちをつくった子どもたちが決めた「8つのやくそく」からきています。</p>
+    <div class="rules-box framebox">
+      <span class="rules-tag">原文のまま</span>
+      <h3 class="rules-h">大人の禁止事項</h3>
+      <ol class="rules-list">
+        <li>こどもの意思決定に関して口出し禁止</li>
+        <li>こどもの遊び方に関して口出し禁止</li>
+        <li>こどものお金の使い方に関して口出し禁止</li>
+        <li>危なくないのに止めるのは禁止</li>
+        <li>こどもが自分でやりたいのに手出しは禁止</li>
+        <li>こどもの意見を聞かないことは禁止</li>
+        <li class="by-kids">こどもに対する暴力は禁止（どなる、たたく）</li>
+        <li class="by-kids">こどもが稼いだお金を搾取するのは禁止</li>
+      </ol>
+      <p class="rules-note">大人が出した素案を、子どもたちが言葉を変え、大切だと思う順に並べかえてつくりました。<b>7と8は、子どもたちが自分で付け足した項目です。</b></p>
+    </div>
+  </div>
+
   <div class="closing reveal">
     <p>じつは、親が見ていないところの子どもは、<br>びっくりするくらい、しっかりしています。<br>一日の終わりに「どうだった？」と聞いてみてください。<br>知らなかった顔をした子どもが、<br>まちのことを話してくれるはずです。</p>
   </div>
@@ -218,9 +256,9 @@
 <section class="cta" id="apply">
   <div class="reveal">
     <h2>まちで、お会いしましょう。</h2>
-    <p>2026年11月21日（土）・22日（日）／新潟</p>
+    <p>2026年11月21日（土）・22日（日）<span class="nb">／新潟・古町7番町</span></p>
     <a href="index-new.html#cta" class="btn btn-cta">こどもの参加を事前登録する ▶</a>
-    <p class="note">※事前登録フォームは準備中です。ビジターの受付方法（当日受付／事前登録）も調整中で、決まりしだいここでお知らせします。</p>
+    <p class="note">※ビジターの受付は当日、まちの市役所で。事前の申し込みはいりません。<br>こどもの事前登録フォームは準備中です（決まりしだい、ここにつなぎます）。</p>
   </div>
 </section>
 
@@ -242,7 +280,7 @@
 
 <div class="proto">🎨 ビジターページ試作 visitor.html（レート・受付方法は確認中）</div>
 
-<script src="js/typeset.js?v=6"></script>
+<script src="js/typeset.js?v=12"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

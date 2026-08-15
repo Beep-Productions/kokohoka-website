@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>これまでのお仕事｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=10">
+<style>
+/* ===== お仕事一覧ページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
+.page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.45}
+.page-hero p{color:var(--ink-soft);margin-top:16px}
+.page-hero .lead-note{max-width:620px;margin:26px auto 0;border:1.5px dashed var(--ink-soft);border-radius:18px;padding:16px 20px;font-size:.88rem;color:var(--ink-soft);line-height:1.9}
+.page-hero .lead-note a{border-bottom:1px solid var(--ink-soft);font-weight:700}
+.sec-head{text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.sec-head .kicker{display:block;font-weight:700;font-size:.88rem;color:var(--coral-deep);letter-spacing:.1em;margin-bottom:8px}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-town{-webkit-mask-image:url("images/motifs/town.png");mask-image:url("images/motifs/town.png")}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.c-blue{background-color:var(--blue)}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+
+/* 求人カード（掲示板に貼られた紙のイメージ。上辺のマステで色分け） */
+.jobs{display:grid;grid-template-columns:1fr;gap:18px;max-width:1040px;margin:38px auto 0}
+@media(min-width:640px){.jobs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.jobs{grid-template-columns:repeat(3,1fr)}}
+.job{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:24px 22px 21px;position:relative}
+.job::before{content:'';position:absolute;top:-2px;left:24px;width:48px;height:10px;border-radius:0 0 7px 7px;background:var(--coral)}
+.jobs-town .job::before{background:var(--blue)}
+.jobs-guild .job::before{background:var(--coral)}
+.jobs-shop .job::before{background:var(--mustard)}
+.job h3{font-weight:700;font-size:1.06rem;margin-bottom:7px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.5}
+.job p{color:var(--ink-soft);font-size:.92rem}
+.job .new{font-size:.68rem;font-weight:700;color:#fff;background:var(--coral-deep);border-radius:12px;padding:2px 9px;letter-spacing:.06em;flex:0 0 auto}
+
+/* まちで起きたこと（実話の囲み） */
+.anec{max-width:700px;margin:36px auto 0;background:var(--cream);border:2px dashed var(--ink);border-radius:22px;padding:26px 28px;position:relative}
+.anec .anec-h{font-weight:700;font-size:.86rem;color:var(--coral-deep);letter-spacing:.08em;margin-bottom:10px}
+.anec p{font-size:.96rem;color:var(--ink)}
+@media(max-width:520px){.anec{padding:22px 20px}}
+
+/* 過去にあったお仕事 */
+.past{max-width:760px;margin:30px auto 0;text-align:center}
+.past-h{font-size:.88rem;color:var(--ink-soft);margin-bottom:12px}
+.pill{display:inline-block;border:1.5px dashed var(--ink-soft);border-radius:20px;padding:5px 15px;margin:4px 3px;font-size:.88rem;color:var(--ink-soft)}
+
+/* 見習い仕事のリンク */
+.flow-note{text-align:center;margin-top:30px}
+.note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:24px;line-height:1.9}
+
+/* CTA */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:700;line-height:1.5;margin-bottom:10px}
+.cta p{color:var(--ink-soft);margin-bottom:28px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+.cta .note a{border-bottom:1px solid var(--ink-soft);font-weight:700}
+</style>
+</head>
+<body class="p-rec">
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="index-new.html#contact">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="pagechip">活動を知りたい方へ</span>
+    <h1>まちの仕事は、<br>毎年ふえています。</h1>
+    <p>市役所も、銀行も、警察も、お店も。ぜんぶ子どもがやってきました。そして毎年、子どもたちの「やってみたい」から新しい仕事が生まれています。これまでにこのまちにあった仕事を、ぜんぶならべてみました。</p>
+    <p class="lead-note">※これは2023年〜2024年の記録です。<b>2026年のお仕事は、これから子どもたちと決めていきます。</b>参加する子ども向けの案内は <a href="oshigoto.html">お仕事を見てみる</a> のページにあります。</p>
+  </div>
+</section>
+
+<!-- まちのための仕事 -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-town c-blue"></span>
+    <span class="kicker">その1</span>
+    <h2>まちのための仕事。</h2>
+    <p>税金からお給料が出る、おおやけの仕事です。だれかがやらないと、まちが動きません。ここほかでいちばん責任のある仕事かもしれません。</p>
+  </div>
+  <div class="jobs jobs-town">
+    <div class="job reveal"><h3>市役所</h3><p>市民とうろくの受付。まちに来た子に市民証をわたす、いちばん最初の窓口です。</p></div>
+    <div class="job reveal"><h3>ハローワーク</h3><p>お仕事の紹介と登録。いまどの仕事が空いているかを案内して、はたらきたい子とお店をつなぎます。</p></div>
+    <div class="job reveal"><h3>銀行</h3><p>お給料の支払い。まちのお金「ココ」をあつかう、いちばん人の笑顔が集まる場所です。</p></div>
+    <div class="job reveal"><h3>税務署<span class="new">2024年から</span></h3><p>税金の管理。あつめた税金が、まちの何に使われているのかが見えるようにします。</p></div>
+    <div class="job reveal"><h3>両替所<span class="new">2024年から</span></h3><p>日本円を、まちのお金に両替します。ビジターの大人が最初にたずねてくる場所です。</p></div>
+    <div class="job reveal"><h3>警察</h3><p>まちのパトロール、交通整理、道案内、落とし物の管理。大人がルールを守っているかも見ています。</p></div>
+    <div class="job reveal"><h3>福祉課<span class="new">2024年から</span></h3><p>「本物のまち」でこまっていることを、まちの人に聞いてまわります。集めた声は、ちゃんと行政に届けます。</p></div>
+    <div class="job reveal"><h3>ファシリテーター<span class="new">2024年から</span></h3><p>話し合いの進めかたを学んで、「認定ファシリテーター」としてまちで過ごします。2024年は2日間で32人がこの仕事につきました。</p></div>
+    <div class="job reveal"><h3>清掃局</h3><p>会場のゴミひろいと、分別の声かけ。まちをきれいに保つ仕事です。</p></div>
+    <div class="job reveal"><h3>案内所<span class="new">2024年から</span></h3><p>まちの案内。はじめて来た人を、行きたい場所まで連れていきます。</p></div>
+  </div>
+  <div class="anec reveal">
+    <p class="anec-h">まちで、こんなことが起きました</p>
+    <p>2023年の警察は、平和すぎて事件が起きませんでした。そこで子どもたちは、暑さで困っている人に冷却スプレーをかけて背中を涼しくする、という仕事を自分で生み出しました。バイオリンを持った大人から「路上で演奏してもいいか」と問い合わせが来たときは、警察官が数名で話し合い、許可を出しています。</p>
+  </div>
+  <div class="anec reveal">
+    <p class="anec-h">まちで、こんなことが起きました</p>
+    <p>2024年の福祉課では、1日で7人の子どもが、まちにいる59人から「くらしのなかで困っていること」を聞き取りました。その声は報告書にまとめられ、新潟県社会福祉協議会・新潟市中央区社会福祉協議会・新潟市に提出されています。</p>
+  </div>
+</section>
+
+<!-- こどもギルド -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-coral"></span>
+    <span class="kicker">その2</span>
+    <h2>こどもギルド。</h2>
+    <p>子どもたちの「やってみたい」から生まれる、遊びのお店です。2024年は、準備からかかわった子どもたちが大人の前で事業計画を発表してお金を借り、自分たちで起業しました。</p>
+  </div>
+  <div class="jobs jobs-guild">
+    <div class="job reveal"><h3>射的</h3><p>ゲームのお店。お客さんにルールを説明して、景品をわたします。まちで一番の人気店。</p></div>
+    <div class="job reveal"><h3>ボウリング<span class="new">2024年から</span></h3><p>ゲームのお店。小さい子でも遊べるように、みんなで工夫しました。</p></div>
+    <div class="job reveal"><h3>ストラックアウト<span class="new">2024年から</span></h3><p>ゲームのお店。的をねらって、当たった数で景品が変わります。</p></div>
+    <div class="job reveal"><h3>くじつき八百屋さん<span class="new">2024年から</span></h3><p>野菜と果物の販売。農家さんに会いにいって、稲刈りや梨狩りを体験し、仕入れの交渉まで自分たちでやりました。</p></div>
+    <div class="job reveal"><h3>元気ポーション屋さん</h3><p>飲み物の販売。名前も、売り方も、子どもたちが考えました。</p></div>
+    <div class="job reveal"><h3>フォトグラファー<span class="new">2024年から</span></h3><p>チェキでまちの人を撮る仕事。その場で1枚、思い出をわたします。</p></div>
+    <div class="job reveal"><h3>こどもアカデミー<span class="new">2024年から</span></h3><p>自分の好きなこと・得意なことを、ほかの子に教える「先生」の仕事。カードゲームの遊び方、イラストの描き方などの授業がひらかれました。</p></div>
+    <div class="job reveal"><h3>紙しばい師<span class="new">2024年から</span></h3><p>英語の紙しばいを練習して、人が集まっているところで上演します。1日で15人がデビューしました。</p></div>
+    <div class="job reveal"><h3>大人お悩み相談所<span class="new">2024年から</span></h3><p>大人の悩みを聞く仕事。話をじっくり聞いて、アドバイスをしたり、処方箋（すっきりする飴、集中できるラムネ）を出したりします。</p></div>
+  </div>
+  <div class="past reveal">
+    <p class="past-h">これまでにあった、ほかのお店</p>
+    <span class="pill">ガチャ</span><span class="pill">釣り堀</span><span class="pill">コイン落とし</span><span class="pill">クエスト</span><span class="pill">すてきなお花やさん</span><span class="pill">こどもパフォーマンス受付</span>
+  </div>
+  <div class="anec reveal">
+    <p class="anec-h">まちで、こんなことが起きました</p>
+    <p>「大人お悩み相談所」は、子どもが正座をして待つ店構えでした。赤ちゃんを隣に寝かせて、小窓の向こうの子どもに真剣に相談する人もいました。あとで大人にアンケートをとったら、「もらったアドバイスを実行している」という声がありました。</p>
+  </div>
+</section>
+
+<!-- 見習い仕事 -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-mustard"></span>
+    <span class="kicker">その3</span>
+    <h2>見習い仕事。</h2>
+    <p>まちに出店してくれた本物のお店で、本物の仕事を手伝います。パン屋さん、おすし屋さん、カフェ、カレー屋さん。注文をとって、商品を手わたして、お客さんとやりとりする。ごっこ遊びとは、少しちがう緊張感があります。</p>
+  </div>
+  <div class="jobs jobs-shop">
+    <div class="job reveal"><h3>パン屋さん</h3><p>売り場に立って、パンを売ります。2024年は、売り上げをあげるために移動販売を思いついた子たちがいました。</p></div>
+    <div class="job reveal"><h3>おすし屋さん</h3><p>老舗のおすし屋さんといっしょに。にぎりずしのワークショップは、子どもも大人も大盛り上がりでした。</p></div>
+    <div class="job reveal"><h3>カフェ・飲みもの屋さん</h3><p>かき氷、スープ、ドリンク。注文をまちがえないように、自分でダンボールの表をつくった子もいました。</p></div>
+    <div class="job reveal"><h3>ごはん屋さん</h3><p>カレー、丼もの、おにぎり。看板やメニュー表がないお店では、最初に就職した子がデザインをまかされました。</p></div>
+  </div>
+  <p class="note-c reveal">その年に出店してくださるお店によって、見習いできる仕事は変わります。</p>
+  <div class="flow-note reveal">
+    <a href="oshigoto.html" class="btn btn-line g-kid">ことしのここほかを見る →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="apply">
+  <div class="reveal">
+    <h2>まちは、毎年そだっています。</h2>
+    <p>3年のあいだに、まちの仕事はここまで増えました。ことしは、どんな仕事が生まれるでしょう。</p>
+    <a href="history.html" class="btn btn-cta g-rec">これまでのここほかを見る ▶</a>
+    <p class="note">ことしのお仕事を見たい方は <a href="oshigoto.html">こちら</a></p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+<div class="proto">🎨 これまでのお仕事 jobs.html（2023–2024の記録）</div>
+
+<script src="js/typeset.js?v=12"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+</body>
+</html>

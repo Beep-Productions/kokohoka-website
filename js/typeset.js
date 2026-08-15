@@ -19,11 +19,15 @@
     /* 市民の一日 */
     '.tl-text p', '.day2 p', '.day2 li',
     /* ビジター */
-    '.promise p', '.can-card p',
+    '.promise p', '.can-card p', '.rules-note',
     /* ボランティア */
     '.role p', '.req-value',
     /* これまでのここほか */
-    '.topic', '.vol-cta p'
+    '.topic', '.vol-cta p',
+    /* お仕事一覧・催し */
+    '.job p', '.anec p', '.uni-card p', '.ws p',
+    /* お仕事（子ども向け）*/
+    '.mood li span', '.easy-item p', '.card p', '.tt-w'
   ].join(',');
 
   /* ▼レベル2：上に加えて「、」でも区切る
@@ -31,7 +35,7 @@
      　　　　　見た目は変わらず、スマホで行が足りないときだけ読点で折れる */
   var SELECTOR_PHRASE = [
     '.lead', '.center p', '.sec-head p', '.page-hero p', '.page-hero .lead-note',
-    '.closing p', '.sub', '.year-text'
+    '.closing p', '.sub', '.year-text', '.rules-lead', '.archive p', '.maybe p', '.glead'
   ].join(',');
 
   var SENTENCE_END = /[。！？]/;
