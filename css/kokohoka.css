@@ -134,8 +134,40 @@ body.p-rec{--pagecolor:var(--mustard)}
 .mtrack .item{flex:0 0 auto}
 @keyframes scroll{to{transform:translateX(calc(-50% - var(--gap)/2))}}
 .gallery-btn{text-align:center;margin-top:34px}
-/* ギャラリー下：「活動そのものを知りたい人」という読者がいることを、ここで見せる */
-.glead{max-width:620px;margin:0 auto 22px;color:var(--ink-soft);font-size:clamp(.94rem,2.5vw,1.02rem)}
+/* ギャラリー下の控えめなリンク。
+   ここで目立つべきなのは参加を考えている子ども・保護者なので、
+   記録への入口はボタンにせず、探している人だけが見つける佇まいにする。 */
+.quietlink{text-align:center;margin-top:30px}
+.quietlink a{display:inline-flex;align-items:center;gap:9px;font-size:.88rem;color:var(--ink-soft);
+  border-bottom:1px solid var(--cream-deep);padding-bottom:3px;transition:.15s}
+.quietlink a::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--mustard);flex:0 0 auto}
+.quietlink a:hover{color:var(--ink);border-bottom-color:var(--mustard)}
+
+/* ============ 活動を知りたい方へ（トップ最下部）============ */
+.knowbox{max-width:660px;margin:0 auto;text-align:center}
+.glead{max-width:620px;margin:0 auto 26px;color:var(--ink-soft);font-size:clamp(.94rem,2.5vw,1.02rem)}
+.know-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:stretch}
+.know-btns .btn{font-size:.95rem;padding:13px 24px}
+
+/* ============ 事前登録（3分岐）============
+   実体が市民・ビジター・ボランティアの3つに分かれているので、CTAも3つ見せる。
+   フォールバック用に .is-soon（準備中）を用意してある。届いたら
+   <span class="apply is-soon"> を <a href="..." class="apply"> に替えるだけ。 */
+.applys{display:grid;grid-template-columns:1fr;gap:14px;max-width:820px;margin:0 auto;text-align:left}
+@media(min-width:760px){.applys{grid-template-columns:repeat(3,1fr)}}
+.apply{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;
+  background:var(--cream);border:2.5px solid var(--ink);
+  border-radius:22px;padding:18px 20px;box-shadow:0 5px 0 rgba(46,43,61,.10);transition:.18s}
+.apply .ad{grid-row:1 / span 2}
+a.apply:hover{transform:translateY(-2px)}
+a.apply:active{transform:translateY(3px);box-shadow:none}
+.apply .ad{width:14px;height:14px;border-radius:50%;flex:0 0 auto}
+.ad-kid{background:var(--coral)}
+.ad-vis{background:#6f8fb5}
+.ad-vol{background:#5f9e6b}
+.apply b{font-weight:700;font-size:1rem;line-height:1.4}
+.apply small{display:block;font-size:.78rem;color:var(--ink-soft);margin-top:2px}
+.apply.is-soon{opacity:.55;box-shadow:none;border-style:dashed;cursor:default}
 
 /* ============ ヒーロー（KV）============ */
 .hero{text-align:center;padding:26px 0 10px}

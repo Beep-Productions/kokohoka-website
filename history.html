@@ -7,12 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=10">
+<link rel="stylesheet" href="css/kokohoka.css?v=11">
 <style>
 /* ===== 変遷ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:700px;margin:0 auto}
 .page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em}
 .page-hero p{color:var(--ink-soft);margin-top:16px}
+.page-hero .tolink{margin-top:20px;font-size:.92rem}
+.page-hero .tolink a{font-weight:700;color:var(--ink);border-bottom:1.5px solid var(--mustard);padding-bottom:2px}
 .sec-head{text-align:center;max-width:660px;margin:0 auto;position:relative;z-index:1}
 .sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
 .sec-head p{color:var(--ink);margin-top:16px}
@@ -26,24 +28,6 @@
 .c-mustard{background-color:var(--mustard)}
 .c-green{background-color:var(--green)}
 .c-blue{background-color:var(--blue)}
-/* 額縁風ボックス（内容を手描きの枠で囲む）*/
-.framebox{position:relative;background:var(--cream);border:2.5px solid var(--ink);border-radius:20px 22px 18px 24px;padding:26px 30px}
-.framebox::before{content:'';position:absolute;inset:6px;border:1.5px solid var(--ink);border-radius:15px 17px 13px 19px;opacity:.4;pointer-events:none}
-/* 年表 */
-.timeline{text-align:left}
-.tl-item{display:flex;gap:16px;padding:9px 0;align-items:baseline;border-bottom:1px dashed var(--cream-deep)}
-.tl-item:last-child{border-bottom:none}
-.tl-year{flex:0 0 auto;width:52px;color:var(--coral-deep);font-weight:700}
-.tl-event{color:var(--ink);font-size:.98rem}
-/* しくみ（横並び） */
-.steps-inline{display:flex;flex-wrap:wrap;gap:10px 8px;justify-content:center;align-items:center;max-width:660px;margin:30px auto 0;position:relative;z-index:1}
-.steps-inline .st{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:7px 16px;font-weight:700;font-size:.9rem}
-.steps-inline .arw{color:var(--coral);font-weight:700}
-/* フレームワーク */
-.frame-list{display:grid;gap:12px;text-align:left}
-.frame-list li{list-style:none;padding-left:34px;position:relative}
-.frame-list li::before{content:'';position:absolute;left:0;top:.35em;width:20px;height:20px;background-color:var(--mustard);-webkit-mask:url("images/motifs/star.png") center/contain no-repeat;mask:url("images/motifs/star.png") center/contain no-repeat}
-.frame-list li span{display:block;color:var(--ink-soft);font-size:.85rem;margin-top:3px;line-height:1.6}
 /* 歩み（年別） */
 .year-block{max-width:940px;margin:0 auto;padding:40px 0}
 .year-block + .year-block{border-top:1px dashed var(--cream-deep)}
@@ -112,53 +96,8 @@
   <div class="reveal">
     <span class="pagechip">活動を知りたい方へ</span>
     <h1>これまでのここほか</h1>
-    <p>子どもたちがつくる小さな町「ここほか」。<br>その歩みと、この活動が大切にしていることを、まとめました。</p>
-  </div>
-</section>
-
-<!-- なぜ必要か -->
-<section class="section">
-  <div class="sec-head reveal">
-    <span class="deco-ico ico-star c-coral"></span>
-    <h2>なぜ、この活動が必要か。</h2>
-    <p>「子どもの権利条約」という世界の約束に日本が参加してから、30年あまり。それなのに、子どものための法律（こども基本法）や役所（こども家庭庁）ができたのは2023年、新潟市の子どものルール（子ども条例）も2022年と、ちゃんと形になってきたのは、ほんの最近のことです。</p>
-    <p class="sub">なかでも、子どもが<b>「自分の意見を言っていい」「社会に参加していい」</b>という考え方は、まだあまり広まっていません。子どもが自分の声を持って、その声がちゃんと届く——そんな経験を積み重ねていくことが、これからの社会には大切だと、私たちは考えています。</p>
-  </div>
-  <div class="framebox reveal" style="max-width:470px;margin:36px auto 0">
-    <div class="timeline">
-      <div class="tl-item"><span class="tl-year">1948</span><span class="tl-event">世界人権宣言（みんなの人権を大切に、という約束）</span></div>
-      <div class="tl-item"><span class="tl-year">1989</span><span class="tl-event">国連で「子どもの権利条約」ができる</span></div>
-      <div class="tl-item"><span class="tl-year">1994</span><span class="tl-event">日本も、この約束に参加する</span></div>
-      <div class="tl-item"><span class="tl-year">2022</span><span class="tl-event">新潟市に「子ども条例」（子どものルール）ができる</span></div>
-      <div class="tl-item"><span class="tl-year">2023</span><span class="tl-event">「こども基本法」と「こども家庭庁」ができる</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- シティズンシップ -->
-<section class="section tint">
-  <div class="sec-head reveal">
-    <span class="deco-ico ico-heart c-mustard"></span>
-    <h2>シティズンシップって？</h2>
-    <p>シティズンシップ（市民性）とは、社会の一員として自分から関わり、みんなでよりよい社会をつくっていく力のこと。</p>
-    <p class="sub">知識として教わるのではなく、遊びのなかで“やってみる”ことで身につけていく——それが、ここほかの考え方です。</p>
-  </div>
-</section>
-
-<!-- ミニ・ミュンヘン -->
-<section class="section">
-  <div class="sec-head reveal">
-    <span class="deco-ico ico-star c-blue"></span>
-    <h2>モデルは、ドイツの「ミニ・ミュンヘン」。</h2>
-    <p>ここほかがお手本にしているのは、1979年にドイツ・ミュンヘンで始まった「ミニ・ミュンヘン」。7〜15歳の子どもだけで動かす、“小さな町”です。</p>
-    <p class="sub">この仕組みは日本にも広がり、コロナ前には全国300以上の市町村で開かれていました。一度は数を減らしましたが、いままた広がりはじめています。ここほかも、その流れのなかにいます。</p>
-  </div>
-  <div class="steps-inline reveal">
-    <span class="st">市民とうろく</span><span class="arw">→</span>
-    <span class="st">お仕事</span><span class="arw">→</span>
-    <span class="st">お給料</span><span class="arw">→</span>
-    <span class="st">ぜいきん</span><span class="arw">→</span>
-    <span class="st">まちで使う</span>
+    <p>2023年に新潟ではじまった、子どもたちの小さな町。<br>会場も、お仕事も、子どもの数も、年ごとに育ってきました。<br>その3年間の記録です。</p>
+    <p class="tolink"><a href="activity.html">この活動の考え方・意義について →</a></p>
   </div>
 </section>
 
@@ -400,7 +339,7 @@
     <span class="deco-ico ico-star c-mustard" style="margin-bottom:8px"></span>
     <span class="badge">そして、今年（2026）</span>
     <h3>こどもが、まちの主役に。</h3>
-    <p>今年から、子どもたち自身でつくる「こども実行委員」が動きはじめました。まちのことを話し合う会議「超会議」もスタート。子どもたち自身が主役になって、ことしのここほかを準備しています。</p>
+    <p>今年から、子どもたちの会議「<b>超会議</b>」が動きはじめました。集まった議員たちが、まち全体のルールを決めたり、「こういうのがあったらいいんじゃない」という声を集めたり。子どもたち自身が主役になって、ことしのここほかを準備しています。</p>
     <p class="topic">さらに本場ドイツ・ミュンヘンの「こどものまち」と、Zoomで国際会議も開きます！（8月19日 予定）</p>
   </div>
 
@@ -424,34 +363,6 @@
   </div>
 </section>
 
-<!-- 目指す社会（フレームワーク） -->
-<section class="section">
-  <div class="sec-head reveal">
-    <span class="deco-ico ico-heart c-coral"></span>
-    <h2>私たちが目指す、ちょっと先の社会。</h2>
-    <p class="sub">ここほかは、ただのお仕事体験ではありません。「こうあってほしい」と願う社会の姿を、まちのルールにしています。</p>
-  </div>
-  <div class="framebox reveal" style="max-width:540px;margin:30px auto 0">
-    <ul class="frame-list">
-      <li>だれもが、社会に参加できる<span>ヘルプマークや点字のワークショップなど、みんなが関われる工夫を。</span></li>
-      <li>みんなで決める、みんなのまち<span>ものごとは、みんなで話し合って決める。だれひとり取り残さない。</span></li>
-      <li>子どもの権利が、きちんと守られる<span>「遊ぶ・休む・決める・失敗する」権利を、大切に。</span></li>
-      <li>教育は、大学まで無料<span>おもしろい大人が先生になる「こども大学」も。</span></li>
-      <li>主役は、あくまで子ども<span>大人がしていいこと・いけないことも、子どもたちが決める。</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- 大切にしていること -->
-<section class="section tint">
-  <div class="sec-head reveal">
-    <span class="deco-ico ico-heart c-green"></span>
-    <h2>大切にしていること。</h2>
-    <p>いちばん大切にしているのは、子どもたちが「自分の権利が守られる」感覚と、「自分のまちは自分で動かせる」手ごたえを持って、リアルなまちへ帰っていくこと。</p>
-    <p class="sub">草の根の小さな活動ですが、そうやって育った子どもたちが、少しずつ社会を変えていく。希望の種をまくように、続けています。いつかここほかから、選挙で選ばれた子ども市長が生まれて、本物の市長と机を並べる。そんな未来も、本気で思い描いています。</p>
-  </div>
-</section>
-
 <!-- ボランティアの声かけ -->
 <section class="vol-cta">
   <div class="reveal">
@@ -467,6 +378,7 @@
   <div class="fname">こころほかほかあたたかい町（ここほか）</div>
   <nav class="fnav">
     <a href="index-new.html#about">ここほかって？</a>
+    <a href="activity.html">この活動について</a>
     <a href="#top">これまでのここほか</a>
     <a href="citizen.html">市民の一日</a>
     <a href="index-new.html#cta">事前登録</a>
@@ -482,7 +394,7 @@
 <div class="proto">🎨 変遷ページ試作 history.html（文章は下書き）</div>
 
 <script src="js/marquee.js?v=1"></script>
-<script src="js/typeset.js?v=12"></script>
+<script src="js/typeset.js?v=13"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

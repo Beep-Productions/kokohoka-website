@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=10">
+<link rel="stylesheet" href="css/kokohoka.css?v=11">
 </head>
 <body>
 
@@ -90,10 +90,8 @@
       <div class="item" style="width:300px"><div class="framed fr04"><img class="ph" decoding="async" data-src="images/photos/2025/16.webp" alt=""><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div></div>
     </div>
   </div>
-  <div class="gallery-btn reveal">
-    <span class="pagechip chip-rec">活動を知りたい方へ</span>
-    <p class="glead">参加しなくても、知ってもらえたらうれしいです。この3年で、まちがどんなふうに育ってきたのか。会場も、お仕事も、子どもの数も、少しずつ増えてきました。</p>
-    <a href="history.html" class="btn btn-line g-rec">これまでのここほかを見る →</a>
+  <div class="quietlink reveal">
+    <a href="history.html">これまでの開催記録（2023–2025）→</a>
   </div>
 </section>
 
@@ -160,7 +158,7 @@
       <h3>7〜15歳の子ども</h3>
       <p class="age">小学1年生〜中学3年生</p>
       <p>市民とうろくをして、2日間のまちを思いっきり楽しめます。</p>
-      <a href="#cta" class="btn btn-fill g-kid">こどもの参加はこちら →</a>
+      <a href="citizen.html" class="btn btn-line g-kid">市民の一日を見る →</a>
     </div>
     <div class="who-card who-vis reveal">
       <span class="badge">ビジターとして</span>
@@ -184,9 +182,25 @@
   <div class="reveal">
     <p class="date">2026年11月21日（土）・22日（日）<span class="nb">／新潟・古町7番町</span></p>
     <h2>ことしのここほかで、会おう！</h2>
-    <p>まちの市民になって、2日間を思いっきり楽しもう。</p>
-    <a href="#" class="btn btn-cta">参加の事前登録はこちら ▶</a>
-    <p class="note">※事前登録フォームは準備中です（決まり次第ここにつなぎます）</p>
+    <p>参加のしかたは3つ。自分に合うものを選んでください。</p>
+    <div class="applys">
+      <span class="apply is-soon"><span class="ad ad-kid"></span><b>こども（市民）として</b><small>フォーム準備中</small></span>
+      <span class="apply is-soon"><span class="ad ad-vis"></span><b>ビジターとして</b><small>フォーム準備中</small></span>
+      <a href="https://forms.gle/HjYr5MxXD2YZ8XLm7" target="_blank" rel="noopener noreferrer" class="apply"><span class="ad ad-vol"></span><b>ボランティアとして</b><small>受付中 ▶</small></a>
+    </div>
+    <p class="note">※こども・ビジターのフォームは準備中です（できしだい、ここにつなぎます）</p>
+  </div>
+</section>
+
+<!-- 活動を知りたい方へ（参加者の流れを終えたあとに置く） -->
+<section class="section" id="know">
+  <div class="knowbox reveal">
+    <span class="pagechip chip-rec">活動を知りたい方へ</span>
+    <p class="glead">参加しなくても、知ってもらえたらうれしいです。なぜこの活動をしているのか。この3年で、まちがどんなふうに育ってきたのか。まとめてあります。</p>
+    <div class="know-btns">
+      <a href="activity.html" class="btn btn-line g-rec">この活動について →</a>
+      <a href="history.html" class="btn btn-line g-rec">これまでのここほかを見る →</a>
+    </div>
   </div>
 </section>
 
@@ -195,6 +209,7 @@
   <div class="fname">こころほかほかあたたかい町（ここほか）</div>
   <nav class="fnav">
     <a href="#about">ここほかって？</a>
+    <a href="activity.html">この活動について</a>
     <a href="history.html">これまでのここほか</a>
     <a href="citizen.html">市民の一日</a>
     <a href="#cta">事前登録</a>
@@ -210,7 +225,7 @@
 <div class="proto">🎨 新デザイン試作 index-new.html</div>
 
 <script src="js/marquee.js?v=1"></script>
-<script src="js/typeset.js?v=12"></script>
+<script src="js/typeset.js?v=13"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

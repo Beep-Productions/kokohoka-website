@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>この活動について｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=11">
+<style>
+/* ===== この活動について（意義）ページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
+.page-hero h1{font-size:clamp(2rem,6vw,2.9rem);font-weight:700;letter-spacing:.02em;line-height:1.4}
+.page-hero p{color:var(--ink-soft);margin-top:18px}
+.sec-head{text-align:center;max-width:660px;margin:0 auto;position:relative;z-index:1}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.sec-head .sub{color:var(--ink-soft)}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.ico-town{-webkit-mask-image:url("images/motifs/town.png");mask-image:url("images/motifs/town.png")}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+.c-green{background-color:var(--green)}
+.c-blue{background-color:var(--blue)}
+
+/* 額縁風ボックス */
+.framebox{position:relative;background:var(--cream);border:2.5px solid var(--ink);border-radius:20px 22px 18px 24px;padding:26px 30px}
+.framebox::before{content:'';position:absolute;inset:6px;border:1.5px solid var(--ink);border-radius:15px 17px 13px 19px;opacity:.4;pointer-events:none}
+/* 年表 */
+.timeline{text-align:left}
+.tl-item{display:flex;gap:16px;padding:9px 0;align-items:baseline;border-bottom:1px dashed var(--cream-deep)}
+.tl-item:last-child{border-bottom:none}
+.tl-year{flex:0 0 auto;width:52px;color:var(--coral-deep);font-weight:700}
+.tl-event{color:var(--ink);font-size:.98rem}
+/* しくみ（横並び） */
+.steps-inline{display:flex;flex-wrap:wrap;gap:10px 8px;justify-content:center;align-items:center;max-width:660px;margin:30px auto 0;position:relative;z-index:1}
+.steps-inline .st{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:7px 16px;font-weight:700;font-size:.9rem}
+.steps-inline .arw{color:var(--coral);font-weight:700}
+/* フレームワーク */
+.frame-list{display:grid;gap:12px;text-align:left}
+.frame-list li{list-style:none;padding-left:34px;position:relative}
+.frame-list li::before{content:'';position:absolute;left:0;top:.35em;width:20px;height:20px;background-color:var(--mustard);-webkit-mask:url("images/motifs/star.png") center/contain no-repeat;mask:url("images/motifs/star.png") center/contain no-repeat}
+.frame-list li span{display:block;color:var(--ink-soft);font-size:.85rem;margin-top:3px;line-height:1.6}
+
+/* 新潟のここほか（要約） */
+.facts{display:grid;grid-template-columns:1fr;gap:16px;max-width:860px;margin:36px auto 0;align-items:start}
+@media(min-width:700px){.facts{grid-template-columns:repeat(3,1fr)}}
+.fact{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:24px 20px;text-align:center;position:relative}
+.fact::before{content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:52px;height:10px;border-radius:0 0 7px 7px;background:var(--mustard)}
+.fact .fnum{font-weight:700;font-size:clamp(1.5rem,5vw,2rem);color:var(--coral-deep);line-height:1.3}
+.fact .flabel{font-weight:700;font-size:.95rem;margin-top:6px}
+.fact .fnote{color:var(--ink-soft);font-size:.85rem;margin-top:6px;line-height:1.7}
+.morebtn{text-align:center;margin-top:34px}
+.note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:24px;line-height:1.9}
+
+/* CTA（お問い合わせ） */
+.cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+.cta h2{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:700;line-height:1.5;margin-bottom:14px}
+.cta p{color:var(--ink-soft);margin-bottom:26px}
+.cta .note{margin-top:16px;font-size:.82rem;color:var(--ink-soft)}
+.reasons{display:grid;grid-template-columns:1fr;gap:12px;max-width:560px;margin:0 auto 30px;text-align:left}
+@media(min-width:640px){.reasons{grid-template-columns:repeat(3,1fr);text-align:center}}
+.reasons li{list-style:none;background:var(--cream);border:2px solid var(--ink);border-radius:18px;padding:16px 18px;font-size:.92rem;font-weight:700}
+</style>
+</head>
+<body class="p-rec">
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="index-new.html#contact">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="pagechip">活動を知りたい方へ</span>
+    <h1>自分のまちは、<br>自分で動かせる。</h1>
+    <p>ここほかは、子どもだけがつくって運営する2日間のまちです。働いて、お給料をもらって、税金をおさめて、まちのことを自分たちで決める。遊びを通して社会に参加する体験を、新潟でひらいています。</p>
+  </div>
+</section>
+
+<!-- なぜ必要か -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-coral"></span>
+    <h2>なぜ、この活動が必要か。</h2>
+    <p>「子どもの権利条約」という世界の約束に日本が参加してから、30年あまり。それなのに、子どものための法律（こども基本法）や役所（こども家庭庁）ができたのは2023年、新潟市の子どものルール（子ども条例）も2022年と、ちゃんと形になってきたのは、ほんの最近のことです。</p>
+    <p class="sub">なかでも、子どもが<b>「自分の意見を言っていい」「社会に参加していい」</b>という考え方は、まだあまり広まっていません。子どもが自分の声を持って、その声がちゃんと届く——そんな経験を積み重ねていくことが、これからの社会には大切だと、私たちは考えています。</p>
+  </div>
+  <div class="framebox reveal" style="max-width:470px;margin:36px auto 0">
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-year">1948</span><span class="tl-event">世界人権宣言（みんなの人権を大切に、という約束）</span></div>
+      <div class="tl-item"><span class="tl-year">1989</span><span class="tl-event">国連で「子どもの権利条約」ができる</span></div>
+      <div class="tl-item"><span class="tl-year">1994</span><span class="tl-event">日本も、この約束に参加する</span></div>
+      <div class="tl-item"><span class="tl-year">2022</span><span class="tl-event">新潟市に「子ども条例」（子どものルール）ができる</span></div>
+      <div class="tl-item"><span class="tl-year">2023</span><span class="tl-event">「こども基本法」と「こども家庭庁」ができる</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- シティズンシップ -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-mustard"></span>
+    <h2>シティズンシップって？</h2>
+    <p>シティズンシップ（市民性）とは、社会の一員として自分から関わり、みんなでよりよい社会をつくっていく力のこと。</p>
+    <p class="sub">知識として教わるのではなく、遊びのなかで“やってみる”ことで身につけていく——それが、ここほかの考え方です。</p>
+  </div>
+</section>
+
+<!-- こどものまちという方法 -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-blue"></span>
+    <h2>モデルは、ドイツの「ミニ・ミュンヘン」。</h2>
+    <p>ここほかがお手本にしているのは、1979年にドイツ・ミュンヘンで始まった「ミニ・ミュンヘン」。7〜15歳の子どもだけで動かす、“小さな町”です。</p>
+    <p class="sub">この仕組みは日本にも広がり、コロナ前には全国300以上の市町村で開かれていました。一度は数を減らしましたが、いままた広がりはじめています。ここほかも、その流れのなかにいます。</p>
+  </div>
+  <div class="steps-inline reveal">
+    <span class="st">市民とうろく</span><span class="arw">→</span>
+    <span class="st">お仕事</span><span class="arw">→</span>
+    <span class="st">お給料</span><span class="arw">→</span>
+    <span class="st">ぜいきん</span><span class="arw">→</span>
+    <span class="st">まちで使う</span>
+  </div>
+  <p class="note-c reveal">この5つがぐるぐる回ることで、お金とまちの仕組みを、遊びながら体でおぼえていきます。</p>
+</section>
+
+<!-- 新潟のここほか -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-town c-green"></span>
+    <h2>新潟の「ここほか」。</h2>
+    <p>敬和学園大学・大岩ゼミが中心となって、2023年にスタート。新潟県内では、はじめてのこどものまちでした。会場は公園から地下街へ、そして商店街へ。年ごとに場所を変えながら、今年で4回目をむかえます。</p>
+    <p class="sub">まちの仕事は3種類。市役所や銀行のような<b>まちのための仕事</b>、地元のお店で働く<b>見習い仕事</b>、子どもたちが自分でひらく<b>お店やワークショップ</b>。そこに、おもしろい大人が先生になる「こども大学」が加わります。</p>
+  </div>
+  <div class="facts">
+    <div class="fact reveal">
+      <div class="fnum">126<span style="font-size:.6em">人</span></div>
+      <div class="flabel">2023年</div>
+      <div class="fnote">県立鳥屋野潟公園で3日間。<br>記録的な猛暑のなかでの開催。</div>
+    </div>
+    <div class="fact reveal">
+      <div class="fnum">約250<span style="font-size:.6em">人</span></div>
+      <div class="flabel">2024年</div>
+      <div class="fnote">NEXT21アトリウムと西堀ローサへ。<br>付き添いの大人も221人が来場。</div>
+    </div>
+    <div class="fact reveal">
+      <div class="fnum">4<span style="font-size:.6em">回目</span></div>
+      <div class="flabel">2026年</div>
+      <div class="fnote">11月21日・22日、古町7番町。<br>まちの仕事も、毎年ふえています。</div>
+    </div>
+  </div>
+  <div class="sec-head reveal" style="margin-top:44px">
+    <p>まちをつくる側にも、子どもがいます。自分たちで企画してお店を出すグループと、今年から動きはじめた「超会議」。超会議の議員たちは、まち全体のルールを決めたり、「こういうのがあったらいいんじゃない」という声を集めたりしています。本場ミニ・ミュンヘンの子どもたちとの交流や、世界のこどものまちが集まってつくった憲章をどう活かすかも、この会議のテーマです。</p>
+  </div>
+  <div class="morebtn reveal">
+    <a href="history.html" class="btn btn-line g-rec">これまでのここほかを見る →</a>
+  </div>
+</section>
+
+<!-- 目指す社会 -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-coral"></span>
+    <h2>私たちが目指す、ちょっと先の社会。</h2>
+    <p class="sub">ここほかは、ただのお仕事体験ではありません。「こうあってほしい」と願う社会の姿を、まちのルールにしています。</p>
+  </div>
+  <div class="framebox reveal" style="max-width:540px;margin:30px auto 0">
+    <ul class="frame-list">
+      <li>だれもが、社会に参加できる<span>ヘルプマークや点字のワークショップなど、みんなが関われる工夫を。</span></li>
+      <li>みんなで決める、みんなのまち<span>ものごとは、みんなで話し合って決める。だれひとり取り残さない。</span></li>
+      <li>子どもの権利が、きちんと守られる<span>「遊ぶ・休む・決める・失敗する」権利を、大切に。</span></li>
+      <li>教育は、大学まで無料<span>おもしろい大人が先生になる「こども大学」も。</span></li>
+      <li>主役は、あくまで子ども<span>大人がしていいこと・いけないことも、子どもたちが決める。</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 大切にしていること -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-green"></span>
+    <h2>大切にしていること。</h2>
+    <p>いちばん大切にしているのは、子どもたちが「自分の権利が守られる」感覚と、「自分のまちは自分で動かせる」手ごたえを持って、リアルなまちへ帰っていくこと。</p>
+    <p class="sub">草の根の小さな活動ですが、そうやって育った子どもたちが、少しずつ社会を変えていく。希望の種をまくように、続けています。いつかここほかから、選挙で選ばれた子ども市長が生まれて、本物の市長と机を並べる。そんな未来も、本気で思い描いています。</p>
+  </div>
+</section>
+
+<!-- CTA：お問い合わせ -->
+<section class="cta" id="contact">
+  <div class="reveal">
+    <h2>こどものまちに、<br>関心をお持ちの方へ。</h2>
+    <p>どんなご相談でも、まずはお声がけください。</p>
+    <ul class="reasons">
+      <li>話を聞いてみたい</li>
+      <li>自分の地域でもやってみたい</li>
+      <li>取材・協賛について</li>
+    </ul>
+    <a href="#" class="btn btn-cta">お問い合わせ ▶</a>
+    <p class="note">※お問い合わせ窓口は準備中です（決まりしだい、ここにつなぎます）</p>
+    <p class="note">一緒にまちをつくってくださる方は <a href="volunteer.html">ボランティア募集</a> もご覧ください。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="activity.html">この活動について</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="index-new.html#contact">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <small>お問い合わせ窓口は準備中です（仮）</small>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+<div class="proto">🎨 この活動について activity.html</div>
+
+<script src="js/typeset.js?v=13"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+</body>
+</html>
