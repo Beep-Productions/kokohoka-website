@@ -223,6 +223,9 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
 
 /* ============ CTA ============ */
 .cta{text-align:center;padding:84px 24px;background:var(--cream-deep)}
+/* ここほかの鳥（子どもたちが考えたキャラクター）。1ページに1羽だけ、見出しの上にちょこんと。 */
+.bird-deco{display:block;margin:0 auto 18px;width:clamp(72px,10vw,104px);height:auto;
+  pointer-events:none;user-select:none}
 .cta .date{font-weight:700;color:var(--coral-deep);font-size:1.05rem;margin-bottom:10px}
 .cta h2{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;line-height:1.5;margin-bottom:10px}
 .cta p{color:var(--ink-soft);margin-bottom:30px}
