@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=13">
+<link rel="stylesheet" href="css/kokohoka.css?v=14">
 <style>
 /* ===== 催し・こども大学ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
@@ -34,18 +34,21 @@
 .freebar strong{display:block;font-size:clamp(1.1rem,4vw,1.32rem);font-weight:700;margin-bottom:8px}
 .freebar span{color:var(--ink-soft);font-size:.92rem;line-height:1.9;display:block}
 
-/* 時間割 */
-.tt{display:grid;grid-template-columns:1fr;gap:22px;max-width:900px;margin:40px auto 0}
-@media(min-width:760px){.tt{grid-template-columns:1fr 1fr}}
-.tt-day{background:var(--cream);border:2px solid var(--ink);border-radius:22px;overflow:hidden}
-.tt-day h3{background:var(--ink);color:var(--cream);text-align:center;font-weight:700;font-size:1rem;letter-spacing:.08em;padding:11px 10px}
-.tt-row{display:flex;gap:14px;padding:16px 20px;border-bottom:1px dashed var(--cream-deep);align-items:flex-start}
-.tt-row:last-child{border-bottom:none}
-.tt-n{flex:0 0 40px;height:40px;border-radius:50%;background:var(--cream-deep);border:1.5px solid var(--ink);
-  display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;margin-top:2px}
-.tt-t{font-weight:700;font-size:.98rem;line-height:1.6}
-.tt-w{color:var(--ink-soft);font-size:.85rem;margin-top:4px}
-.tt-empty{color:var(--ink-soft);font-size:.88rem;opacity:.7}
+/* 講師一覧 */
+.lects{max-width:960px;margin:40px auto 0;display:grid;gap:28px}
+.lect{background:var(--cream);border:2px solid var(--ink);border-radius:22px;overflow:hidden}
+.lect-y{background:var(--ink);color:var(--cream);text-align:center;font-weight:700;font-size:1.06rem;letter-spacing:.1em;padding:12px 10px}
+.lect-y small{display:inline-block;margin-left:12px;font-size:.75rem;font-weight:700;letter-spacing:.04em;opacity:.75}
+.lect-list{display:grid;grid-template-columns:1fr}
+@media(min-width:720px){.lect-list{grid-template-columns:1fr 1fr}}
+.lct{padding:15px 22px;border-top:1px dashed var(--cream-deep)}
+.lct:first-child{border-top:none}
+@media(min-width:720px){
+  .lct:nth-child(2){border-top:none}
+  .lct:nth-child(odd){border-right:1px dashed var(--cream-deep)}
+}
+.lct-t{font-weight:700;font-size:.97rem;line-height:1.6}
+.lct-w{color:var(--ink-soft);font-size:.84rem;margin-top:5px;line-height:1.6}
 
 /* ワークショップ・研究所カード */
 .ws-grid{display:grid;grid-template-columns:1fr;gap:18px;max-width:1000px;margin:38px auto 0}
@@ -56,6 +59,7 @@
 .ws-lab .ws::before{background:var(--green)}
 .ws h3{font-weight:700;font-size:1.04rem;margin-bottom:7px;line-height:1.5}
 .ws p{color:var(--ink-soft);font-size:.92rem}
+.ws .ws-w{font-size:.84rem;margin-top:11px;padding-top:11px;border-top:1px dashed var(--cream-deep);line-height:1.6}
 
 /* まちで起きたこと */
 .anec{max-width:700px;margin:36px auto 0;background:var(--cream);border:2px dashed var(--ink);border-radius:22px;padding:26px 28px}
@@ -63,9 +67,6 @@
 .anec p{font-size:.96rem;color:var(--ink)}
 @media(max-width:520px){.anec{padding:22px 20px}}
 
-.past{max-width:800px;margin:30px auto 0;text-align:center}
-.past-h{font-size:.88rem;color:var(--ink-soft);margin-bottom:12px}
-.pill{display:inline-block;border:1.5px dashed var(--ink-soft);border-radius:20px;padding:5px 15px;margin:4px 3px;font-size:.88rem;color:var(--ink-soft)}
 .note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:24px;line-height:1.9}
 .morebtn{text-align:center;margin-top:32px}
 
@@ -110,8 +111,8 @@
   <div class="reveal">
     <span class="pagechip">活動を知りたい方へ</span>
     <h1>おもしろい大人が、<br>先生になってきました。</h1>
-    <p>ここほかは、はたらくだけのまちではありません。デザイナー、建築家、市議会議員、コーヒー屋さん、農家さん。まちの外からやってきた大人たちが、これまでたくさんの授業をひらいてくれました。手を動かすワークショップも、子どもたちがひらく遊びのお店もあります。</p>
-    <p class="lead-note">※これは2023年〜2024年の記録です。<b>2026年の授業や催しは、これから決まっていきます。</b>参加する子ども向けの案内は <a href="asobu.html">あそぶ・まなぶ</a> のページにあります。</p>
+    <p>ここほかは、はたらくだけのまちではありません。まちの外からやってきた大人がひらく授業。手を動かすワークショップ。子どもたちが自分でひらく遊びのお店。はたらいて稼いだお金は、学ぶことにも、つくることにも、遊ぶことにも使えます。</p>
+    <p class="lead-note">※これは2023年〜2025年の記録です。<b>ここに載っている授業や催しが、そのまま2026年にあるとはかぎりません。</b>2026年の授業や催しは、これから決まっていきます。参加する子ども向けの案内は <a href="asobu.html">あそぶ・まなぶ</a> のページにあります。</p>
   </div>
 </section>
 
@@ -120,46 +121,69 @@
   <div class="sec-head reveal">
     <span class="deco-ico ico-tree c-green"></span>
     <h2>こども大学。</h2>
-    <p>デザイナー、建築家、市議会議員、コーヒー屋さん、農家さん。まちの外から、おもしろい大人が先生としてやってきます。テーマは毎回ばらばらで、正解のない話ばかりです。</p>
+    <p>デザイナー、建築家、市議会議員、コーヒー屋さん、農家さん、アナウンサー、大学の学長先生。まちの外から、おもしろい大人が先生としてやってきます。テーマは毎回ばらばらで、正解のない話ばかりです。</p>
     <p>働いている途中でも、手を止めて授業に行っていいことになっています。寝転がって聞いても、途中で走り出しても大丈夫です。</p>
   </div>
   <div class="freebar reveal">
     <strong>授業料は、無料です。</strong>
     <span>「教育は（大学まで）無料」。これは、私たちが目指したいまちのかたちとして、はじめての年に決めたことです。市民でもビジターでも、だれでも受けられます。</span>
   </div>
-  <div class="tt">
-    <div class="tt-day reveal">
-      <h3>2024年 10月5日（土）</h3>
-      <div class="tt-row"><span class="tt-n">1限</span><div><div class="tt-t">楽しいデザインのはなし</div><div class="tt-w">デザイン会社の先生</div></div></div>
-      <div class="tt-row"><span class="tt-n">2限</span><div><div class="tt-t">アニマルウェルフェアってなあに？<br>〜たまごのおはなし〜</div><div class="tt-w">動物の保護団体の先生</div></div></div>
-      <div class="tt-row"><span class="tt-n">3限</span><div><div class="tt-t">良く考え良く作り建築する</div><div class="tt-w">建築の会社の先生</div></div></div>
-    </div>
-    <div class="tt-day reveal">
-      <h3>2024年 10月6日（日）</h3>
-      <div class="tt-row"><span class="tt-n">1限</span><div><div class="tt-t">議会のはなし</div><div class="tt-w">新潟市議会議員の先生</div></div></div>
-      <div class="tt-row"><span class="tt-n">2限</span><div><div class="tt-t">未来の“社長”は君だ！<br>プログラミングで夢をかたちにしよう</div><div class="tt-w">人材の会社の先生</div></div></div>
-      <div class="tt-row"><span class="tt-n">3限</span><div><span class="tt-empty">この日は2限まで</span></div></div>
+<div class="lects">
+  <div class="lect reveal">
+    <h3 class="lect-y">2023<small>第1回・3日間で12の授業</small></h3>
+    <div class="lect-list">
+      <div class="lct"><div class="lct-t">まちづくりのはなし</div><div class="lct-w">新潟市役所 都市政策部 係長／稲葉一樹 先生</div></div>
+      <div class="lct"><div class="lct-t">こどもデザイン大学</div><div class="lct-w">（株）フレーム／石川リュータ 先生</div></div>
+      <div class="lct"><div class="lct-t">チョコレートのはなし</div><div class="lct-w">Romero Trade／金田彩夏 先生</div></div>
+      <div class="lct"><div class="lct-t">議会のはなし</div><div class="lct-w">新潟市議会議員／内山こう 先生</div></div>
+      <div class="lct"><div class="lct-t">福祉のはなし</div><div class="lct-w">新潟県社会福祉協議会／清川祐介 先生</div></div>
+      <div class="lct"><div class="lct-t">レゴで点字をまなぼう</div><div class="lct-w">敬和学園大学 Braille〜ひかりのおと〜／白川優花 先生</div></div>
+      <div class="lct"><div class="lct-t">森のはなし</div><div class="lct-w">uc factory／石田伸一 先生</div></div>
+      <div class="lct"><div class="lct-t">英語紙芝居</div><div class="lct-w">アトリエさかい／坂井邦晃 先生</div></div>
+      <div class="lct"><div class="lct-t">コーヒー屋さんのSDGs</div><div class="lct-w">SUZUKI COFFEE／佐藤俊輔 先生</div></div>
+      <div class="lct"><div class="lct-t">おしゃべりアート鑑賞</div><div class="lct-w">21世紀型教育を考える会にいがた／樋宮真奈美 先生</div></div>
+      <div class="lct"><div class="lct-t">農業のはなし</div><div class="lct-w">農事組合法人あけぼのクラブ／立川喜彦 先生</div></div>
+      <div class="lct"><div class="lct-t">おこづかい＆おかねのはなし</div><div class="lct-w">新潟キッズマネースクール☆親子スマイル校／わたなべかずき 先生</div></div>
     </div>
   </div>
-  <div class="past reveal">
-    <p class="past-h">これまでにひらかれた、ほかの授業</p>
-    <span class="pill">まちづくりのはなし</span><span class="pill">福祉のはなし</span><span class="pill">レゴで点字をまなぼう</span><span class="pill">森のはなし</span><span class="pill">チョコレートのはなし</span><span class="pill">コーヒー屋さんのSDGs</span><span class="pill">農業のはなし</span><span class="pill">おこづかい＆こどもとお金のはなし</span><span class="pill">おしゃべりアート鑑賞</span><span class="pill">こどもデザイン大学</span><span class="pill">英語紙芝居</span>
+  <div class="lect reveal">
+    <h3 class="lect-y">2024<small>2日間で5つの授業</small></h3>
+    <div class="lect-list">
+      <div class="lct"><div class="lct-t">楽しいデザインのはなし</div><div class="lct-w">（株）フレーム／長濱恵 先生</div></div>
+      <div class="lct"><div class="lct-t">アニマルウェルフェアってなあに？〜たまごのおはなし〜</div><div class="lct-w">新潟動物ネットワーク／大杉りさ 先生</div></div>
+      <div class="lct"><div class="lct-t">良く考え良く作り建築する</div><div class="lct-w">（株）サルキジーヌ／大福匠 先生</div></div>
+      <div class="lct"><div class="lct-t">議会のはなし</div><div class="lct-w">新潟市議会議員／内山こう 先生</div></div>
+      <div class="lct"><div class="lct-t">未来の“社長”は君だ！プログラミングで夢をかたちにしよう</div><div class="lct-w">（株）ヒューマンリソース／東條英明 先生</div></div>
+    </div>
   </div>
-  <p class="note-c reveal">先生は毎年変わります。ここに載せているのは、2023年〜2024年に実際にひらかれた授業です。</p>
+  <div class="lect reveal">
+    <h3 class="lect-y">2025<small>2日間で8つの授業</small></h3>
+    <div class="lect-list">
+      <div class="lct"><div class="lct-t">こどもの権利のはなし</div><div class="lct-w">新潟市子どもの権利相談室 こころのレスキュー隊 室長／上野昌弘 先生</div></div>
+      <div class="lct"><div class="lct-t">つたわる声のつくりかた</div><div class="lct-w">フリーアナウンサー／大杉りさ 先生</div></div>
+      <div class="lct"><div class="lct-t">良く考え良く作り建築する</div><div class="lct-w">（株）サルキジーヌ／大福匠 先生</div></div>
+      <div class="lct"><div class="lct-t">自治会ってなに？</div><div class="lct-w">新和自治会／伊藤晴奈 先生</div></div>
+      <div class="lct"><div class="lct-t">議会のはなし</div><div class="lct-w">新潟市議会議員／内山こう 先生</div></div>
+      <div class="lct"><div class="lct-t">たのしいデザインのはなし</div><div class="lct-w">（株）フレーム／長濱恵 先生</div></div>
+      <div class="lct"><div class="lct-t">たのしい絵本研究</div><div class="lct-w">敬和学園大学 学長／金山愛子 先生</div></div>
+      <div class="lct"><div class="lct-t">観光のはなし</div><div class="lct-w">村上市観光協会／片野将 先生</div></div>
+    </div>
+  </div>
+</div>
+  <p class="note-c reveal">ここに載せているのは、2023年〜2025年に実際にひらかれた授業です。先生は毎年変わります。</p>
 </section>
 
 <!-- 研究所 -->
 <section class="section tint">
   <div class="sec-head reveal">
     <span class="deco-ico ico-star c-blue"></span>
-    <h2>研究所。</h2>
-    <p>こども大学には、講義だけでなく「研究所」もあります。座って聞くのではなく、やってみる時間です。</p>
+    <h2>研究所も、ありました。</h2>
+    <p>はじめての年、2023年のこども大学には、講義のほかに「研究所」という時間がありました。座って聞くのではなく、手や体を動かしてみる場所です。<b>2023年かぎりの取り組み</b>でしたが、こんなものもあった、という記録として残しておきます。</p>
   </div>
   <div class="ws-grid ws-lab">
-    <div class="ws reveal"><h3>こども写真研究所</h3><p>プロのカメラマンといっしょに、まちの写真を撮ります。自分の目で見たまちを、自分で残す時間。</p></div>
-    <div class="ws reveal"><h3>PARTY体操研究所</h3><p>体を動かして、みんなで踊る研究所。まちのまんなかで、いちばんにぎやかな場所になります。</p></div>
-    <div class="ws reveal"><h3>おしゃべりアート鑑賞</h3><p>1枚の絵を、みんなでおしゃべりしながら見ます。正解はありません。「そう見えるんだ」を集める時間です。</p></div>
-  </div>
+    <div class="ws reveal"><h3>こども写真研究所</h3><p>プロのカメラマンといっしょに、まちの写真を撮ります。自分の目で見たまちを、自分で残す時間。</p><p class="ws-w">Studio Roop／高橋たくま 先生・吉沢浩二 先生</p></div>
+    <div class="ws reveal"><h3>PARTY体操研究所</h3><p>体を動かして、みんなで踊る研究所。まちのまんなかで、いちばんにぎやかな場所になりました。</p><p class="ws-w">新潟大学村山研究所／山崎幸歩 先生</p></div>
+      </div>
 </section>
 
 <!-- ワークショップ -->
@@ -225,9 +249,8 @@
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto">🎨 これまでの催し events.html（2023–2024の記録）</div>
 
-<script src="js/typeset.js?v=13"></script>
+<script src="js/typeset.js?v=14"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

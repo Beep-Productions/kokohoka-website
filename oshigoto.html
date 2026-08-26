@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=13">
+<link rel="stylesheet" href="css/kokohoka.css?v=14">
 <style>
 /* ===== お仕事（子ども向け）ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
@@ -34,18 +34,15 @@
 .mood:nth-child(4)::before{background:var(--blue)}
 .mood:nth-child(5)::before{background:var(--coral-deep)}
 .mood:nth-child(6)::before{background:var(--star)}
+.mood:nth-child(7)::before{background:var(--green)}
 .mood h3{font-size:clamp(1.14rem,3.6vw,1.34rem);font-weight:700;margin-bottom:20px;line-height:1.5}
 .mood ul{list-style:none;display:grid;gap:15px}
 .mood li{display:flex;gap:12px;align-items:flex-start}
 .mood li::before{content:'';flex:0 0 9px;height:9px;border-radius:50%;background:var(--ink);opacity:.28;margin-top:11px}
 .mood li .mj{min-width:0}
 .mood li b{font-weight:700;font-size:1rem;display:block}
-/* ★ことしのお仕事が確定したら、その <li> の <b> の中に
-   <span class="nowtag">ことしもあるよ</span> を足すだけでバッジが出ます */
-.mood li .nowtag{display:inline-block;width:auto;margin:0 0 0 8px;vertical-align:2px;
-  font-size:.66rem;font-weight:700;line-height:1.7;letter-spacing:.04em;
-  color:#fff;background:var(--coral-deep);border-radius:12px;padding:1px 9px}
 .mood li span{display:block;color:var(--ink-soft);font-size:.9rem;line-height:1.75;margin-top:2px}
+.mood .mnote{margin-top:16px;padding-top:14px;border-top:1px dashed var(--cream-deep);color:var(--ink-soft);font-size:.86rem;line-height:1.85}
 @media(max-width:520px){.mood{padding:26px 22px}}
 
 /* できるかも、のひとこと */
@@ -118,9 +115,9 @@
     <div class="mood reveal">
       <h3>人と話すのが、すき。</h3>
       <ul>
-        <li><div class="mj"><b>市役所 <span class="nowtag">ことしもあるよ</span></b><span>まちに来た子に市民証をわたす、いちばんはじめの窓口。</span></div></li>
-        <li><div class="mj"><b>ハローワーク <span class="nowtag">ことしもあるよ</span></b><span>やってみたいお仕事を、いっしょにさがしてあげる係。</span></div></li>
-        <li><div class="mj"><b>案内所</b><span>はじめて来た人を、行きたい場所まで連れていきます。</span></div></li>
+        <li><div class="mj"><b>市役所</b><span>まちに来た子に市民証をわたす、いちばんはじめの窓口。</span></div></li>
+        <li><div class="mj"><b>ハローワーク</b><span>やってみたいお仕事を、いっしょにさがしてあげる係。</span></div></li>
+        <li><div class="mj"><b>総合案内</b><span>はじめて来た人に、行きたい場所を教えてあげます。</span></div></li>
         <li><div class="mj"><b>大人おなやみ相談所</b><span>大人の悩みを、まじめに聞いてあげる。おくすり（アメやラムネ）も出せます。</span></div></li>
       </ul>
     </div>
@@ -128,8 +125,7 @@
     <div class="mood reveal">
       <h3>お金をあつかってみたい。</h3>
       <ul>
-        <li><div class="mj"><b>銀行 <span class="nowtag">ことしもあるよ</span></b><span>まちのお金「ココ」をわたす仕事。みんなが笑顔になる場所です。</span></div></li>
-        <li><div class="mj"><b>税務署</b><span>あつまった税金を管理して、まちのために使います。</span></div></li>
+        <li><div class="mj"><b>銀行</b><span>まちのお金「ココ」をわたす仕事。ぜいきんも、ここで受けとります。</span></div></li>
         <li><div class="mj"><b>両替所</b><span>大人が持ってきた日本円を、まちのお金にかえてあげます。</span></div></li>
       </ul>
     </div>
@@ -137,37 +133,50 @@
     <div class="mood reveal">
       <h3>まちを、守りたい。</h3>
       <ul>
-        <li><div class="mj"><b>警察 <span class="nowtag">ことしもあるよ</span></b><span>まちをパトロール。ルールを守らない大人を、逮捕することも！</span></div></li>
-        <li><div class="mj"><b>清掃局 <span class="nowtag">ことしもあるよ</span></b><span>まちをきれいに。ゴミの分別を、みんなに声かけします。</span></div></li>
-        <li><div class="mj"><b>福祉課</b><span>まちの人に「こまっていること、ある？」と聞いてまわります。</span></div></li>
-        <li><div class="mj"><b>こどもモヤモヤ記者</b><span>まちの「なんかヘンだな」を調べて、みんなに知らせます。</span></div></li>
+        <li><div class="mj"><b>警察</b><span>まちをパトロール。ルールを守らない大人を、逮捕することも！</span></div></li>
+        <li><div class="mj"><b>清掃局</b><span>まちをきれいに。ゴミの分別を、みんなに声かけします。</span></div></li>
+        <li><div class="mj"><b>だれ一人取り残されないまち課</b><span>こまっている人がいないか、まちを歩いてさがす仕事。</span></div></li>
+        <li><div class="mj"><b>モヤモヤ記者</b><span>まちの「なんかヘンだな」を調べて、みんなに知らせます。</span></div></li>
       </ul>
     </div>
 
     <div class="mood reveal">
       <h3>お店をひらいて、みたい。</h3>
       <ul>
-        <li><div class="mj"><b>射的・ボウリング</b><span>ゲームのお店。ルールを説明して、景品をわたします。</span></div></li>
-        <li><div class="mj"><b>八百屋さん</b><span>野菜やくだものを売ります。仕入れから自分たちで。</span></div></li>
-        <li><div class="mj"><b>ジュース屋さん</b><span>飲みものを売るお店。名前も売り方も、自分たちで決めます。</span></div></li>
+        <li><div class="mj"><b>やおやさん</b><span>野菜やくだものを売るお店。</span></div></li>
+        <li><div class="mj"><b>ジュース屋さん</b><span>つめたい飲みものを売るお店。</span></div></li>
+        <li><div class="mj"><b>あったかいもの屋さん</b><span>あたたかいもので、お客さんをほっとさせるお店。</span></div></li>
+        <li><div class="mj"><b>雑貨屋さん</b><span>かわいいこまごましたものを、ならべて売ります。</span></div></li>
       </ul>
     </div>
 
     <div class="mood reveal">
-      <h3>本物のお店で、はたらきたい。</h3>
+      <h3>ゲームで、もりあげたい。</h3>
       <ul>
-        <li><div class="mj"><b>パン屋さんの見習い</b><span>本物のパン屋さんで、売り場に立ちます。</span></div></li>
-        <li><div class="mj"><b>おすし屋さんの見習い</b><span>大将のとなりで、おすしをあつかいます。</span></div></li>
-        <li><div class="mj"><b>ごはん屋さんの見習い</b><span>注文をとって、できたてを手わたす。ちょっと緊張します。</span></div></li>
+        <li><div class="mj"><b>射的屋さん</b><span>ねらって、たおして。当たったら景品をわたします。</span></div></li>
+        <li><div class="mj"><b>箱の中身はなんだろう屋さん</b><span>見えない箱に手を入れて、なにが入っているかを当ててもらいます。</span></div></li>
+        <li><div class="mj"><b>さかなつり</b><span>つりざおで、おさかなをつってもらうお店。</span></div></li>
+        <li><div class="mj"><b>わなげ</b><span>わっかをなげて、うまく入るかどうか。</span></div></li>
+        <li><div class="mj"><b>ストラックアウト</b><span>的をねらって、当たった数で景品が変わります。</span></div></li>
+        <li><div class="mj"><b>チキンゲーム</b><span>どこまでいけるか、ドキドキするゲーム。</span></div></li>
+        <li><div class="mj"><b>ここほかダービー</b><span>まちではじめての、かけごとのお店。大人たちが力くらべをして、どの大人が勝つかをよそうしてもらいます。いま議会のみんなが、はりきって考えているところ。</span></div></li>
       </ul>
     </div>
 
     <div class="mood reveal">
       <h3>みんなの前で、やってみたい。</h3>
       <ul>
-        <li><div class="mj"><b>紙しばい師</b><span>練習して、人が集まっているところで上演します。</span></div></li>
-        <li><div class="mj"><b>アナウンサー</b><span>まちのニュースやお知らせを、みんなに伝える仕事。</span></div></li>
+        <li><div class="mj"><b>ここほかラジオ局</b><span>マイクを使って、まちじゅうにお知らせをとどけます。</span></div></li>
+        <li><div class="mj"><b>にがお絵屋さん</b><span>お客さんの顔を見て、その場で似顔絵をかきます。</span></div></li>
       </ul>
+    </div>
+
+    <div class="mood reveal">
+      <h3>本物のお店で、はたらきたい。</h3>
+      <ul>
+        <li><div class="mj"><b>見習いのお仕事</b><span>まちに来てくれる本物のお店で、かざりつけ、よびこみ、はんばい。相手は本物のお客さんです。</span></div></li>
+      </ul>
+      <p class="mnote">ことしどのお店が来てくれるかは、いま相談しているところです。決まったら、このページでお知らせします。</p>
     </div>
   </div>
 
@@ -245,9 +254,8 @@
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto">🎨 お仕事（子ども向け）oshigoto.html</div>
 
-<script src="js/typeset.js?v=13"></script>
+<script src="js/typeset.js?v=14"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

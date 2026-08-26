@@ -21,7 +21,7 @@
     /* ビジター */
     '.promise p', '.can-card p', '.rules-note',
     /* ボランティア */
-    '.role p', '.req-value',
+    '.role p', '.req-value', '.skills p',
     /* これまでのここほか */
     '.topic', '.vol-cta p',
     /* お仕事一覧・催し */

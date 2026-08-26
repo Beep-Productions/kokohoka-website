@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=13">
+<link rel="stylesheet" href="css/kokohoka.css?v=14">
 <style>
 /* ===== 市民の一日ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:760px;margin:0 auto}
@@ -24,6 +24,8 @@
 .ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
 .c-coral{background-color:var(--coral)}
 .c-mustard{background-color:var(--mustard)}
+.daybtns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:stretch;margin-top:34px}
+.daybtns .btn{margin:0}
 .note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:26px;line-height:1.9}
 
 /* タイムライン（午前／午後の2部制・時刻は出さない） */
@@ -127,14 +129,14 @@
   </div>
 
   <div class="tl">
-    <div class="tl-part reveal"><span class="part-label">午前</span><span class="part-sub">まちに入って、はたらく</span></div>
+    <div class="tl-part reveal"><span class="part-label">午前</span><span class="part-sub">まちにきて、はたらく</span></div>
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
         <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/01-register.jpg" alt="受付で市民とうろくをして、パスポートを受け取るところ"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>市民とうろく</h3>
-        <p>受付でとうろくをして、パスポートをもらいます。これで、きみもここほかの市民。まずはまちをひとまわりして、どんなお店があるのか見てみよう。</p>
+        <p>受付でとうろくをして、パスポートをもらいます。あなたもここほかの市民。まずはまちをひとまわりして、どんなお店があるのか見てみよう。</p>
         </div>
       </div>
     </div>
@@ -145,7 +147,7 @@
         <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/02-job.jpg" alt="ハローワークの掲示を見て、やってみたいお仕事をさがす子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
         <div class="tl-text">
         <h3>ハローワークで、お仕事さがし</h3>
-        <p>まちのハローワークには、いろんなお仕事がならんでいます。市役所、銀行、警察、お店の見習い。「これ、やってみたいかも」と思ったものを選ぼう。まよってもだいじょうぶです。</p>
+        <p>まちのハローワークには、いろんなお仕事がならんでいます。市役所、銀行、警察、おまつり屋台のようなゲームに、飲食店の見習い。「これ、やってみたいかも」と思ったものを選ぼう。まよってもだいじょうぶです。</p>
         </div>
       </div>
     </div>
@@ -164,10 +166,10 @@
     <div class="tl-item reveal">
       <div class="tl-rail"></div>
       <div class="tl-body">
-        <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/04-money.jpg" alt="まちのお金「ココ」を受け取って、市役所でぜいきんをおさめるところ"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
+        <div class="framed fr04"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/04-money.jpg" alt="まちの通貨「ココ」を受け取って、ぜいきんをおさめるところ"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_04_横長_水玉.webp" alt=""></div>
         <div class="tl-text">
         <h3>お給料。そして、ぜいきん。</h3>
-        <p>お仕事をがんばると、まちのお金「ココ」がもらえます。そのあとは市役所へ。もらったお金のなかから、ぜいきんをおさめます。このお金が、まちを動かしていきます。</p>
+        <p>お仕事をがんばると、まちの通貨「ココ」が支払われ、そのあとはもらったお金のなかから、ぜいきんをおさめます。このお金が、まちを動かしていきます。</p>
         </div>
       </div>
     </div>
@@ -195,7 +197,7 @@
         </div>
         <div class="tl-text">
         <h3>すきなことを、する</h3>
-        <p>のこったココで買いものをしたり、催しに参加したり。おもしろい大人が先生になる「こども大学」で学ぶのもいい。もっと働いてお金をためる、というのもアリです。</p>
+        <p>買いものをしたり、ワークショップに参加したり。おもしろい大人がおもしろいことを教えてくれる「こども大学」で学ぶのもいい。もっと働いてお金をためる、というのもアリです。</p>
         </div>
       </div>
     </div>
@@ -206,13 +208,18 @@
         <div class="framed fr03"><img class="ph" loading="lazy" decoding="async" src="images/photos/day/09-end.jpg" alt="一日の終わりに、パスポートを手に笑顔を見せる子ども"><img class="fr" loading="lazy" decoding="async" src="images/frames/額縁_03_横長_無地.webp" alt=""></div>
         <div class="tl-text">
         <h3>まちが、おしまい</h3>
-        <p>一日の終わり。パスポートを持って、まちを出ます。「きょうはこれをやったな」と思いながら帰るころには、朝よりちょっとだけ大きくなっているはずです。</p>
+        <p>一日の終わり。パスポートを持って、まちを出ます。「きょうはこれができた！」と思いながら帰るころには、朝よりちょっとだけ大きくなっているはずです。</p>
         </div>
       </div>
     </div>
   </div>
 
   <p class="note-c reveal">※これはあくまで一例です。当日のくわしいスケジュールは、決まりしだいお知らせします。</p>
+
+  <div class="daybtns reveal">
+    <a href="oshigoto.html" class="btn btn-line g-kid">ことしのお仕事を見てみる →</a>
+    <a href="asobu.html" class="btn btn-line g-kid">ことしのあそび・まなびを見てみる →</a>
+  </div>
 </section>
 
 <!-- 2日目 -->
@@ -226,10 +233,10 @@
     <p>そのうえで、2日つづけて来る子は、2日目にぐっと変わります。1日目でまちのしくみをつかんで、2日目は自分から動きはじめるのです。</p>
     <ul>
       <li>きのうとちがうお仕事に、ちょうせんしてみる</li>
-      <li>ためたココで、ずっとほしかったものを買う</li>
+      <li>ためたココで、ほしかったものを買う</li>
       <li>まちのことで気になったことを、市役所に言いにいく</li>
     </ul>
-    <p>同じ一日は、ひとつもありません。きみの一日は、きみがつくります。</p>
+    <p>自分の一日は自分でつくります。自分たちのまちは、自分たちでつくります。</p>
   </div>
 </section>
 
@@ -237,7 +244,7 @@
 <section class="cta" id="apply">
   <img src="images/motifs/kokohoka-bird.webp" alt="" aria-hidden="true" class="bird-deco">
   <div class="reveal">
-    <h2>きみの一日を、つくりにおいで。</h2>
+    <h2>みんなでまちをつくってみよう。</h2>
     <p>2026年11月21日（土）・22日（日）<span class="nb">／新潟・古町7番町</span></p>
     <a href="https://forms.gle/9WSQS7eTy4TCNBBJ6" target="_blank" rel="noopener noreferrer" class="btn btn-cta">市民として申し込む ▶</a>
     <p class="note">※小中学生の「市民登録」フォームです。しめきりは11月18日（水）。すぎても当日受付できます。<br>大人・未就学児のかたは<a href="visitor.html">ビジター登録</a>へ。</p>
@@ -261,9 +268,8 @@
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto">🎨 市民の一日ページ citizen.html（写真は2025年／文章は下書き）</div>
 
-<script src="js/typeset.js?v=13"></script>
+<script src="js/typeset.js?v=14"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});

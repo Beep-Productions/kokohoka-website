@@ -244,7 +244,6 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
   border-bottom:2px solid rgba(247,240,226,.45);padding-bottom:2px}
 .footer .fcontact:hover{border-bottom-color:var(--cream)}
 
-.proto{position:fixed;left:14px;bottom:14px;z-index:99;background:var(--ink);color:var(--cream);font-weight:700;font-size:.72rem;padding:6px 12px;border-radius:20px;opacity:.8}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.25,1)}
 .reveal.in{opacity:1;transform:none}
 /* グループ内は少しずつ、ほわっと連続で */

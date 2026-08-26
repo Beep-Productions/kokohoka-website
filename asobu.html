@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=13">
+<link rel="stylesheet" href="css/kokohoka.css?v=14">
 <style>
 /* ===== あそぶ・まなぶ（子ども向け）ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
@@ -32,6 +32,8 @@
 .freebar span{color:var(--ink-soft);font-size:.92rem;line-height:1.9;display:block}
 
 /* 1日の時間割 */
+.tt-lead{text-align:center;font-weight:700;font-size:1.04rem;letter-spacing:.05em;margin-top:44px}
+.tt-lead + .tt{margin-top:18px}
 .tt{max-width:640px;margin:40px auto 0;background:var(--cream);border:2.5px solid var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 6px 0 rgba(46,43,61,.08)}
 .tt-h{background:var(--ink);color:var(--cream);text-align:center;font-weight:700;font-size:1rem;letter-spacing:.08em;padding:13px 12px}
 .tt-row{display:flex;gap:16px;padding:20px 24px;border-bottom:1px dashed var(--cream-deep);align-items:center}
@@ -123,28 +125,19 @@
     <span>お金はいりません。「教育は（大学まで）無料」。これは、このまちがはじめての年に決めたルールです。</span>
   </div>
 
+  <p class="tt-lead reveal">2026年の予定</p>
   <div class="tt reveal">
-    <div class="tt-h">こども大学の、1日</div>
-    <div class="tt-row">
-      <span class="tt-n">1限</span>
-      <div><div class="tt-t">午前の授業</div><div class="tt-w">まちがはじまって、少ししたころ。</div></div>
-    </div>
-    <div class="tt-row">
-      <span class="tt-n">2限</span>
-      <div><div class="tt-t">おひるすぎの授業</div><div class="tt-w">ごはんを食べてから、ゆっくり教室へ。</div></div>
-    </div>
-    <div class="tt-row">
-      <span class="tt-n">3限</span>
-      <div><div class="tt-t">午後の授業</div><div class="tt-w">まちがおしまいになる前の、さいごの1コマ。</div></div>
-    </div>
+    <div class="tt-h">11月21日（土）</div>
+    <div class="tt-row"><div class="tt-t">議会のはなし</div></div>
+    <div class="tt-row"><div class="tt-t">ローサ探検</div></div>
+    <div class="tt-row"><div class="tt-t">AIでここほかのテーマソングをつくろう</div></div>
   </div>
-  <p class="note-c reveal">※3限まである日と、2限までの日があります。時間はその年によって変わります。</p>
-
-  <div class="past reveal">
-    <p class="past-h">これまでにひらかれた授業</p>
-    <span class="pill">楽しいデザインのはなし</span><span class="pill">議会のはなし</span><span class="pill">アニマルウェルフェアってなあに？</span><span class="pill">良く考え良く作り建築する</span><span class="pill">プログラミングで夢をかたちにしよう</span><span class="pill">まちづくりのはなし</span><span class="pill">レゴで点字をまなぼう</span><span class="pill">森のはなし</span><span class="pill">チョコレートのはなし</span><span class="pill">コーヒー屋さんのSDGs</span><span class="pill">農業のはなし</span><span class="pill">おこづかい＆こどもとお金のはなし</span>
+  <div class="tt reveal">
+    <div class="tt-h">11月22日（日）</div>
+    <div class="tt-row"><div class="tt-t">古町のはなし</div></div>
+    <div class="tt-row"><div class="tt-t">民生委員ってなに？</div></div>
   </div>
-  <p class="note-c reveal">ことしの先生と授業は、これから決まります。決まったら、ここでお知らせします。</p>
+  <p class="note-c reveal">※まだ決まりかけの授業です。ふえたり、かわったりすることがあります。<br>ほかにどんな授業があるかは、決まったらここでお知らせします。</p>
 </section>
 
 <!-- ワークショップ -->
@@ -155,14 +148,11 @@
     <p>つくる。焼く。混ぜる。まちのお店や職人さんに教わりながら、手を動かします。まちのお金をはらって参加するので、はたらいてから来る子が多いです。</p>
   </div>
   <div class="cards">
-    <div class="card reveal"><h3>木工小物づくり</h3><p>電動ドリルなど、本物の道具を使います。ペン立て、キーチェーン、フック。</p></div>
-    <div class="card reveal"><h3>にぎりずし体験</h3><p>おすし屋さんの大将に教わって、自分でおすしをにぎります。</p></div>
-    <div class="card reveal"><h3>綿あめづくり</h3><p>ざらめから、ふわふわの綿あめができるまで。できたてを持って帰れます。</p></div>
-    <div class="card reveal"><h3>紅茶ドリンクづくり</h3><p>自分好みの一杯をつくります。まちで飲んでも、持って歩いても。</p></div>
-    <div class="card reveal"><h3>デコ財布づくり</h3><p>画用紙でお財布をつくって、シールやリボンでかざります。</p></div>
-    <div class="card reveal"><h3>紙飛行機ブースター</h3><p>紙飛行機を遠くまで飛ばす発射装置をつくります。飛んだ距離で勝負。</p></div>
+    <div class="card reveal"><h3>木工クラフト</h3><p>電動ドリルなど、本物の道具を使います。けずったり、組み立てたり。</p></div>
+    <div class="card reveal"><h3>おさいふづくり</h3><p>自分のおさいふをつくって、シールやリボンでかざります。かせいだココを入れる場所は、自分でつくる。</p></div>
+    <div class="card reveal"><h3>くるくるワークショップ</h3><p>くるくるまわして、なにかをつくります。なにができるかは、来てからのおたのしみ。</p></div>
   </div>
-  <p class="note-c reveal">※協力してくれるお店や職人さんによって、内容は毎年変わります。</p>
+  <p class="note-c reveal">※ワークショップは、タタをはらって参加します。内容はまだふえるかもしれません。</p>
 </section>
 
 <!-- 遊びのお店 -->
@@ -170,23 +160,40 @@
   <div class="sec-head reveal">
     <span class="deco-ico ico-star c-coral"></span>
     <h2>遊びのお店。</h2>
-    <p>まちの遊び場は、子どもたちが自分でひらいたお店です。だから、遊ぶ側にも、はたらく側にもなれます。「これ、自分でやってみたいかも」と思ったら、ハローワークへ。</p>
+    <p>まちの遊び場は、子どもたちが自分でひらいたお店です。だから、遊ぶ側にも、はたらく側にもなれます。「これ、自分でやってみたいかも」と思ったら、ハローワークへ。遊ぶときは、タタをつかいます。</p>
   </div>
   <div class="cards cards-guild">
-    <div class="card reveal"><h3>射的</h3><p>まちで一番の人気店。ねらって当てて、景品をゲット。</p></div>
-    <div class="card reveal"><h3>ボウリング</h3><p>小さい子でも遊べるように、みんなで工夫してあります。</p></div>
-    <div class="card reveal"><h3>ストラックアウト</h3><p>的をねらって投げるゲーム。当たった数で景品が変わります。</p></div>
-    <div class="card reveal"><h3>コイン落とし</h3><p>まちのお金を使って遊ぶ、シンプルだけどつい夢中になるゲーム。</p></div>
-    <div class="card reveal"><h3>八百屋さん</h3><p>野菜やくだものが買えます。農家さんのところまで、仕入れに行っています。</p></div>
-    <div class="card reveal"><h3>ジュース屋さん</h3><p>のどがかわいたらここへ。名前も売り方も、子どもたちが決めています。</p></div>
+    <div class="card reveal"><h3>ゲームのお店</h3><p>射的、箱の中身はなんだろう、さかなつり、わなげ、ストラックアウト、チキンゲーム。当たったら景品がもらえます。</p></div>
+    <div class="card reveal"><h3>ここほかダービー</h3><p>ことしはじめて登場する、かけごとのお店。大人たちが力くらべをするので、どの大人が勝つかをよそうします。</p></div>
+    <div class="card reveal"><h3>やおやさん</h3><p>野菜やくだものが買えます。</p></div>
+    <div class="card reveal"><h3>ジュース屋さん</h3><p>のどがかわいたら、ここへ。</p></div>
+    <div class="card reveal"><h3>あったかいもの屋さん</h3><p>あたたかいもので、体がほっとするお店。</p></div>
+    <div class="card reveal"><h3>雑貨屋さん</h3><p>かわいい こまごましたものが、ならんでいます。</p></div>
+    <div class="card reveal"><h3>にがお絵屋さん</h3><p>顔を見て、その場で似顔絵をかいてくれます。</p></div>
   </div>
   <div class="morebtn reveal">
     <a href="oshigoto.html" class="btn btn-line g-kid">お仕事を見てみる →</a>
   </div>
 </section>
 
-<!-- たのしみにしてて -->
+<!-- 無料コンテンツ -->
 <section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-blue"></span>
+    <h2>お金が、いらないもの。</h2>
+    <p>まちには、ココもタタもはらわずに参加できるものがあります。はたらく前でも、お金をつかいきったあとでも大丈夫。ふらっと立ち寄ってみてください。</p>
+  </div>
+  <div class="cards">
+    <div class="card reveal"><h3>ウェルカムゲート</h3><p>「新潟が、こんなまちになってほしい」「ここほかが、こんなまちになってほしい」。おもうことを紙に書いて、まちの入口のゲートにはっていきます。</p></div>
+    <div class="card reveal"><h3>ご意見板</h3><p>まちで気づいたこと、思いついたこと。だれでも書いて、はっておける場所です。</p></div>
+    <div class="card reveal"><h3>裁判の項目ぼしゅう</h3><p>ここほか議会の議員たちが、「裁判をやってみたい」と言っています。そこで、裁判にかけたい議題をまちであつめます。「これって、こどもの権利がまもられていないんじゃない？」とおもうこと、書いていってください。あつまった議題で、いつかほんとうに裁判をひらきます。</p></div>
+    <div class="card reveal"><h3>レゴでまちをつくろう</h3><p>レゴをつかって、自分がいいなとおもうまちをつくってみる。（11月22日のみ）</p></div>
+    <div class="card reveal"><h3>ここほか議会のメンバーぼしゅう</h3><p>まちのルールを決めたり、「こういうのがあったらいいんじゃない」を考えたりする「議員」をさがしています。</p></div>
+  </div>
+</section>
+
+<!-- たのしみにしてて -->
+<section class="section">
   <div class="maybe reveal" style="margin-top:0">
     <p>ことしの授業やワークショップ、遊びのお店は、いま準備しているところです。当日までに増えることもあります。何があるかは、来てからのおたのしみ。たのしみにして、来てください。</p>
   </div>
@@ -220,9 +227,8 @@
   <small>© 2026 こころほかほかあたたかい町</small>
 </footer>
 
-<div class="proto">🎨 あそぶ・まなぶ（子ども向け）asobu.html</div>
 
-<script src="js/typeset.js?v=13"></script>
+<script src="js/typeset.js?v=14"></script>
 <script>
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
