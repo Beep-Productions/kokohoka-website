@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セーフガーディング指針｜こころほかほかあたたかい町</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kokohoka.css?v=15">
+<style>
+/* ===== セーフガーディングページ固有 ===== */
+.page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
+.page-hero h1{font-size:clamp(1.9rem,5.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.5}
+.page-hero p{color:var(--ink-soft);margin-top:16px}
+.page-hero .lead-note{font-size:.86rem;margin-top:20px}
+.sec-head{text-align:center;max-width:680px;margin:0 auto}
+.sec-head h2{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:700;line-height:1.5}
+.sec-head p{color:var(--ink);margin-top:16px}
+.sec-head p+p{margin-top:12px}
+.deco-ico{width:clamp(40px,8vw,52px);height:clamp(40px,8vw,52px);margin:0 auto 14px;display:block;
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
+.ico-star{-webkit-mask-image:url("images/motifs/star.png");mask-image:url("images/motifs/star.png")}
+.ico-heart{-webkit-mask-image:url("images/motifs/heart.png");mask-image:url("images/motifs/heart.png")}
+.ico-town{-webkit-mask-image:url("images/motifs/town.png");mask-image:url("images/motifs/town.png")}
+.c-blue{background-color:var(--blue)}
+.c-coral{background-color:var(--coral)}
+.c-mustard{background-color:var(--mustard)}
+.c-green{background-color:var(--green)}
+
+/* ふたつのルールの違い */
+.twin{display:grid;grid-template-columns:1fr;gap:20px;max-width:900px;margin:38px auto 0}
+@media(min-width:780px){.twin{grid-template-columns:1fr 1fr}}
+.rulebox{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:26px 24px;position:relative}
+.rulebox::before{content:'';position:absolute;top:-2px;left:26px;width:52px;height:10px;border-radius:0 0 7px 7px;background:var(--coral)}
+.rulebox.rb-sg::before{background:var(--ink)}
+.rulebox .rbh{font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:6px}
+.rulebox h3{font-weight:700;font-size:1.08rem;margin-bottom:10px;line-height:1.5}
+.rulebox p{color:var(--ink-soft);font-size:.93rem}
+
+/* 約束のリスト */
+.pledge{max-width:820px;margin:36px auto 0;background:var(--cream);border:2.5px solid var(--ink);
+  border-radius:26px;padding:34px 30px 30px;box-shadow:0 6px 0 rgba(46,43,61,.08)}
+.pledge h3{font-weight:700;font-size:1.14rem;margin-bottom:6px}
+.pledge .plsub{color:var(--ink-soft);font-size:.9rem;margin-bottom:20px}
+.pledge ul{list-style:none;display:grid;gap:13px}
+.pledge li{display:flex;gap:13px;align-items:flex-start;font-size:.97rem;line-height:1.75}
+.pledge li::before{content:'';flex:0 0 20px;height:20px;margin-top:5px;border-radius:50%;
+  background:var(--ink);
+  -webkit-mask:url("images/motifs/heart.png") center/13px no-repeat;mask:url("images/motifs/heart.png") center/13px no-repeat}
+.care{max-width:820px;margin:20px auto 0;padding:24px 28px;border:2px dashed var(--ink);border-radius:22px}
+.care h3{font-weight:700;font-size:1rem;margin-bottom:12px}
+.care ul{list-style:none;display:grid;gap:9px}
+.care li{position:relative;padding-left:1.2em;color:var(--ink-soft);font-size:.93rem;line-height:1.75}
+.care li::before{content:'・';position:absolute;left:0;color:var(--ink)}
+
+/* 窓口 */
+.desk{max-width:760px;margin:36px auto 0;background:var(--ink);color:var(--cream);
+  border-radius:26px;padding:34px 30px}
+.desk h3{font-weight:700;font-size:1.2rem;margin-bottom:8px;color:var(--cream)}
+.desk .dlead{font-size:.95rem;line-height:1.9;opacity:.9;margin-bottom:22px}
+.desk dl{display:grid;gap:16px;margin:0}
+.desk dt{font-weight:700;font-size:.94rem;margin-bottom:4px}
+.desk dd{margin:0;font-size:.92rem;line-height:1.85;opacity:.88}
+.desk dd a{color:var(--cream);text-decoration:underline;text-underline-offset:3px}
+.desk .promise{margin-top:24px;padding-top:20px;border-top:1px dashed rgba(253,242,223,.35);
+  font-size:.9rem;line-height:1.9;opacity:.9}
+
+/* 指針の全文 */
+.divider{max-width:820px;margin:0 auto;text-align:center;padding:0 24px}
+.divider .dline{height:2px;background:var(--cream-deep);margin:0 0 22px}
+.doc{max-width:800px;margin:0 auto;padding:0 4px}
+.art{margin-top:34px}
+.art h3{font-weight:700;font-size:1.08rem;line-height:1.6;margin-bottom:12px;
+  padding-bottom:9px;border-bottom:2px solid var(--ink)}
+.art h3 .no{display:inline-block;margin-right:10px;font-size:.8rem;letter-spacing:.06em;color:var(--ink-soft)}
+.art p{font-size:.95rem;line-height:2;margin-bottom:12px}
+.art ol,.art ul{margin:0 0 14px 0;padding-left:1.5em;display:grid;gap:7px}
+.art li{font-size:.95rem;line-height:1.85}
+.art .sub-h{font-weight:700;font-size:.96rem;margin:20px 0 10px}
+.art dl{margin:0 0 8px;display:grid;gap:14px}
+.art dt{font-weight:700;font-size:.94rem}
+.art dd{margin:4px 0 0;font-size:.92rem;line-height:1.9;color:var(--ink-soft)}
+.who{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:.93rem}
+.who th,.who td{border-bottom:1px dashed var(--cream-deep);padding:11px 8px;text-align:left;vertical-align:top;line-height:1.75}
+.who th{font-weight:700;white-space:nowrap;width:5.5em}
+.wrapx{overflow-x:auto}
+details.defs{margin-top:18px;border:2px dashed var(--ink);border-radius:18px;padding:0 22px}
+details.defs summary{cursor:pointer;font-weight:700;font-size:.96rem;padding:18px 0;list-style:none}
+details.defs summary::-webkit-details-marker{display:none}
+details.defs summary::before{content:'＋　';color:var(--ink-soft)}
+details.defs[open] summary::before{content:'−　'}
+details.defs[open]{padding-bottom:16px}
+details.defs .warn{font-size:.87rem;color:var(--ink-soft);line-height:1.9;margin-bottom:16px}
+.credit{max-width:800px;margin:40px auto 0;font-size:.84rem;color:var(--ink-soft);line-height:1.95}
+.credit a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+.backlinks{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:38px}
+.backlinks .btn{margin:0}
+@media(max-width:520px){
+  .pledge{padding:28px 22px 26px}
+  .desk{padding:28px 22px}
+}
+</style>
+</head>
+<body class="p-doc">
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-in">
+    <a href="index-new.html#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
+    <nav class="nav">
+      <a href="index-new.html#about">ここほかって？</a>
+      <a href="history.html">これまでのここほか</a>
+      <a href="citizen.html">市民の一日</a>
+      <a href="visitor.html">ビジター</a>
+      <a href="volunteer.html">ボランティア</a>
+      <a href="https://forms.gle/sXcVUgcQTDuAbi2p7" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+      <a href="index-new.html#cta" class="cta">事前登録</a>
+    </nav>
+    <button class="burger" aria-label="メニュー" aria-controls="mnav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア</a>
+    <a href="https://forms.gle/sXcVUgcQTDuAbi2p7" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+    <a href="index-new.html#cta">事前登録</a>
+  </nav>
+</header>
+
+
+<!-- 導入 -->
+<section class="page-hero" id="top">
+  <div class="reveal">
+    <span class="pagechip">ここほかに関わる大人のみなさんへ</span>
+    <h1>子どもの安心・安全を、<br>みんなで守るために。</h1>
+    <p>ここほかには「セーフガーディング指針」があります。子どもが安心して、安全に、自分らしく参加できることを、大人が約束するための決まりです。</p>
+    <p class="lead-note">こころほかほかあたたかい町実行委員会 承認（2026年8月29日）／このページの後半に、指針の全文をそのまま掲載しています。</p>
+  </div>
+</section>
+
+<!-- セーフガーディングって？ -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-coral"></span>
+    <h2>セーフガーディングって、なに？</h2>
+    <p>むずかしい言葉ですが、意味はひとつです。<b>この活動にかかわる大人が、子どもをぜったいに傷つけない。</b>そのために、あらかじめ危ないことを見つけて防ぎ、もし心配なことが起きたら、きちんと受けとめて対応する——その組織全体の取り組みのことです。</p>
+    <p>「気をつけましょう」という心がけではなく、<b>やってはいけないことを文章にして、みんなで守る</b>という約束の形をとっています。</p>
+  </div>
+
+  <div class="twin reveal">
+    <div class="rulebox">
+      <div class="rbh">子どもたちが決めたルール</div>
+      <h3>8つのやくそく</h3>
+      <p>「口出し禁止」「危なくないのに止めるのは禁止」など、このまちを面白くするために子どもたち自身が決めたものです。子どもの自由を守るためのルール。</p>
+    </div>
+    <div class="rulebox rb-sg">
+      <div class="rbh">大人の社会が守る最低線</div>
+      <h3>セーフガーディング指針</h3>
+      <p>暴力、性的な行為、搾取。どんな場でも決して起きてはならないことを防ぐためのものです。子どもの安全を守るための、ゆずれない線。</p>
+    </div>
+  </div>
+  <p class="note-c reveal" style="text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:24px;line-height:1.9;max-width:660px;margin-left:auto;margin-right:auto">この2つは、別のものです。<br>どちらも、このまちには必要です。</p>
+</section>
+
+<!-- 大人の約束 -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-town c-blue"></span>
+    <h2>まちの大人が、子どもに約束すること。</h2>
+    <p>実行委員、ボランティア、講師、取材の方、そして遊びに来た大人。ここほかにいる大人は、全員がこれを守ります。</p>
+  </div>
+
+  <div class="pledge reveal">
+    <h3>わたしたちは、しません。</h3>
+    <p class="plsub">ここほかは、以下のような行為による虐待や搾取を、いっさい許容しません。</p>
+    <ul>
+      <li>たたく、けるなど、体を傷つけることはしません</li>
+      <li>性的なことをしたり、言ったり、思い出させるような態度をとったりしません</li>
+      <li>こわい気持ちになる言葉で、おどしたり、命令したりしません</li>
+      <li>見下したり、無視したり、ばかにしたり、差別したりしません</li>
+      <li>特定の子だけをえこひいきしたり、仲間はずれにしたりしません</li>
+      <li>自分でできることを、必要以上に手伝いません</li>
+      <li>子どもが「やめて」と言ったことを、続けません</li>
+      <li>ここほか以外のことで、子どもと個人的に連絡をとりません</li>
+      <li>暴力的なもの、性的な画像や動画を、見せたり教えたりしません</li>
+    </ul>
+  </div>
+
+  <div class="care reveal">
+    <h3>そして、心がけます。</h3>
+    <ul>
+      <li>できるだけ、ほかの人の目が届くところで子どもと接します</li>
+      <li>子どもの体にさわりません。サポートで必要なときは、必ず本人に聞きます</li>
+      <li>危ないことは、起きる前に気づいて手を打ちます</li>
+      <li>言いにくいことも言える雰囲気を、みんなでつくります</li>
+      <li>何が良くて何がいけないのか、子どもたちと一緒に話します</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 子ども向け：おしえてね -->
+<section class="section">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-star c-coral"></span>
+    <h2>気になることがあったら。</h2>
+    <p>この約束が守られていないと感じたとき、あるいは見聞きしたとき。<br>子どもも大人も、立場を問わず、だれでも相談できます。</p>
+  </div>
+
+  <div class="desk reveal">
+    <h3>相談・通報の窓口は「市役所」です。</h3>
+    <p class="dlead">まちのまんなかにある市役所が、そのまま窓口です。子どもでも、大人でも、だれでも相談できます。</p>
+    <dl>
+      <dt>ここほかの当日</dt>
+      <dd>まちの「市役所」まで来てください。担当は実行委員長と事務局長です。必要なときは、新潟市子どもの権利相談室のスタッフと一緒に話を聞きます。</dd>
+      <dt>当日より前、または終わったあと</dt>
+      <dd><a href="https://forms.gle/sXcVUgcQTDuAbi2p7" target="_blank" rel="noopener noreferrer">お問い合わせフォーム</a>からご連絡ください。担当者に直接つないでほしい場合は、その旨をお書きください。折り返しご連絡します。</dd>
+    </dl>
+    <p class="promise">名前を言わなくても相談できます。相談した人のことや、話の内容は守られます。／高校生・大学生のみなさんも、いやな思いをしたときは同じように相談してください。／子どもから相談を受けた人は、かならず窓口につないでください。</p>
+  </div>
+</section>
+
+<!-- 保護者の方へ -->
+<section class="section tint">
+  <div class="sec-head reveal">
+    <span class="deco-ico ico-heart c-green"></span>
+    <h2>保護者の方へ。</h2>
+    <p>ここほかにかかわる実行委員・スタッフ・関係者は、この指針と行動規範に沿って活動します。参加される大人のみなさまにも、同じ約束をお願いしています。</p>
+    <p>万一、規範が守られず子どもの権利が侵害された、あるいはその疑いがある場合には、その子の安心・安全を最優先に確保し、問題の解決と再発の防止に努めます。</p>
+    <p>お子さんと一緒にこの内容をお読みいただき、不安を感じたときや、お子さんから相談があったときには、すみやかに窓口までご連絡ください。</p>
+  </div>
+</section>
+
+<!-- ここから全文 -->
+<section class="section">
+  <div class="divider reveal">
+    <div class="dline"></div>
+  </div>
+  <div class="sec-head reveal">
+    <h2>セーフガーディング指針（全文）</h2>
+    <p>こころほかほかあたたかい町実行委員会による承認（2026年8月29日）</p>
+  </div>
+
+  <div class="doc">
+
+    <div class="art reveal">
+      <h3><span class="no">第1条</span>はじめに</h3>
+      <p>「こころほかほかあたたかい町」は2023年に新潟市で始まった「こどものまち」である。ドイツのミニ・ミュンヘンをモデルにしたプログラムで、参加する子どもはこのまちの市民となり、働き、税金を納め、手元に残ったお金で遊んだり食べたりする。</p>
+      <p>子どもたちが、自分のことは自分で決め、自分たちのまちを自分で動かし、まちの仕組みや税金の仕組みを体験から学ぶプログラムである。遊ぶ権利や失敗する権利が完全に守られている「わたしたちの目指すまちのあり方」を体験することで市民性が養われることを目的とする。</p>
+      <p>「こころほかほかあたたかい町」実行委員会（以下、実行委員会）は、当プログラムにおける子どもの参加をより安心・安全な形で進めるための共通認識を形成し、有害な影響を最小限にする（「Do No Harm原則」と呼ぶ）実践を図るために、「子ども参加に関する基本方針」に示される通り、当方針を策定する。</p>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第2条</span>目的</h3>
+      <ol>
+        <li>プログラムの企画・運営において「Do No Harm原則」を実践し、参加するすべての子どもの安心・安全を守る</li>
+        <li>プログラムに参加するすべての個人・団体が、子どもの権利を守る実践の1つとして、共にセーフガーディングの実践を学び、深めあう機会とする</li>
+      </ol>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第3条</span>セーフガーディングとは</h3>
+      <p>セーフガーディングとは、「組織の役職員や関係者によって、また事業活動において、子どもにいかなる危害も及ぼさないよう、つまり虐待・搾取や危険のリスクにさらすことのないよう努めることであり、万一、活動を通じて子どもの安全にかかわる懸念が生じたときには、しかるべき責任機関に報告を行い、それを組織の責任として取り組むこと」を意味する。</p>
+      <p>セーフガーディングに関するより詳しい定義は、第7条の「用語と定義」を参照すること。</p>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第4条</span>適用対象者</h3>
+      <p>プログラムに参加する個人・団体としては、以下が想定される。なお、「子ども」とは、18歳未満のすべての人を指す。本プログラムにおいては、開催当日のみ参加する子どもと、事前準備等の期間から「こども実行委員」および「ここほか議員」として継続的な活動に参加する子どもがいる。セーフガーディングの取り組みを推進するために、それぞれの個人・団体に応じた異なる役割が期待されている。</p>
+      <p class="sub-h">子ども</p>
+      <p>プログラムに参加する子どもには、安心・安全を守られる権利がある。自身のバウンダリーを理解し、健全なバウンダリーを守り主張する権利がある。バウンダリーに関する知識とセーフガーディングの取り組みに関するわかりやすい説明を読むことができ、プログラム中に行動規範に反する行為や気になる言動を見聞き・経験した場合には、セーフガーディングの窓口に相談・通報することができる。さらに、子ども同士が立場や意見の相違を認め、お互いを尊重しあい意見交換や協働することも求められる。</p>
+      <p class="sub-h">大人</p>
+      <p>子ども以外でプログラムに参加する個人・団体は、子どもの安心・安全が守られる権利を保障するため、以下の分類により、本プログラムにおけるセーフガーディングに取り組む。</p>
+      <div class="wrapx">
+      <table class="who">
+        <tbody>
+          <tr><th>★★</th><td>セーフガーディング指針を読み、理解・誓約をした上でプログラムに参加・従事する<br><b>実行委員のすべて／業務で連携または訪問する関係者（ボランティア、講師を含むプログラム訪問者など）／発信や取材を目的に参加する人</b></td></tr>
+          <tr><th>★</th><td>入場前までにセーフガーディングに関する説明を読み、ルールを理解し守って参加する<br><b>一般参加者、視察・見学者</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>発信や取材を目的に参加する人は、事前に報道機関および関係者として連絡をしたうえで、プログラムの定める撮影や取材のルールに従う。</p>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第5条</span>子どものセーフガーディングのための行動規範</h3>
+      <p>「こころほかほかあたたかい町」は私たちが接するすべての人が、年齢やジェンダー認識、障がいの有無、性的指向、民族に関係なく、あらゆる有害行為、虐待、ネグレクト、搾取から守られる権利を持つと考えている。「こころほかほかあたたかい町」は、スタッフもしくは関係者による<b>以下の行動による虐待や搾取を許容しない</b>。</p>
+      <ul>
+        <li>子どもを叩いたり、暴力によって身体的に傷つけたりする</li>
+        <li>子どもと性的・肉体的関係をもつ</li>
+        <li>子どもを利用する、もしくは傷つけるととらえかねない関係性をつくる</li>
+        <li>子どもに対して不適切な言葉を使ったり、屈辱的・攻撃的な提案や示唆をする</li>
+        <li>子どもが虐待にあいやすい状況をつくる</li>
+        <li>不適切な、あるいは性的なことを連想させる挑発的な身振りや態度を取る</li>
+        <li>子どもが自分でできることを必要以上に手伝う</li>
+        <li>違法、危険、または乱暴な子どもの振る舞いを大目に見たり、加担する</li>
+        <li>はずかしめる、自尊心を傷つける、軽視する、見下すなど、あらゆる方法で子どもを心理的に傷つける</li>
+        <li>特定の子どもを差別したり、他の子と異なる扱いをしたり、えこひいきをして集団から排除する</li>
+        <li>活動に関わる子どもと、活動外で個人的に連絡をとる、もしくはとろうとする</li>
+        <li>ポルノグラフィーや過激な暴力を含む不適切な画像、動画、ウェブサイトに子どもを誘導しその危険にさらす</li>
+        <li>規範違反との疑念をもたれかねないような状況に自分自身を置く</li>
+        <li>子どもが主張するバウンダリーを侵害する（子どもがやめて欲しいと言うことをし続ける行為など）</li>
+      </ul>
+      <p class="sub-h">子どもと接する際には、以下の点に留意する必要がある。</p>
+      <ul>
+        <li>どのような状況が子どもにとって危険なのかを察知し、未然に対処する</li>
+        <li>危険を最小限に留められるよう、計画段階で事業内容や実施場所を熟考し必要な環境を整える</li>
+        <li>可能な限り、他者の目が届く場所で子どもと接する</li>
+        <li>子どものバウンダリーを尊重し、自身のバウンダリーも主張する</li>
+        <li>子どもの体に触れない</li>
+        <li>体に触れるサポートが必要な場合は同意を得る</li>
+        <li>どのような問題提起や懸念も気軽に表明できて話し合えるような、心理的安全性が守られた雰囲気をつくる</li>
+        <li>不適切な行為または虐待となりうる言動が見過ごされないように、各々が責任感を持つ</li>
+        <li>子どもをエンパワーする。すなわち、子どもの権利に関する理解や、何が適切で何が不適切か、また問題が起きた時にどうしたら良いかについて子どもたちと話し合う</li>
+      </ul>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第6条</span>相談通報体制</h3>
+      <ul>
+        <li>セーフガーディング担当者を実行委員長・事務局長とする。窓口は「市役所」とし、必要であれば新潟市子どもの権利相談室スタッフと聞き取りをする。担当者への直接の連絡をご希望の場合は、お問い合わせフォームからその旨をお知らせいただきたい。</li>
+        <li>子どもも大人も、立場を問わずだれでも通報・相談・連絡できる</li>
+        <li>セーフガーディングに関する苦情もしくは懸念があるスタッフは、セーフガーディング担当者（実行委員長・事務局長）に迅速に相談・通報を行う。もしセーフガーディング担当者に相談・通報することに不安を感じた場合は（相談・通報が真剣に扱われないと感じたり、その人が事案に関わっている可能性があるなど）他の実行委員に伝えても良い。</li>
+        <li>当方針の定めるセーフガーディングに接触する言動や危険を察知した場合は、そのことを窓口に知らせる。</li>
+        <li>子どもから相談を受けた大人（または子ども）も、必ず窓口に取り次ぐ。</li>
+        <li>匿名でも相談可能とする。</li>
+        <li>セーフガーディング懸念を扱うすべての過程において、守秘義務が維持される。懸念に関する情報およびその後のケースマネジメントは、実行委員・事務局長・保護者にのみ共有され、情報は常に保護される。</li>
+        <li>若者（高校生、大学生世代）がハラスメントを受けたり、バウンダリーが守られなかったと感じた場合も同様に相談・通報できる。</li>
+      </ul>
+    </div>
+
+    <div class="art reveal">
+      <h3><span class="no">第7条</span>子どもの虐待・搾取や有害行為について</h3>
+      <p>子どもに対する虐待・搾取・バウンダリー侵害は言うまでもなく深刻な人権侵害である。プログラムにおいては一切の人権侵害が起こらないよう全力をつくし、さまざまな有害行為を防止するために努める。その共通認識を図るため、定義を以下のとおり引用する。</p>
+      <details class="defs">
+        <summary>用語と定義をひらく</summary>
+        <p class="warn">虐待や搾取について、具体的な説明を含みます。読むときは、心の状態に気をつけてください。</p>
+        <dl>
+          <dt>子ども</dt><dd>18歳未満の人。</dd>
+          <dt>有害行為</dt><dd>心理的、身体的、その他あらゆる形での個人の権利の侵害。</dd>
+          <dt>性的搾取および虐待からの保護（PSEA）</dt><dd>この言葉は、人道支援および開発支援の業界では、スタッフや関係者による性的搾取や虐待から被害者を保護することを指す。これは、「性的搾取と性的虐待からの保護を図る特別措置に関する国連事務総長公示」（ST/SGB/2003/13）に基づく。</dd>
+          <dt>セーフガーディング</dt><dd>組織の役職員や関係者によって、また事業活動において、子どもにいかなる危害も及ぼさないよう、つまり虐待・搾取や危険のリスクにさらすことのないよう努めることであり、万一、活動を通じて子どもの安全にかかわる懸念が生じたときには、しかるべき責任機関に報告を行い、それを組織の責任として取り組むことを意味する。この定義は、私たちの価値観と理念に基づき、私たちの組織文化を形づくるものである。これは、特に性的な目的のために力や信頼を濫用し、脆弱性につけこんだ有害行為を予防し、対応することを意図している。セーフガーディングは、私たちのプログラム、関係機関、スタッフに、継続的にかつ例外なく適用される。つまり、有害行為や搾取、虐待のすべてのリスクを積極的に特定し、予防し、注視する必要がある。また、リスクが発生した際の通報・対応・再発防止のための責任ある、透明性の高い制度を持つ必要がある。これらの制度はサバイバーを中心に考え、かつ、疑念を向けられた人物に対しても人権に配慮した事実調査や処遇がなされなくてはならない。</dd>
+          <dt>身体的虐待</dt><dd>大人か子どもかに関わらず、誰かの身体を実際に傷つけること、もしくは身体を傷つける可能性のある行為を行うこと。叩く、揺さぶる、有毒物を与える、溺れさせる、火傷させるなどが含まれる。また、親や保育者などが虚偽の傷や症状をつくりあげることや、故意に子どもを病気にすることも含まれる。</dd>
+          <dt>性的虐待</dt><dd>子どもが理解していなかったり同意せざるを得ない状況で、無理やり、もしくは、そそのかして子どもに性的行為をする、またはさせること。性器の挿入を伴わない行為なども含まれ、またこの限りでもない。さらに、性的なものを見せる、子どもを使って性的な写真や画像を作成する、性的に不適切な態度を子どもにさせることも含まれる。</dd>
+          <dt>性的搾取</dt><dd>お金、ギフト、食料、住居、みせかけの愛情、社会的地位など、子どもやその家族が必要なものと引き換えに、子どもに性的な行為をさせること。多くは、子どもと親しくなる、信頼を得る、ドラッグやアルコールを与えるなどして、巧みに子どもを操り強要することで行われる。両者の間には、同意があったと主張されることがあるが、力関係が不均衡である場合には、被害者側には限られた選択肢しか与えられていないため、同意があったとはみなされない。</dd>
+          <dt>ネグレクト・養育怠慢</dt><dd>子どもの身体的・精神的・道徳的発達に悪影響を及ぼしかねないほど、継続して子どもの基本的な要求を満たさないこと。子どもを適切に養育・監督せず危険から守らないこと、栄養のある十分な食事を与えないこと、安全に暮らしたり働く環境を提供しないこと、妊娠中の母親が薬品やアルコールを不適切に服用することやそれを容認すること、障がいのある子どもの世話を行わなかったり不適切に扱ったりすることなども含まれる。</dd>
+          <dt>心理的虐待</dt><dd>子どもの心理発達に影響を及ぼすほど、継続して心理的に不当に扱うこと。行動を制限する、貶める、辱める、いじめる（オンライン上のいじめも含む）、脅す、怖がらせる、差別する、ばかにすることなどが含まれる。</dd>
+          <dt>商業的搾取</dt><dd>子どもの心身の健康、教育、モラル、社会的・情緒的発達を阻害するほか、他者の利益のために子どもを仕事やその他活動に従事させること。児童労働（義務教育を妨げる労働や、法律で禁止されている18歳未満の危険で有害な労働を指す）などが含まれる。</dd>
+          <dt>サバイバー</dt><dd>虐待もしくは搾取の被害を受けた人。「被害者」という言葉より、「サバイバー」には強さや回復力、生存能力といった意味が含まれる。しかし、自分自身をどう名乗るかは、個人の選択による。</dd>
+          <dt>バウンダリー</dt><dd>心理学や精神医療の分野では、「自他境界線」つまり「自分と他人との間の境界線」を指す。親しい関係であっても、嫌なことや踏み込んでほしくないことは「NO」と言えるように、自分を守るための境界線が必要である。身体の境界、パーソナルスペースの境界、持ち物の境界、責任の境界など、状況や相手によって様々な境界線がある。自分のバウンダリーを大切にすると同時に、相手のバウンダリーを尊重することで、より健全で良好な人間関係を築くことができると考えられている。</dd>
+        </dl>
+      </details>
+    </div>
+
+    <p class="credit reveal">本方針は、JANIC 子どもと若者のセーフガーディングWG の資料およびテンプレート、ならびに「子どもの権利条約フォーラム2024in東京 セーフガーディング方針 Ver.1」を参照して作られました。2025年度版ではバウンダリーに関する項目を付け足し、2026年版では若者世代の参加者も相談できる旨を記載しています。<br>
+    参考：<a href="https://www.savechildren.or.jp/tokyo-crc-forum/safeguarding/" target="_blank" rel="noopener noreferrer">子どもの権利条約フォーラム2024in東京 セーフガーディング</a></p>
+
+    <div class="backlinks reveal">
+      <a href="visitor.html" class="btn btn-line g-vis">ビジターのページへ →</a>
+      <a href="volunteer.html" class="btn btn-line g-vol">ボランティアのページへ →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="fname">こころほかほかあたたかい町（ここほか）</div>
+  <nav class="fnav">
+    <a href="index-new.html#about">ここほかって？</a>
+    <a href="activity.html">この活動について</a>
+    <a href="history.html">これまでのここほか</a>
+    <a href="citizen.html">市民の一日</a>
+    <a href="visitor.html">ビジター</a>
+    <a href="volunteer.html">ボランティア募集</a>
+    <a href="safeguarding.html">セーフガーディング</a>
+    <a href="https://forms.gle/sXcVUgcQTDuAbi2p7" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+  </nav>
+  <a href="https://www.instagram.com/kokohoka.niigata/" target="_blank" rel="noopener noreferrer" class="ig">Instagram ＠kokohoka.niigata</a>
+  <a href="https://forms.gle/sXcVUgcQTDuAbi2p7" target="_blank" rel="noopener noreferrer" class="fcontact">お問い合わせフォーム ▶</a>
+  <small>© 2026 こころほかほかあたたかい町</small>
+</footer>
+
+
+<script src="js/typeset.js?v=15"></script>
+<script>
+(function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+</script>
+
+</body>
+</html>

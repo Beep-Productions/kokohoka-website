@@ -22,6 +22,8 @@
     '.promise p', '.can-card p', '.rules-note',
     /* ボランティア */
     '.role p', '.req-value', '.skills p',
+    /* セーフガーディング */
+    '.rulebox p', '.pledge li', '.care li', '.art li', '.art dd', '.desk dd',
     /* これまでのここほか */
     '.topic', '.vol-cta p',
     /* お仕事一覧・催し */
@@ -35,7 +37,7 @@
      　　　　　見た目は変わらず、スマホで行が足りないときだけ読点で折れる */
   var SELECTOR_PHRASE = [
     '.lead', '.center p', '.sec-head p', '.page-hero p', '.page-hero .lead-note',
-    '.closing p', '.sub', '.year-text', '.rules-lead', '.archive p', '.maybe p', '.glead', '.fact .fnote'
+    '.closing p', '.sub', '.art p', '.sgbox p', '.desk .dlead', '.year-text', '.rules-lead', '.archive p', '.maybe p', '.glead', '.fact .fnote'
   ].join(',');
 
   var SENTENCE_END = /[。！？]/;

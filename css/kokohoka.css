@@ -73,12 +73,15 @@ body{text-wrap:pretty;word-break:auto-phrase}
      p-vis …… 付き添いの大人向け（ビジター）
      p-vol …… 手伝いたい大人向け（ボランティア）
      p-rec …… 活動を知りたい方向け（これまでのここほか・記録ページ）
+     p-doc …… 正式な文書（セーフガーディング指針）※4色のどれでもない濃紺
    ヘッダーは sticky なので、スクロール中もずっと色の線が見えている。 */
 body{--pagecolor:transparent}
 body.p-kid{--pagecolor:var(--coral)}
 body.p-vis{--pagecolor:#6f8fb5}
 body.p-vol{--pagecolor:#5f9e6b}
 body.p-rec{--pagecolor:var(--mustard)}
+/* p-doc …… 正式な文書（セーフガーディング指針）。誰向けかではなく「公式文書」を示すので本文の濃紺 */
+body.p-doc{--pagecolor:var(--ink)}
 .pagechip{display:inline-block;font-weight:700;color:#fff;font-size:.92rem;letter-spacing:.03em;
   padding:5px 20px;border-radius:20px;margin-bottom:16px;background:var(--pagecolor)}
 /* トップページなど、系統色を持たないページで個別に色を指定したいとき */
@@ -86,6 +89,7 @@ body.p-rec{--pagecolor:var(--mustard)}
 .chip-vis{--pagecolor:#6f8fb5}
 .chip-vol{--pagecolor:#5f9e6b}
 .chip-rec{--pagecolor:var(--mustard)}
+.chip-doc{--pagecolor:var(--ink)}
 
 /* ============ ヘッダー ============ */
 .header{position:sticky;top:0;z-index:60;background:rgba(253,242,223,.86);backdrop-filter:blur(8px);
@@ -250,3 +254,13 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
 .subgrid .subcard:nth-child(2){transition-delay:.12s}
 .subgrid .subcard:nth-child(3){transition-delay:.24s}
 @media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}}
+
+/* ============ セーフガーディングへの誘導（ビジター／ボランティア） ============ */
+.sgbox{max-width:760px;margin:0 auto;background:var(--ink);color:var(--cream);
+  border-radius:26px;padding:34px 30px 32px;text-align:center}
+.sgbox .sgtag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;
+  border:1.5px solid rgba(253,242,223,.45);border-radius:20px;padding:4px 15px;margin-bottom:15px}
+.sgbox h3{font-weight:700;font-size:clamp(1.08rem,3.6vw,1.32rem);line-height:1.6;margin-bottom:13px}
+.sgbox p{font-size:.93rem;line-height:1.95;opacity:.88;margin:0 auto 22px;max-width:34em}
+.sgbox .btn{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+@media(max-width:520px){.sgbox{padding:28px 22px 26px}}
