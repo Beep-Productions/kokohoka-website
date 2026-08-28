@@ -23,7 +23,7 @@
     /* ボランティア */
     '.role p', '.req-value', '.skills p',
     /* セーフガーディング */
-    '.rulebox p', '.pledge li', '.care li', '.art li', '.art dd', '.desk dd',
+    '.rulebox p', '.org p', '.pledge li', '.care li', '.art li', '.art dd', '.desk dd',
     /* これまでのここほか */
     '.topic', '.vol-cta p',
     /* お仕事一覧・催し */

@@ -52,8 +52,25 @@
 .fact{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:24px 20px;text-align:center;position:relative}
 .fact::before{content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:52px;height:10px;border-radius:0 0 7px 7px;background:var(--mustard)}
 .fact .fnum{font-weight:700;font-size:clamp(1.5rem,5vw,2rem);color:var(--coral-deep);line-height:1.3}
+.fact .fnum-wait{color:var(--ink-soft);font-size:clamp(1.1rem,3.4vw,1.35rem);opacity:.7}
 .fact .flabel{font-weight:700;font-size:.95rem;margin-top:6px}
 .fact .fnote{color:var(--ink-soft);font-size:.85rem;margin-top:6px;line-height:1.7}
+/* だれがまちを動かしているか（4つの組織） */
+.orgs{display:grid;grid-template-columns:1fr;gap:18px;max-width:900px;margin:34px auto 0;align-items:start}
+@media(min-width:760px){.orgs{grid-template-columns:1fr 1fr}}
+.org{background:var(--cream);border:2px solid var(--ink);border-radius:22px;padding:26px 24px;position:relative}
+.org::before{content:'';position:absolute;top:-2px;left:26px;width:52px;height:10px;border-radius:0 0 7px 7px;background:var(--coral)}
+.org:nth-child(3)::before{background:var(--blue)}
+.org:nth-child(4)::before{background:var(--mustard)}
+.obadge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:#fff;
+  border-radius:20px;padding:3px 13px;margin-bottom:11px}
+.o-kid{background:var(--coral)}
+.o-stu{background:#6f8fb5}
+.o-adult{background:var(--mustard)}
+.org h3{font-weight:700;font-size:1.06rem;line-height:1.5;margin-bottom:3px}
+.org .oyear{color:var(--ink-soft);font-size:.82rem;font-weight:700;letter-spacing:.04em;margin-bottom:10px}
+.org p{color:var(--ink-soft);font-size:.92rem;line-height:1.85}
+.org a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .morebtn{text-align:center;margin-top:34px}
 .note-c{text-align:center;color:var(--ink-soft);font-size:.85rem;margin-top:24px;line-height:1.9}
 
@@ -170,15 +187,42 @@
       <div class="flabel">2024年</div>
       <div class="fnote">NEXT21アトリウムと西堀ローサへ。<br>付き添いの大人も221人が来場。</div>
     </div>
+    <!-- ★2025年の参加人数が実行委員長から届いたら、下の fnum を「◯◯<span>人</span>」に差しかえる（2026-08-28 依頼中） -->
     <div class="fact reveal">
-      <div class="fnum">4<span style="font-size:.6em">回目</span></div>
-      <div class="flabel">2026年</div>
-      <div class="fnote">11月21日・22日、古町7番町。<br>まちの仕事も、毎年ふえています。</div>
+      <div class="fnum fnum-wait">集計中</div>
+      <div class="flabel">2025年</div>
+      <div class="fnote">古町7番町商店街の全体へ。<br>はじめて“リアルな大人のまち”とつながりました。</div>
     </div>
   </div>
-  <div class="sec-head reveal" style="margin-top:44px">
-    <p>まちをつくる側にも、子どもがいます。ひとつは、第1回に向けて2023年に発足した「<b>こども実行委員</b>」。児童養護施設で暮らす子どもたちが実行委員となって、自分たちで企画したお店をまちに出しています。</p>
-    <p>もうひとつは、2026年に発足した「<b>ここほか議会</b>」。議員たちが会議「超会議」に集まって、まち全体のルールを決めたり、「こういうのがあったらいいんじゃない」という声を集めたりしています。本場ミニ・ミュンヘンの子どもたちとの交流や、世界のこどものまちが集まってつくった憲章をどう活かすかも、超会議のテーマです。</p>
+  <div class="sec-head reveal" style="margin-top:52px">
+    <h2 style="font-size:clamp(1.25rem,4vw,1.7rem)">だれが、まちを動かしているか。</h2>
+    <p>4つの組織が、それぞれの役割で動いています。<br>まちをつくる側にも、子どもがいます。</p>
+  </div>
+  <div class="orgs">
+    <div class="org reveal">
+      <span class="obadge o-kid">子ども</span>
+      <h3>こども実行委員</h3>
+      <p class="oyear">2023年〜</p>
+      <p>第1回に向けて発足しました。児童養護施設で暮らす子どもたちが実行委員となり、自分たちで企画したお店をまちに出しています。</p>
+    </div>
+    <div class="org reveal">
+      <span class="obadge o-kid">子ども</span>
+      <h3>ここほか議会</h3>
+      <p class="oyear">2026年〜</p>
+      <p>まち全体のことを考える組織です。メンバーは「議員」。「超会議」と呼ばれる会議に集まって、まちのルールを決めたり、みんなの声を集めたり、まちのことを外へ伝えたりします。本場ミニ・ミュンヘンの子どもたちとの交流や、世界のこどものまちがつくった憲章をどう活かすかも、ここで話し合います。</p>
+    </div>
+    <div class="org reveal">
+      <span class="obadge o-stu">学生</span>
+      <h3>敬和学園大学 大岩ゼミ</h3>
+      <p class="oyear">企画と運営の中心</p>
+      <p>ファシリテーションを学んだ学生たちのチームです。子どもが自分で考え、自分で決められるように、そばで支えます。当日は早朝の設営から夕方の片づけまで、まちのあちこちにいます。</p>
+    </div>
+    <div class="org reveal">
+      <span class="obadge o-adult">大人</span>
+      <h3>こころほかほかあたたかい町実行委員会</h3>
+      <p class="oyear">まち全体の責任</p>
+      <p>会場や協力店との調整、安全の確保、保険の手配など、まちが成り立つための土台をつくります。<a href="safeguarding.html">セーフガーディング</a>の相談・通報の窓口も、この実行委員会が担っています。</p>
+    </div>
   </div>
   <div class="morebtn reveal">
     <a href="history.html" class="btn btn-line g-rec">これまでのここほかを見る →</a>
