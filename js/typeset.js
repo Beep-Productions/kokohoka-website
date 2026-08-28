@@ -37,7 +37,7 @@
      　　　　　見た目は変わらず、スマホで行が足りないときだけ読点で折れる */
   var SELECTOR_PHRASE = [
     '.lead', '.center p', '.sec-head p', '.page-hero p', '.page-hero .lead-note',
-    '.closing p', '.sub', '.art p', '.sgbox p', '.desk .dlead', '.year-text', '.rules-lead', '.archive p', '.maybe p', '.glead', '.fact .fnote'
+    '.closing p', '.sub', '.art p', '.sgbox p', '.desk .dlead', '.year-text', '.rules-lead', '.archive p', '.maybe p', '.glead', '.fact .fnote', '.facts-lead'
   ].join(',');
 
   var SENTENCE_END = /[。！？]/;
