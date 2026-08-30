@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=15">
+<link rel="stylesheet" href="css/kokohoka.css?v=18">
 <style>
 /* ===== この活動について（意義）ページ固有 ===== */
 .page-hero{text-align:center;padding:56px 24px 10px;max-width:720px;margin:0 auto}
@@ -55,7 +55,8 @@
 .fact{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:24px 20px;text-align:center;position:relative}
 .fact::before{content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:52px;height:10px;border-radius:0 0 7px 7px;background:var(--mustard)}
 .fact .fnum{font-weight:700;font-size:clamp(1.5rem,5vw,2rem);color:var(--coral-deep);line-height:1.3}
-.fact .fnum-wait{color:var(--ink-soft);font-size:clamp(1.1rem,3.4vw,1.35rem);opacity:.7}
+.fact .fsub{margin-top:10px;padding-top:10px;border-top:1px dashed var(--cream-deep);font-size:.86rem;color:var(--ink-soft)}
+.fact .fsub b{color:var(--ink);font-weight:700;font-size:1.05rem}
 .fact .flabel{font-weight:700;font-size:.95rem;margin-top:6px}
 .fact .fnote{color:var(--ink-soft);font-size:.85rem;margin-top:6px;line-height:1.7}
 /* だれがまちを動かしているか（4つの組織） */
@@ -179,23 +180,28 @@
     <p>敬和学園大学・大岩ゼミが中心となって、2023年にスタート。新潟県内では、はじめてのこどものまちでした。会場は公園から地下街へ、そして商店街へ。年ごとに場所を変えながら、今年で4回目をむかえます。</p>
     <p class="sub">まちの仕事は3種類。市役所や銀行のような<b>まちのための仕事</b>、地元のお店で働く<b>見習い仕事</b>、子どもたちが自分でひらく<b>お店やワークショップ</b>。そこに、おもしろい大人がおもしろいことを教えてくれる「こども大学」が加わります。</p>
   </div>
-  <p class="facts-lead reveal">数字は、<b>市民として登録し、まちで働いた子ども</b>の人数です。</p>
+  <p class="facts-lead reveal">
+    <b>子ども</b>＝市民として登録し、まちで働いた子ども。<br>
+    <b>関係人口</b>＝子ども・付き添いの大人・ボランティア・運営・出店した大人をあわせた、まちに関わったすべての人。<br>
+    どちらも<b>のべ人数</b>です。2023年は3日間、2024年からは2日間の開催です。</p>
   <div class="facts">
     <div class="fact reveal">
       <div class="fnum">126<span style="font-size:.6em">人</span></div>
       <div class="flabel">2023年</div>
-      <div class="fnote">記録的な猛暑のなか、県立鳥屋野潟公園鐘木地区で3日間。<br>付き添いの大人も81人が来場。</div>
+      <div class="fsub">関係人口 <b>353</b>人</div>
+      <div class="fnote">県立鳥屋野潟公園 鐘木地区で3日間。<br>記録的な猛暑のなかでの開催でした。</div>
     </div>
     <div class="fact reveal">
-      <div class="fnum">約250<span style="font-size:.6em">人</span></div>
+      <div class="fnum">249<span style="font-size:.6em">人</span></div>
       <div class="flabel">2024年</div>
-      <div class="fnote">NEXT21アトリウムと西堀ローサへ。<br>付き添いの大人も221人が来場。</div>
+      <div class="fsub">関係人口 <b>594</b>人</div>
+      <div class="fnote">NEXT21アトリウムと西堀ローサへ。<br>屋内の2会場で2日間。</div>
     </div>
-    <!-- ★2025年の参加人数が実行委員長から届いたら、下の fnum を「◯◯<span>人</span>」に差しかえる（2026-08-28 依頼中） -->
     <div class="fact reveal">
-      <div class="fnum fnum-wait">集計中</div>
+      <div class="fnum">99<span style="font-size:.6em">人</span></div>
       <div class="flabel">2025年</div>
-      <div class="fnote">古町7番町商店街の全体へ。<br>はじめて“リアルな大人のまち”とつながりました。</div>
+      <div class="fsub">関係人口 <b>407</b>人</div>
+      <div class="fnote">古町7番町商店街の全体へ。2日間。<br>はじめて“リアルな大人のまち”とつながりました。</div>
     </div>
   </div>
   <div class="sec-head reveal" style="margin-top:52px">
