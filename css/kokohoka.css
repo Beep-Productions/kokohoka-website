@@ -174,8 +174,19 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
 .apply.is-soon{opacity:.55;box-shadow:none;border-style:dashed;cursor:default}
 
 /* ============ ヒーロー（KV）============ */
-.hero{text-align:center;padding:26px 0 10px}
-.hero .kv{width:100%;max-width:1080px;margin:0 auto;height:auto}
+/* ヒーロー：KVは全幅・ページ最上端にぴったり。
+   画像の下端の帯は --cream と同色で、そのままページ背景につながる設計。
+   左右に余白を作らない／上に何も挟まない／縦にトリミングしない。 */
+/* トップだけ、KVに重なっている間はヘッダーを白に。
+   KVの空が純白なので境目が消える。通り過ぎたら生成りに戻る（JSで on-kv を付け外し）。 */
+.home .header{transition:background-color .28s ease,backdrop-filter .28s ease}
+.home .header.on-kv{background:#fff;backdrop-filter:none}
+.hero{text-align:center;padding:0 0 10px}
+.hero picture{display:block}
+.hero .kv{display:block;width:100%;max-width:none;height:auto;margin:0;
+  aspect-ratio:2/1}
+@media(max-width:767px){.hero .kv{aspect-ratio:3/4}}
+.hero .hero-cap{margin-top:26px}
 .hero-cap{font-family:'Zen Maru Gothic',sans-serif;font-weight:500;color:var(--ink);font-size:clamp(1.15rem,3.4vw,1.45rem);margin-top:20px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:14px}
 .hero-cap::before,.hero-cap::after{content:'';width:30px;height:2.5px;background:var(--coral);border-radius:2px;flex:0 0 auto}
 /* 日付＋会場。せまい画面では「／」を消して2行に折る（両端の線はそのまま） */

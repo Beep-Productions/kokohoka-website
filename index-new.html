@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kokohoka.css?v=15">
+<link rel="stylesheet" href="css/kokohoka.css?v=18">
 </head>
-<body>
+<body class="home">
 
 <!-- ヘッダー -->
-<header class="header">
+<header class="header on-kv">
   <div class="header-in">
     <a href="#top" class="logo"><span class="dot"></span><b>ここほか</b><small>こころほかほかあたたかい町</small></a>
     <nav class="nav">
@@ -40,12 +40,15 @@
 <!-- ヒーロー：KVが主役 -->
 <section class="hero" id="top">
   <picture>
-    <source media="(max-width:767px)" srcset="images/kv/kv-sp.png">
-    <img src="images/kv/kv-pc.png" alt="こころほかほかあたたかい町 ここほか — こどもたちがつくる、こどもたちのまち" class="kv">
+    <source media="(max-width:767px)" type="image/webp" srcset="images/kv/kv-sp.webp">
+    <source media="(max-width:767px)" type="image/png"  srcset="images/kv/kv-sp.png">
+    <source type="image/webp" srcset="images/kv/kv-pc.webp">
+    <img src="images/kv/kv-pc.png" alt="こころほかほかあたたかい町 ここほか — こどもがつくる、こどものまち" class="kv" fetchpriority="high" decoding="async">
   </picture>
   <p class="hero-cap reveal"><span class="hc-in">2026.11.21 sat – 22 sun<span class="hc-sep"> ／ </span><br class="hc-br">新潟・古町7番町</span></p>
   <div class="scrollcue"></div>
 </section>
+
 
 <!-- ここほかって？ -->
 <section class="section" id="about">
@@ -231,6 +234,14 @@
 (function(){var b=document.querySelector('.burger'),m=document.getElementById('mnav');
 b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});})();
+/* ヘッダーの色：KVに重なっている間だけ白（KVの空と同色で境目を消す）。
+   KVを通り過ぎたら、ほかのページと同じ生成りの半透明に戻す。 */
+(function(){var h=document.querySelector('.header'),kv=document.querySelector('.hero .kv');
+if(!h||!kv)return;var t=false;
+function upd(){t=false;h.classList.toggle('on-kv',kv.getBoundingClientRect().bottom>h.offsetHeight)}
+function req(){if(!t){t=true;requestAnimationFrame(upd)}}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+if(kv.complete)upd();else kv.addEventListener('load',upd);})();
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
 </script>
