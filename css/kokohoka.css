@@ -213,6 +213,9 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
 @media(min-width:820px){.subgrid{grid-template-columns:repeat(3,1fr)}}
 .subcard{background:var(--cream);border:2px solid var(--ink);border-radius:24px;padding:24px;text-align:center;display:flex;flex-direction:column}
 .subcard .btn{margin-top:auto;align-self:center}
+/* 準備中の案内（ボタンの位置に置き、カードの下端そろえを保つ） */
+.soon-note{margin-top:auto;font-size:.86rem;color:var(--ink-soft);line-height:1.75}
+.soon-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .subcard .tag{display:inline-block;font-weight:500;font-size:.78rem;color:var(--ink-soft);border:1px dashed var(--ink-soft);border-radius:20px;padding:2px 12px;margin-bottom:12px;align-self:center}
 .subcard h3{font-weight:700;font-size:1.12rem;margin-bottom:8px}
 .subcard p{color:var(--ink-soft);font-size:.92rem;margin-bottom:18px}
