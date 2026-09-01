@@ -56,6 +56,8 @@
 @media(min-width:960px){.ws-grid{grid-template-columns:repeat(3,1fr)}}
 .ws{background:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:24px 22px;position:relative}
 .ws::before{content:'';position:absolute;top:-2px;left:24px;width:48px;height:10px;border-radius:0 0 7px 7px;background:var(--mustard)}
+.ws .shop{margin-top:11px;padding-top:10px;border-top:1px dashed var(--cream-deep);font-size:.8rem;color:var(--ink-soft);line-height:1.8}
+.ws .shop b{color:var(--ink);font-weight:700;font-size:.72rem;letter-spacing:.08em;display:block;margin-bottom:2px}
 .ws-lab .ws::before{background:var(--green)}
 .ws h3{font-weight:700;font-size:1.04rem;margin-bottom:7px;line-height:1.5}
 .ws p{color:var(--ink-soft);font-size:.92rem}
@@ -120,7 +122,7 @@
 <section class="section">
   <div class="sec-head reveal">
     <span class="deco-ico ico-tree c-green"></span>
-    <h2>こども大学。</h2>
+    <h2>こども大学</h2>
     <p>デザイナー、建築家、市議会議員、コーヒー屋さん、農家さん、アナウンサー、大学の学長先生。まちの外から、おもしろい大人が先生としてやってきます。テーマは毎回ばらばらで、正解のない話ばかりです。</p>
     <p>働いている途中でも、手を止めて授業に行っていいことになっています。寝転がって聞いても、途中で走り出しても大丈夫です。</p>
   </div>
@@ -190,16 +192,16 @@
 <section class="section">
   <div class="sec-head reveal">
     <span class="deco-ico ico-heart c-mustard"></span>
-    <h2>ワークショップ。</h2>
-    <p>つくる。焼く。混ぜる。まちのお店やクリエイターさんに教わりながら、手を動かします。まちのお金を払って参加する催しなので、はたらいてから来る子が多いです。ビジターの大人も参加できます。</p>
+    <h2>ワークショップ</h2>
+    <p>まちのお店やクリエイターさんに教わりながら、手を動かします。まちのお金を払って参加する催しなので、はたらいてから来る子が多いです。ビジターの大人も参加できます。</p>
   </div>
   <div class="ws-grid">
-    <div class="ws reveal"><h3>木工小物づくり</h3><p>木工雑貨のクリエイターさんといっしょに、電動ドリルなどの本物の道具を使います。ペン立て、キーチェーン、フック。</p></div>
-    <div class="ws reveal"><h3>にぎりずし体験</h3><p>老舗のおすし屋さんの大将に教わって、自分でおすしをにぎります。子どもも大人も大盛り上がりでした。</p></div>
-    <div class="ws reveal"><h3>綿あめづくり</h3><p>ざらめから、ふわふわの綿あめができるまで。できたてを自分で持って帰れます。</p></div>
-    <div class="ws reveal"><h3>紅茶ドリンク体験</h3><p>飲食店の方に教わって、自分好みの一杯をつくります。まちで飲んでも、持って歩いても。</p></div>
-    <div class="ws reveal"><h3>デコ財布づくり</h3><p>画用紙でお財布をつくって、シールやリボンでかざります。稼いだココを入れる場所は、自分でつくる。</p></div>
-    <div class="ws reveal"><h3>紙飛行機ブースター</h3><p>紙飛行機を遠くまで飛ばすための、発射装置をつくります。飛んだ距離は、その場で勝負。</p></div>
+    <div class="ws reveal"><h3>木工小物づくり</h3><p>木工雑貨のクリエイターさんといっしょに、電動ドリルなどの本物の道具を使います。ペン立て、キーチェーン、フック。</p><p class="shop"><b>教えてくださった方</b>アトリエKIKI</p></div>
+    <div class="ws reveal"><h3>にぎりずし体験</h3><p>老舗のおすし屋さんの大将に教わって、自分でおすしをにぎります。子どもも大人も大盛り上がりでした。</p><p class="shop"><b>教えてくださった方</b>港すし</p></div>
+    <div class="ws reveal"><h3>綿あめづくり</h3><p>ざらめから、ふわふわの綿あめができるまで。できたてを自分で持って帰れます。</p><p class="shop"><b>教えてくださった方</b>ラグーンカフェ</p></div>
+    <div class="ws reveal"><h3>紅茶ドリンク体験</h3><p>飲食店の方に教わって、自分好みの一杯をつくります。まちで飲んでも、持って歩いても。</p><p class="shop"><b>教えてくださった方</b>カフェちゃのき</p></div>
+    <div class="ws reveal"><h3>デコ財布づくり</h3><p>画用紙でお財布をつくって、シールやリボンでかざります。稼いだココを入れる場所は、自分でつくる。</p><p class="shop"><b>教えてくださった方</b>敬和学園大学 大岩ゼミ</p></div>
+    <div class="ws reveal"><h3>モール花屋さん</h3><p>モールでお花をつくって、花束にします。好きな匂いのスプレーをかけたら完成です。</p><p class="shop"><b>教えてくださった方</b>敬和学園大学 大岩ゼミ</p></div>
   </div>
   <p class="note-c reveal">協力してくださるお店・クリエイターさんによって、内容は毎年変わってきました。</p>
 </section>
@@ -208,7 +210,7 @@
 <section class="section tint">
   <div class="sec-head reveal">
     <span class="deco-ico ico-star c-coral"></span>
-    <h2>遊びのお店（こどもギルド）。</h2>
+    <h2>遊びのお店（こどもギルド）</h2>
     <p>射的、ボウリング、ストラックアウト、くじつき八百屋さん。まちの遊び場は、子どもたちが自分で企画してひらいたお店です。つまり、遊ぶ側にも、はたらく側にもなれます。</p>
     <p>2024年は、準備からかかわった子どもたちが大人の前で事業計画を発表してお金を借り、自分たちで仕入れをして、自分たちのお店を開きました。</p>
   </div>
