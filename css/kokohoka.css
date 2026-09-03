@@ -258,6 +258,8 @@ a.apply:active{transform:translateY(3px);box-shadow:none}
 .footer .fnav a:hover{opacity:1;text-decoration:underline}
 .footer .ig{display:inline-block;margin:6px 0 18px;font-size:.9rem;opacity:.85}
 .footer small{opacity:.55;font-size:.76rem;display:block;margin-top:8px}
+.footer .forg{margin:24px auto 0;max-width:52em;font-size:.82rem;line-height:1.8;opacity:.75}
+.footer .fnote{margin:10px auto 0;max-width:34em;font-size:.74rem;line-height:1.95;opacity:.5}
 .footer .fcontact{display:table;margin:2px auto 6px;font-size:.92rem;font-weight:700;
   border-bottom:2px solid rgba(247,240,226,.45);padding-bottom:2px}
 .footer .fcontact:hover{border-bottom-color:var(--cream)}
